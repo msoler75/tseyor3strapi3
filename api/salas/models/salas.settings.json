@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "salas",
+  "info": {
+    "name": "Salas",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "paltalk",
+        "google"
+      ],
+      "default": "paltalk"
+    },
+    "enlace": {
+      "type": "string",
+      "regex": "^https?:\\/\\/",
+      "required": true
+    },
+    "eventos": {
+      "via": "sala",
+      "collection": "eventos"
+    }
+  }
+}

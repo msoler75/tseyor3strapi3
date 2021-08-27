@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "etiquetas",
+  "info": {
+    "name": "Etiquetas",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "taxonomia": {
+      "type": "string"
+    },
+    "libros": {
+      "via": "etiquetas",
+      "collection": "libros"
+    }
+  }
+}

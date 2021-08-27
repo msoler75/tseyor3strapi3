@@ -1,0 +1,1 @@
+https://github.com/strapi/foodadvisor/blob/master/api/api/restaurant/models/Restaurant.js

@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "audios",
+  "info": {
+    "name": "Audios",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "audio": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "descripcion": {
+      "type": "text",
+      "maxLength": 1024
+    },
+    "categoria": {
+      "type": "enumeration",
+      "enum": [
+        "meditaciones",
+        "talleres",
+        "reflexiones",
+        "cuentos",
+        "musica",
+        "clasica",
+        "otros"
+      ]
+    }
+  }
+}

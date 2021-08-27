@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/comunicados",
+      "handler": "comunicados.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/comunicados/count",
+      "handler": "comunicados.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/comunicados/:id",
+      "handler": "comunicados.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/comunicados",
+      "handler": "comunicados.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/comunicados/:id",
+      "handler": "comunicados.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/comunicados/:id",
+      "handler": "comunicados.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

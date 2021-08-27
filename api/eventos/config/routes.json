@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/eventos",
+      "handler": "eventos.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/eventos/count",
+      "handler": "eventos.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/eventos/:id",
+      "handler": "eventos.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/eventos",
+      "handler": "eventos.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/eventos/:id",
+      "handler": "eventos.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/eventos/:id",
+      "handler": "eventos.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
