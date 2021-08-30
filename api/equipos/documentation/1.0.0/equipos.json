@@ -664,6 +664,92 @@
           "slug": {
             "type": "uid"
           },
+          "reuniones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "equipo": {
+                  "type": "string"
+                },
+                "fecha": {
+                  "type": "string"
+                },
+                "od": {
+                  "type": "string"
+                },
+                "adjuntos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "cancelada": {
+                  "type": "boolean"
+                },
+                "actividades": {
+                  "type": "string"
+                },
+                "acta": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "actas": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "reunion": {
+                  "type": "string"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "adjuntos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "fechaAuxiliar": {
+                  "type": "string"
+                },
+                "equipo": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -686,6 +772,18 @@
           },
           "slug": {
             "type": "uid"
+          },
+          "reuniones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "actas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

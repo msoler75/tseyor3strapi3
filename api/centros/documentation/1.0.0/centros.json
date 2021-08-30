@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/etiquetas": {
+    "/centros": {
       "get": {
         "deprecated": false,
-        "description": "Find all the etiquetas's records",
+        "description": "Find all the centros's records",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve centros document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Etiquetas"
+                    "$ref": "#/components/schemas/Centros"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Centros"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new etiquetas record",
+        "description": "Create a new centros record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve centros document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Centros"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Centros"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEtiquetas"
+                "$ref": "#/components/schemas/NewCentros"
               }
             }
           }
         }
       }
     },
-    "/etiquetas/count": {
+    "/centros/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of etiquetas documents",
+        "description": "Retrieve the number of centros documents",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve centros document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Centros"
         ],
         "parameters": []
       }
     },
-    "/etiquetas/{id}": {
+    "/centros/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one etiquetas record",
+        "description": "Find one centros record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve centros document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Centros"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Centros"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single etiquetas record",
+        "description": "Update a single centros record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve centros document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Centros"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Centros"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEtiquetas"
+                "$ref": "#/components/schemas/NewCentros"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single etiquetas record",
+        "description": "Delete a single centros record",
         "responses": {
           "200": {
-            "description": "deletes a single etiquetas based on the ID supplied",
+            "description": "deletes a single centros based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Centros"
         ],
         "parameters": [
           {
@@ -514,10 +514,9 @@
   },
   "components": {
     "schemas": {
-      "Etiquetas": {
+      "Centros": {
         "required": [
-          "id",
-          "nombre"
+          "id"
         ],
         "properties": {
           "id": {
@@ -526,55 +525,140 @@
           "nombre": {
             "type": "string"
           },
-          "descripcion": {
-            "type": "string"
+          "tipo": {
+            "type": "string",
+            "enum": [
+              "Casa",
+              "Muulasterio",
+              "Otro"
+            ]
           },
-          "taxonomia": {
-            "type": "string"
+          "imagen": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           },
-          "libros": {
+          "imagenes": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "descripcion",
-                "edicionNumero"
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "titulo": {
+                "name": {
                   "type": "string"
                 },
-                "slug": {
-                  "type": "uid"
-                },
-                "descripcion": {
+                "alternativeText": {
                   "type": "string"
                 },
-                "imagen": {
+                "caption": {
                   "type": "string"
                 },
-                "edicionFecha": {
-                  "type": "string"
-                },
-                "paginas": {
+                "width": {
                   "type": "integer"
                 },
-                "documento": {
-                  "type": "string"
-                },
-                "edicionNumero": {
+                "height": {
                   "type": "integer"
                 },
-                "etiquetas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                "formats": {
+                  "type": "object"
                 },
-                "published_at": {
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
                   "type": "string"
                 },
                 "created_by": {
@@ -586,31 +670,142 @@
               }
             }
           },
+          "descripcion": {
+            "type": "string"
+          },
+          "equipo": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "nombre": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "users": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "reuniones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "actas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "contacto": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "pais": {
+                "type": "string",
+                "enum": [
+                  "es",
+                  "mx",
+                  "br"
+                ]
+              },
+              "provincia": {
+                "type": "string"
+              },
+              "direccion1": {
+                "type": "string"
+              },
+              "direccion2": {
+                "type": "string"
+              },
+              "codigo": {
+                "type": "string"
+              },
+              "poblacion": {
+                "type": "string"
+              },
+              "telefono": {
+                "type": "string"
+              },
+              "correo": {
+                "type": "string"
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "centro": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewEtiquetas": {
-        "required": [
-          "nombre"
-        ],
+      "NewCentros": {
         "properties": {
           "nombre": {
             "type": "string"
           },
+          "tipo": {
+            "type": "string",
+            "enum": [
+              "Casa",
+              "Muulasterio",
+              "Otro"
+            ]
+          },
           "descripcion": {
             "type": "string"
           },
-          "taxonomia": {
+          "equipo": {
             "type": "string"
           },
-          "libros": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "contacto": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -628,7 +823,7 @@
   },
   "tags": [
     {
-      "name": "Etiquetas"
+      "name": "Centros"
     }
   ]
 }

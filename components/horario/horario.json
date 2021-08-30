@@ -1,0 +1,54 @@
+{
+  "collectionName": "components_horario_horarios",
+  "info": {
+    "name": "Horario",
+    "icon": "calendar-day"
+  },
+  "options": {},
+  "attributes": {
+    "dia": {
+      "type": "enumeration",
+      "enum": [
+        "no_definido",
+        "lunes",
+        "martes",
+        "miercoles",
+        "jueves",
+        "viernes",
+        "sabado",
+        "domingo",
+        "lunes_primer_lunes_del_mes",
+        "lunes_segundo_lunes_del_mes",
+        "lunes_tercer_primer_lunes_del_mes",
+        "lunes_cuarto_lunes_del_mes",
+        "martes_primer_martes_del_mes",
+        "martes_segundo_martes_del_mes",
+        "martes_tercer_primer_martes_del_mes",
+        "martes_cuarto_martes_del_mes",
+        "miercoles_primer_miercoles_del_mes",
+        "miercoles_segundo_miercoles_del_mes",
+        "miercoles_tercer_primer_miercoles_del_mes",
+        "miercoles_cuarto_miercoles_del_mes",
+        "jueves_primer_jueves_del_mes",
+        "jueves_segundo_jueves_del_mes",
+        "jueves_tercer_primer_jueves_del_mes",
+        "jueves_cuarto_jueves_del_mes",
+        "viernes_primer_viernes_del_mes",
+        "viernes_segundo_viernes_del_mes",
+        "viernes_tercer_primer_viernes_del_mes",
+        "viernes_cuarto_viernes_del_mes",
+        "sabado_primer_sabado_del_mes",
+        "sabado_segundo_sabado_del_mes",
+        "sabado_tercer_primer_sabado_del_mes",
+        "sabado_cuarto_sabado_del_mes",
+        "domingo_primer_domingo_del_mes",
+        "domingo_segundo_domingo_del_mes",
+        "domingo_tercer_primer_domingo_del_mes",
+        "domingo_cuarto_domingo_del_mes"
+      ]
+    },
+    "hora": {
+      "type": "time"
+    }
+  }
+}

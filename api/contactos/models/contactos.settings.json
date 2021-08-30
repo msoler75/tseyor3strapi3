@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contactos",
+  "info": {
+    "name": "Contactos"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pais": {
+      "type": "enumeration",
+      "enum": [
+        "es",
+        "mx",
+        "br"
+      ]
+    },
+    "provincia": {
+      "type": "string"
+    },
+    "direccion1": {
+      "type": "string"
+    },
+    "direccion2": {
+      "type": "string"
+    },
+    "codigo": {
+      "type": "string",
+      "regex": "\\d+"
+    },
+    "poblacion": {
+      "type": "string"
+    },
+    "telefono": {
+      "type": "string"
+    },
+    "correo": {
+      "type": "email"
+    },
+    "imagen": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "centro": {
+      "model": "centros",
+      "via": "contacto"
+    },
+    "user": {
+      "plugin": "admin",
+      "model": "user"
+    }
+  }
+}

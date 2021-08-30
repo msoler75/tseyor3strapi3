@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/etiquetas": {
+    "/actas": {
       "get": {
         "deprecated": false,
-        "description": "Find all the etiquetas's records",
+        "description": "Find all the actas's records",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve actas document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Etiquetas"
+                    "$ref": "#/components/schemas/Actas"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Actas"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new etiquetas record",
+        "description": "Create a new actas record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve actas document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Actas"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Actas"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEtiquetas"
+                "$ref": "#/components/schemas/NewActas"
               }
             }
           }
         }
       }
     },
-    "/etiquetas/count": {
+    "/actas/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of etiquetas documents",
+        "description": "Retrieve the number of actas documents",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve actas document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Actas"
         ],
         "parameters": []
       }
     },
-    "/etiquetas/{id}": {
+    "/actas/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one etiquetas record",
+        "description": "Find one actas record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve actas document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Actas"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Actas"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single etiquetas record",
+        "description": "Update a single actas record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve actas document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Actas"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Actas"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEtiquetas"
+                "$ref": "#/components/schemas/NewActas"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single etiquetas record",
+        "description": "Delete a single actas record",
         "responses": {
           "200": {
-            "description": "deletes a single etiquetas based on the ID supplied",
+            "description": "deletes a single actas based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Actas"
         ],
         "parameters": [
           {
@@ -514,67 +514,119 @@
   },
   "components": {
     "schemas": {
-      "Etiquetas": {
+      "Actas": {
         "required": [
-          "id",
-          "nombre"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "nombre": {
+          "reunion": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "equipo": {
+                "type": "string"
+              },
+              "fecha": {
+                "type": "string"
+              },
+              "od": {
+                "type": "string"
+              },
+              "adjuntos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "cancelada": {
+                "type": "boolean"
+              },
+              "actividades": {
+                "type": "string"
+              },
+              "acta": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "texto": {
             "type": "string"
           },
-          "descripcion": {
-            "type": "string"
-          },
-          "taxonomia": {
-            "type": "string"
-          },
-          "libros": {
+          "adjuntos": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "descripcion",
-                "edicionNumero"
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "titulo": {
+                "name": {
                   "type": "string"
                 },
-                "slug": {
-                  "type": "uid"
-                },
-                "descripcion": {
+                "alternativeText": {
                   "type": "string"
                 },
-                "imagen": {
+                "caption": {
                   "type": "string"
                 },
-                "edicionFecha": {
-                  "type": "string"
-                },
-                "paginas": {
+                "width": {
                   "type": "integer"
                 },
-                "documento": {
-                  "type": "string"
-                },
-                "edicionNumero": {
+                "height": {
                   "type": "integer"
                 },
-                "etiquetas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                "formats": {
+                  "type": "object"
                 },
-                "published_at": {
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
                   "type": "string"
                 },
                 "created_by": {
@@ -586,31 +638,79 @@
               }
             }
           },
+          "fechaAuxiliar": {
+            "type": "string",
+            "format": "date"
+          },
+          "equipo": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "nombre": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "users": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "reuniones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "actas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewEtiquetas": {
-        "required": [
-          "nombre"
-        ],
+      "NewActas": {
         "properties": {
-          "nombre": {
+          "reunion": {
             "type": "string"
           },
-          "descripcion": {
+          "texto": {
             "type": "string"
           },
-          "taxonomia": {
-            "type": "string"
+          "fechaAuxiliar": {
+            "type": "string",
+            "format": "date"
           },
-          "libros": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "equipo": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -628,7 +728,7 @@
   },
   "tags": [
     {
-      "name": "Etiquetas"
+      "name": "Actas"
     }
   ]
 }

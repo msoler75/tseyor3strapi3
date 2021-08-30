@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_horario_citas",
+  "info": {
+    "name": "Cita",
+    "icon": "calendar-check"
+  },
+  "options": {},
+  "attributes": {
+    "fecha": {
+      "type": "datetime"
+    },
+    "anulado": {
+      "type": "boolean"
+    },
+    "comentarios": {
+      "type": "string"
+    }
+  }
+}

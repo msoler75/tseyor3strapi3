@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reuniones",
+  "info": {
+    "name": "Reuniones"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "equipo": {
+      "model": "equipos",
+      "via": "reuniones"
+    },
+    "fecha": {
+      "type": "datetime"
+    },
+    "od": {
+      "type": "richtext"
+    },
+    "adjuntos": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "cancelada": {
+      "type": "boolean"
+    },
+    "actividades": {
+      "model": "actividades",
+      "via": "reuniones"
+    },
+    "acta": {
+      "via": "reunion",
+      "model": "actas"
+    }
+  }
+}

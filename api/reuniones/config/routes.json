@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/reuniones",
+      "handler": "reuniones.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reuniones/count",
+      "handler": "reuniones.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reuniones/:id",
+      "handler": "reuniones.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/reuniones",
+      "handler": "reuniones.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/reuniones/:id",
+      "handler": "reuniones.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/reuniones/:id",
+      "handler": "reuniones.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

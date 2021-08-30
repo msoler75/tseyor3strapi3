@@ -36,6 +36,14 @@
     "slug": {
       "type": "uid",
       "targetField": "nombre"
+    },
+    "reuniones": {
+      "via": "equipo",
+      "collection": "reuniones"
+    },
+    "actas": {
+      "via": "equipo",
+      "collection": "actas"
     }
   }
 }

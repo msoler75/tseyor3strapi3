@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/etiquetas": {
+    "/reuniones": {
       "get": {
         "deprecated": false,
-        "description": "Find all the etiquetas's records",
+        "description": "Find all the reuniones's records",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve reuniones document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Etiquetas"
+                    "$ref": "#/components/schemas/Reuniones"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Reuniones"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new etiquetas record",
+        "description": "Create a new reuniones record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve reuniones document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Reuniones"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Reuniones"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEtiquetas"
+                "$ref": "#/components/schemas/NewReuniones"
               }
             }
           }
         }
       }
     },
-    "/etiquetas/count": {
+    "/reuniones/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of etiquetas documents",
+        "description": "Retrieve the number of reuniones documents",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve reuniones document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Reuniones"
         ],
         "parameters": []
       }
     },
-    "/etiquetas/{id}": {
+    "/reuniones/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one etiquetas record",
+        "description": "Find one reuniones record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve reuniones document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Reuniones"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Reuniones"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single etiquetas record",
+        "description": "Update a single reuniones record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve reuniones document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Reuniones"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Reuniones"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEtiquetas"
+                "$ref": "#/components/schemas/NewReuniones"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single etiquetas record",
+        "description": "Delete a single reuniones record",
         "responses": {
           "200": {
-            "description": "deletes a single etiquetas based on the ID supplied",
+            "description": "deletes a single reuniones based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Reuniones"
         ],
         "parameters": [
           {
@@ -514,67 +514,129 @@
   },
   "components": {
     "schemas": {
-      "Etiquetas": {
+      "Reuniones": {
         "required": [
-          "id",
-          "nombre"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "nombre": {
+          "equipo": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "nombre": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "users": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "reuniones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "actas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "od": {
             "type": "string"
           },
-          "descripcion": {
-            "type": "string"
-          },
-          "taxonomia": {
-            "type": "string"
-          },
-          "libros": {
+          "adjuntos": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "descripcion",
-                "edicionNumero"
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "titulo": {
+                "name": {
                   "type": "string"
                 },
-                "slug": {
-                  "type": "uid"
-                },
-                "descripcion": {
+                "alternativeText": {
                   "type": "string"
                 },
-                "imagen": {
+                "caption": {
                   "type": "string"
                 },
-                "edicionFecha": {
-                  "type": "string"
-                },
-                "paginas": {
+                "width": {
                   "type": "integer"
                 },
-                "documento": {
-                  "type": "string"
-                },
-                "edicionNumero": {
+                "height": {
                   "type": "integer"
                 },
-                "etiquetas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                "formats": {
+                  "type": "object"
                 },
-                "published_at": {
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
                   "type": "string"
                 },
                 "created_by": {
@@ -586,31 +648,117 @@
               }
             }
           },
+          "cancelada": {
+            "type": "boolean"
+          },
+          "actividades": {
+            "required": [
+              "id",
+              "horarios"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "titulo": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "tipo": {
+                "type": "string",
+                "enum": [
+                  "reunion",
+                  "otras"
+                ]
+              },
+              "horarios": {
+                "type": "component"
+              },
+              "sala": {
+                "type": "string"
+              },
+              "reuniones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "acta": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "reunion": {
+                "type": "string"
+              },
+              "texto": {
+                "type": "string"
+              },
+              "adjuntos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "fechaAuxiliar": {
+                "type": "string"
+              },
+              "equipo": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewEtiquetas": {
-        "required": [
-          "nombre"
-        ],
+      "NewReuniones": {
         "properties": {
-          "nombre": {
+          "equipo": {
             "type": "string"
           },
-          "descripcion": {
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "od": {
             "type": "string"
           },
-          "taxonomia": {
+          "cancelada": {
+            "type": "boolean"
+          },
+          "actividades": {
             "type": "string"
           },
-          "libros": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "acta": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -628,7 +776,7 @@
   },
   "tags": [
     {
-      "name": "Etiquetas"
+      "name": "Reuniones"
     }
   ]
 }

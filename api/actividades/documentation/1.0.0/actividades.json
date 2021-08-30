@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/etiquetas": {
+    "/actividades": {
       "get": {
         "deprecated": false,
-        "description": "Find all the etiquetas's records",
+        "description": "Find all the actividades's records",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve actividades document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Etiquetas"
+                    "$ref": "#/components/schemas/Actividades"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Actividades"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new etiquetas record",
+        "description": "Create a new actividades record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve actividades document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Actividades"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Actividades"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEtiquetas"
+                "$ref": "#/components/schemas/NewActividades"
               }
             }
           }
         }
       }
     },
-    "/etiquetas/count": {
+    "/actividades/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of etiquetas documents",
+        "description": "Retrieve the number of actividades documents",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve actividades document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Actividades"
         ],
         "parameters": []
       }
     },
-    "/etiquetas/{id}": {
+    "/actividades/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one etiquetas record",
+        "description": "Find one actividades record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve actividades document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Actividades"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Actividades"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single etiquetas record",
+        "description": "Update a single actividades record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve actividades document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Actividades"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Actividades"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEtiquetas"
+                "$ref": "#/components/schemas/NewActividades"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single etiquetas record",
+        "description": "Delete a single actividades record",
         "responses": {
           "200": {
-            "description": "deletes a single etiquetas based on the ID supplied",
+            "description": "deletes a single actividades based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Actividades"
         ],
         "parameters": [
           {
@@ -514,65 +514,159 @@
   },
   "components": {
     "schemas": {
-      "Etiquetas": {
+      "Actividades": {
         "required": [
           "id",
-          "nombre"
+          "horarios"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "nombre": {
+          "titulo": {
             "type": "string"
           },
           "descripcion": {
             "type": "string"
           },
-          "taxonomia": {
-            "type": "string"
+          "tipo": {
+            "type": "string",
+            "enum": [
+              "reunion",
+              "otras"
+            ]
           },
-          "libros": {
+          "horarios": {
             "type": "array",
             "items": {
+              "type": "object",
               "required": [
-                "id",
-                "descripcion",
-                "edicionNumero"
+                "id"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "titulo": {
+                "dia": {
+                  "type": "string",
+                  "enum": [
+                    "no_definido",
+                    "lunes",
+                    "martes",
+                    "miercoles",
+                    "jueves",
+                    "viernes",
+                    "sabado",
+                    "domingo",
+                    "lunes_primer_lunes_del_mes",
+                    "lunes_segundo_lunes_del_mes",
+                    "lunes_tercer_primer_lunes_del_mes",
+                    "lunes_cuarto_lunes_del_mes",
+                    "martes_primer_martes_del_mes",
+                    "martes_segundo_martes_del_mes",
+                    "martes_tercer_primer_martes_del_mes",
+                    "martes_cuarto_martes_del_mes",
+                    "miercoles_primer_miercoles_del_mes",
+                    "miercoles_segundo_miercoles_del_mes",
+                    "miercoles_tercer_primer_miercoles_del_mes",
+                    "miercoles_cuarto_miercoles_del_mes",
+                    "jueves_primer_jueves_del_mes",
+                    "jueves_segundo_jueves_del_mes",
+                    "jueves_tercer_primer_jueves_del_mes",
+                    "jueves_cuarto_jueves_del_mes",
+                    "viernes_primer_viernes_del_mes",
+                    "viernes_segundo_viernes_del_mes",
+                    "viernes_tercer_primer_viernes_del_mes",
+                    "viernes_cuarto_viernes_del_mes",
+                    "sabado_primer_sabado_del_mes",
+                    "sabado_segundo_sabado_del_mes",
+                    "sabado_tercer_primer_sabado_del_mes",
+                    "sabado_cuarto_sabado_del_mes",
+                    "domingo_primer_domingo_del_mes",
+                    "domingo_segundo_domingo_del_mes",
+                    "domingo_tercer_primer_domingo_del_mes",
+                    "domingo_cuarto_domingo_del_mes"
+                  ]
+                },
+                "hora": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "sala": {
+            "required": [
+              "id",
+              "nombre",
+              "enlace"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "nombre": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "tipo": {
+                "type": "string",
+                "enum": [
+                  "paltalk",
+                  "google"
+                ]
+              },
+              "enlace": {
+                "type": "string"
+              },
+              "eventos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "reuniones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
                   "type": "string"
                 },
-                "slug": {
-                  "type": "uid"
-                },
-                "descripcion": {
+                "equipo": {
                   "type": "string"
                 },
-                "imagen": {
+                "fecha": {
                   "type": "string"
                 },
-                "edicionFecha": {
+                "od": {
                   "type": "string"
                 },
-                "paginas": {
-                  "type": "integer"
-                },
-                "documento": {
-                  "type": "string"
-                },
-                "edicionNumero": {
-                  "type": "integer"
-                },
-                "etiquetas": {
+                "adjuntos": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
+                },
+                "cancelada": {
+                  "type": "boolean"
+                },
+                "actividades": {
+                  "type": "string"
+                },
+                "acta": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -592,21 +686,86 @@
           }
         }
       },
-      "NewEtiquetas": {
+      "NewActividades": {
         "required": [
-          "nombre"
+          "horarios"
         ],
         "properties": {
-          "nombre": {
+          "titulo": {
             "type": "string"
           },
           "descripcion": {
             "type": "string"
           },
-          "taxonomia": {
+          "tipo": {
+            "type": "string",
+            "enum": [
+              "reunion",
+              "otras"
+            ]
+          },
+          "horarios": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "dia": {
+                  "type": "string",
+                  "enum": [
+                    "no_definido",
+                    "lunes",
+                    "martes",
+                    "miercoles",
+                    "jueves",
+                    "viernes",
+                    "sabado",
+                    "domingo",
+                    "lunes_primer_lunes_del_mes",
+                    "lunes_segundo_lunes_del_mes",
+                    "lunes_tercer_primer_lunes_del_mes",
+                    "lunes_cuarto_lunes_del_mes",
+                    "martes_primer_martes_del_mes",
+                    "martes_segundo_martes_del_mes",
+                    "martes_tercer_primer_martes_del_mes",
+                    "martes_cuarto_martes_del_mes",
+                    "miercoles_primer_miercoles_del_mes",
+                    "miercoles_segundo_miercoles_del_mes",
+                    "miercoles_tercer_primer_miercoles_del_mes",
+                    "miercoles_cuarto_miercoles_del_mes",
+                    "jueves_primer_jueves_del_mes",
+                    "jueves_segundo_jueves_del_mes",
+                    "jueves_tercer_primer_jueves_del_mes",
+                    "jueves_cuarto_jueves_del_mes",
+                    "viernes_primer_viernes_del_mes",
+                    "viernes_segundo_viernes_del_mes",
+                    "viernes_tercer_primer_viernes_del_mes",
+                    "viernes_cuarto_viernes_del_mes",
+                    "sabado_primer_sabado_del_mes",
+                    "sabado_segundo_sabado_del_mes",
+                    "sabado_tercer_primer_sabado_del_mes",
+                    "sabado_cuarto_sabado_del_mes",
+                    "domingo_primer_domingo_del_mes",
+                    "domingo_segundo_domingo_del_mes",
+                    "domingo_tercer_primer_domingo_del_mes",
+                    "domingo_cuarto_domingo_del_mes"
+                  ]
+                },
+                "hora": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "sala": {
             "type": "string"
           },
-          "libros": {
+          "reuniones": {
             "type": "array",
             "items": {
               "type": "string"
@@ -628,7 +787,7 @@
   },
   "tags": [
     {
-      "name": "Etiquetas"
+      "name": "Actividades"
     }
   ]
 }

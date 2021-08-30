@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "actividades",
+  "info": {
+    "name": "Actividades",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "reunion",
+        "otras"
+      ]
+    },
+    "horarios": {
+      "type": "component",
+      "repeatable": true,
+      "component": "horario.horario",
+      "required": true
+    },
+    "sala": {
+      "model": "salas"
+    },
+    "reuniones": {
+      "via": "actividades",
+      "collection": "reuniones"
+    }
+  }
+}

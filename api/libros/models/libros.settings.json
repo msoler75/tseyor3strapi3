@@ -10,20 +10,12 @@
     "timestamps": true,
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "titulo": {
       "type": "string",
       "unique": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "slug": {
       "type": "uid",
@@ -32,11 +24,7 @@
     "descripcion": {
       "type": "text",
       "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "imagen": {
       "model": "file",
@@ -46,27 +34,15 @@
       ],
       "plugin": "upload",
       "required": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "edicionFecha": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "paginas": {
       "type": "integer",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "documento": {
       "model": "file",
@@ -76,21 +52,13 @@
       ],
       "plugin": "upload",
       "required": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "edicionNumero": {
       "type": "integer",
       "min": 1,
       "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "etiquetas": {
       "via": "libros",

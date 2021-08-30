@@ -1313,6 +1313,18 @@
                 "slug": {
                   "type": "uid"
                 },
+                "reuniones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },

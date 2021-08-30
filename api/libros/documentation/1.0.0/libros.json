@@ -714,72 +714,6 @@
               }
             }
           },
-          "localizations": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "descripcion",
-                "edicionNumero"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "titulo": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "descripcion": {
-                  "type": "string"
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "edicionFecha": {
-                  "type": "string"
-                },
-                "paginas": {
-                  "type": "integer"
-                },
-                "documento": {
-                  "type": "string"
-                },
-                "edicionNumero": {
-                  "type": "integer"
-                },
-                "etiquetas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "locale": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "locale": {
-            "type": "string"
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -815,15 +749,6 @@
             "items": {
               "type": "string"
             }
-          },
-          "localizations": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "locale": {
-            "type": "string"
           },
           "published_at": {
             "type": "string",

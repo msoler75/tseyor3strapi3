@@ -611,15 +611,6 @@
                     "type": "string"
                   }
                 },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "locale": {
-                  "type": "string"
-                },
                 "published_at": {
                   "type": "string"
                 },
@@ -773,9 +764,6 @@
               }
             }
           },
-          "slug": {
-            "type": "uid"
-          },
           "eventos": {
             "type": "array",
             "items": {
@@ -838,6 +826,9 @@
               }
             }
           },
+          "slug": {
+            "type": "uid"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -882,14 +873,14 @@
               "type": "string"
             }
           },
-          "slug": {
-            "type": "uid"
-          },
           "eventos": {
             "type": "array",
             "items": {
               "type": "string"
             }
+          },
+          "slug": {
+            "type": "uid"
           },
           "published_at": {
             "type": "string",

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "actas",
+  "info": {
+    "name": "Actas"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reunion": {
+      "model": "reuniones",
+      "via": "acta"
+    },
+    "texto": {
+      "type": "richtext"
+    },
+    "adjuntos": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "fechaAuxiliar": {
+      "type": "date"
+    },
+    "equipo": {
+      "model": "equipos",
+      "via": "actas"
+    }
+  }
+}
