@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "boletines",
+  "info": {
+    "name": "Boletines",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "texto": {
+      "type": "richtext"
+    },
+    "audios": {
+      "collection": "audios"
+    },
+    "libros": {
+      "collection": "libros"
+    },
+    "comunicados": {
+      "collection": "comunicados"
+    },
+    "entradas": {
+      "collection": "entradas"
+    },
+    "noticias": {
+      "collection": "noticias"
+    },
+    "eventos": {
+      "collection": "eventos"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo"
+    }
+  }
+}

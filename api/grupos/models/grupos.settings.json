@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grupos",
+  "info": {
+    "name": "Grupos"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "users": {
+      "via": "grupos",
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}

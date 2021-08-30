@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "redes",
+  "info": {
+    "name": "Redes"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "enlace": {
+      "type": "string",
+      "regex": "^http"
+    }
+  }
+}
