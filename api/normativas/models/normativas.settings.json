@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "normativas",
+  "info": {
+    "name": "Normativas",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "texto": {
+      "type": "richtext"
+    },
+    "adjuntos": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo"
+    },
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "estatuto",
+        "protocolo",
+        "normativa",
+        "acuerdo",
+        "anexo",
+        "legal"
+      ]
+    },
+    "ultimaActualizacion": {
+      "type": "date"
+    }
+  }
+}

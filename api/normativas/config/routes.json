@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/normativas",
+      "handler": "normativas.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/normativas/count",
+      "handler": "normativas.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/normativas/:id",
+      "handler": "normativas.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/normativas",
+      "handler": "normativas.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/normativas/:id",
+      "handler": "normativas.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/normativas/:id",
+      "handler": "normativas.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
