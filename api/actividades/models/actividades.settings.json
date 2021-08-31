@@ -37,6 +37,13 @@
     "reuniones": {
       "via": "actividades",
       "collection": "reuniones"
+    },
+    "publica": {
+      "type": "boolean"
+    },
+    "equipo": {
+      "via": "actividades",
+      "model": "equipos"
     }
   }
 }

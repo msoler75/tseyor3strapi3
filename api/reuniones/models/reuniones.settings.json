@@ -12,8 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "equipo": {
-      "model": "equipos",
-      "via": "reuniones"
+      "via": "reuniones",
+      "model": "equipos"
     },
     "fecha": {
       "type": "datetime"
@@ -37,8 +37,8 @@
       "type": "boolean"
     },
     "actividades": {
-      "model": "actividades",
-      "via": "reuniones"
+      "via": "reuniones",
+      "model": "actividades"
     },
     "acta": {
       "via": "reunion",

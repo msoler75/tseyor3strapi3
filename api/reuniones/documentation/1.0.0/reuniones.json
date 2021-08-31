@@ -560,6 +560,27 @@
                   "type": "string"
                 }
               },
+              "actividades": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "pizarra": {
+                "type": "string"
+              },
+              "libros": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "coordina": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -684,6 +705,12 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "publica": {
+                "type": "boolean"
+              },
+              "equipo": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"

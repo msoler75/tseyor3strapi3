@@ -750,6 +750,167 @@
               }
             }
           },
+          "actividades": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "horarios"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "tipo": {
+                  "type": "string",
+                  "enum": [
+                    "reunion",
+                    "otras"
+                  ]
+                },
+                "horarios": {
+                  "type": "component"
+                },
+                "sala": {
+                  "type": "string"
+                },
+                "reuniones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "publica": {
+                  "type": "boolean"
+                },
+                "equipo": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "pizarra": {
+            "type": "string"
+          },
+          "libros": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "descripcion",
+                "edicionNumero"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "edicionFecha": {
+                  "type": "string"
+                },
+                "paginas": {
+                  "type": "integer"
+                },
+                "documento": {
+                  "type": "string"
+                },
+                "edicionNumero": {
+                  "type": "integer"
+                },
+                "etiquetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "coordina": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "email"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "firstname": {
+                  "type": "string"
+                },
+                "lastname": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "resetPasswordToken": {
+                  "type": "string"
+                },
+                "registrationToken": {
+                  "type": "string"
+                },
+                "isActive": {
+                  "type": "boolean"
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "blocked": {
+                  "type": "boolean"
+                },
+                "preferedLanguage": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -780,6 +941,27 @@
             }
           },
           "actas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "actividades": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pizarra": {
+            "type": "string"
+          },
+          "libros": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "coordina": {
             "type": "array",
             "items": {
               "type": "string"

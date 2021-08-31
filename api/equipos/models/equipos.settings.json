@@ -44,6 +44,20 @@
     "actas": {
       "via": "equipo",
       "collection": "actas"
+    },
+    "actividades": {
+      "via": "equipo",
+      "collection": "actividades"
+    },
+    "pizarra": {
+      "type": "richtext"
+    },
+    "libros": {
+      "collection": "libros"
+    },
+    "coordina": {
+      "plugin": "admin",
+      "collection": "user"
     }
   }
 }

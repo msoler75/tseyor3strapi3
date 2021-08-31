@@ -34,8 +34,8 @@
       "type": "date"
     },
     "equipo": {
-      "model": "equipos",
-      "via": "actas"
+      "via": "actas",
+      "model": "equipos"
     }
   }
 }
