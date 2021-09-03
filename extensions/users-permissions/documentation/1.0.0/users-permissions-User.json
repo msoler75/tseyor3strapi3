@@ -1424,6 +1424,9 @@
                 "type": "string"
               }
             }
+          },
+          "frase": {
+            "type": "string"
           }
         }
       },
@@ -1480,6 +1483,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "frase": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

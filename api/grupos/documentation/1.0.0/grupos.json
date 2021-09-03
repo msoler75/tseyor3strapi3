@@ -585,6 +585,9 @@
                 "imagen": {
                   "type": "string"
                 },
+                "frase": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },

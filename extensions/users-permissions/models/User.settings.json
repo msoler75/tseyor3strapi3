@@ -83,6 +83,9 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "frase": {
+      "type": "string"
     }
   }
 }

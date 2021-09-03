@@ -47,6 +47,22 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "PUT",
+      "path": "/equipos/:id/join",
+      "handler": "equipos.join",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/equipos/:id/leave",
+      "handler": "equipos.leave",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

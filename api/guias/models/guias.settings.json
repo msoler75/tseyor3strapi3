@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guias",
+  "info": {
+    "name": "Guias",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text",
+      "required": true
+    },
+    "citas": {
+      "type": "text",
+      "required": true
+    },
+    "libros": {
+      "collection": "libros"
+    },
+    "imagen": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

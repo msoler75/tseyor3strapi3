@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "08/30/2021 4:17:06 PM"
+    "x-generation-date": "09/03/2021 8:50:13 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5155,6 +5155,172 @@
         ]
       }
     },
+    "/equipos/{id}/join": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single equipos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve equipos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Equipos"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/equipos/{id}/leave": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single equipos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve equipos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Equipos"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/etiquetas": {
       "get": {
         "deprecated": false,
@@ -6673,6 +6839,517 @@
         "summary": "",
         "tags": [
           "Grupos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/guias": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the guias's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve guias document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Guias"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Guias"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new guias record",
+        "responses": {
+          "200": {
+            "description": "Retrieve guias document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Guias"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Guias"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewGuias"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/guias/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the number of guias documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve guias document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Guias"
+        ],
+        "parameters": []
+      }
+    },
+    "/guias/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one guias record",
+        "responses": {
+          "200": {
+            "description": "Retrieve guias document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Guias"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Guias"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single guias record",
+        "responses": {
+          "200": {
+            "description": "Retrieve guias document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Guias"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Guias"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewGuias"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single guias record",
+        "responses": {
+          "200": {
+            "description": "deletes a single guias based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Guias"
         ],
         "parameters": [
           {
@@ -12990,30 +13667,37 @@
                     "lunes_segundo_lunes_del_mes",
                     "lunes_tercer_primer_lunes_del_mes",
                     "lunes_cuarto_lunes_del_mes",
+                    "lunes_sin_definir",
                     "martes_primer_martes_del_mes",
                     "martes_segundo_martes_del_mes",
                     "martes_tercer_primer_martes_del_mes",
                     "martes_cuarto_martes_del_mes",
+                    "martes_sin_definir",
                     "miercoles_primer_miercoles_del_mes",
                     "miercoles_segundo_miercoles_del_mes",
                     "miercoles_tercer_primer_miercoles_del_mes",
                     "miercoles_cuarto_miercoles_del_mes",
+                    "miercoles_sin_definir",
                     "jueves_primer_jueves_del_mes",
                     "jueves_segundo_jueves_del_mes",
                     "jueves_tercer_primer_jueves_del_mes",
                     "jueves_cuarto_jueves_del_mes",
+                    "jueves_sin_definir",
                     "viernes_primer_viernes_del_mes",
                     "viernes_segundo_viernes_del_mes",
                     "viernes_tercer_primer_viernes_del_mes",
                     "viernes_cuarto_viernes_del_mes",
+                    "viernes_sin_definir",
                     "sabado_primer_sabado_del_mes",
                     "sabado_segundo_sabado_del_mes",
                     "sabado_tercer_primer_sabado_del_mes",
                     "sabado_cuarto_sabado_del_mes",
+                    "sabado_sin_definir",
                     "domingo_primer_domingo_del_mes",
                     "domingo_segundo_domingo_del_mes",
                     "domingo_tercer_primer_domingo_del_mes",
-                    "domingo_cuarto_domingo_del_mes"
+                    "domingo_cuarto_domingo_del_mes",
+                    "domingo_sin_definir"
                   ]
                 },
                 "hora": {
@@ -13231,30 +13915,37 @@
                     "lunes_segundo_lunes_del_mes",
                     "lunes_tercer_primer_lunes_del_mes",
                     "lunes_cuarto_lunes_del_mes",
+                    "lunes_sin_definir",
                     "martes_primer_martes_del_mes",
                     "martes_segundo_martes_del_mes",
                     "martes_tercer_primer_martes_del_mes",
                     "martes_cuarto_martes_del_mes",
+                    "martes_sin_definir",
                     "miercoles_primer_miercoles_del_mes",
                     "miercoles_segundo_miercoles_del_mes",
                     "miercoles_tercer_primer_miercoles_del_mes",
                     "miercoles_cuarto_miercoles_del_mes",
+                    "miercoles_sin_definir",
                     "jueves_primer_jueves_del_mes",
                     "jueves_segundo_jueves_del_mes",
                     "jueves_tercer_primer_jueves_del_mes",
                     "jueves_cuarto_jueves_del_mes",
+                    "jueves_sin_definir",
                     "viernes_primer_viernes_del_mes",
                     "viernes_segundo_viernes_del_mes",
                     "viernes_tercer_primer_viernes_del_mes",
                     "viernes_cuarto_viernes_del_mes",
+                    "viernes_sin_definir",
                     "sabado_primer_sabado_del_mes",
                     "sabado_segundo_sabado_del_mes",
                     "sabado_tercer_primer_sabado_del_mes",
                     "sabado_cuarto_sabado_del_mes",
+                    "sabado_sin_definir",
                     "domingo_primer_domingo_del_mes",
                     "domingo_segundo_domingo_del_mes",
                     "domingo_tercer_primer_domingo_del_mes",
-                    "domingo_cuarto_domingo_del_mes"
+                    "domingo_cuarto_domingo_del_mes",
+                    "domingo_sin_definir"
                   ]
                 },
                 "hora": {
@@ -15142,6 +15833,9 @@
                 "imagen": {
                   "type": "string"
                 },
+                "frase": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -15921,6 +16615,9 @@
                 "imagen": {
                   "type": "string"
                 },
+                "frase": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -15941,6 +16638,177 @@
             "type": "string"
           },
           "users": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Guias": {
+        "required": [
+          "id",
+          "descripcion",
+          "citas"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "citas": {
+            "type": "string"
+          },
+          "libros": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "descripcion",
+                "edicionNumero"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "edicionFecha": {
+                  "type": "string"
+                },
+                "paginas": {
+                  "type": "integer"
+                },
+                "documento": {
+                  "type": "string"
+                },
+                "edicionNumero": {
+                  "type": "integer"
+                },
+                "etiquetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "imagen": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "NewGuias": {
+        "required": [
+          "descripcion",
+          "citas"
+        ],
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "citas": {
+            "type": "string"
+          },
+          "libros": {
             "type": "array",
             "items": {
               "type": "string"
@@ -17184,6 +18052,9 @@
                 "imagen": {
                   "type": "string"
                 },
+                "frase": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -17470,6 +18341,9 @@
                 "type": "string"
               }
             }
+          },
+          "frase": {
+            "type": "string"
           }
         }
       },
@@ -17526,6 +18400,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "frase": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -17598,6 +18475,9 @@
     },
     {
       "name": "Grupos"
+    },
+    {
+      "name": "Guias"
     },
     {
       "name": "Libros"
