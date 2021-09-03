@@ -15,6 +15,10 @@
     "nombre": {
       "type": "string"
     },
+    "slug": {
+      "type": "uid",
+      "targetField": "nombre"
+    },
     "subtitulo": {
       "type": "string"
     },
@@ -29,7 +33,7 @@
       "pluginOptions": {}
     },
     "descripcion": {
-      "type": "text"
+      "type": "richtext"
     },
     "presentacion": {
       "type": "richtext"

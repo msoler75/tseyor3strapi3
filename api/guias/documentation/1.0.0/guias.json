@@ -666,6 +666,9 @@
                 }
               }
             }
+          },
+          "slug": {
+            "type": "uid"
           }
         }
       },
@@ -700,6 +703,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "slug": {
+            "type": "uid"
           },
           "created_by": {
             "type": "string"
