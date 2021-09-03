@@ -3,7 +3,7 @@
   "collectionName": "guias",
   "info": {
     "name": "Guias",
-    "description": ""
+    "description": "Guías Estelares"
   },
   "options": {
     "increments": true,
@@ -15,28 +15,39 @@
     "nombre": {
       "type": "string"
     },
-    "descripcion": {
-      "type": "text",
-      "required": true
-    },
-    "citas": {
-      "type": "text",
-      "required": true
-    },
-    "libros": {
-      "collection": "libros"
+    "subtitulo": {
+      "type": "string"
     },
     "imagen": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
-        "files",
-        "videos"
+        "images"
       ],
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "presentacion": {
+      "type": "richtext"
+    },
+    "comunicado": {
+      "type": "richtext"
+    },
+    "experiencia": {
+      "type": "richtext"
+    },
+    "citas": {
+      "type": "text"
+    },
+    "bibliografia": {
+      "type": "richtext"
+    },
+    "libros": {
+      "collection": "libros"
     }
   }
 }

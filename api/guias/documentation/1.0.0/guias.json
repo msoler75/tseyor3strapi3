@@ -516,9 +516,7 @@
     "schemas": {
       "Guias": {
         "required": [
-          "id",
-          "descripcion",
-          "citas"
+          "id"
         ],
         "properties": {
           "id": {
@@ -527,65 +525,8 @@
           "nombre": {
             "type": "string"
           },
-          "descripcion": {
+          "subtitulo": {
             "type": "string"
-          },
-          "citas": {
-            "type": "string"
-          },
-          "libros": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "descripcion",
-                "edicionNumero"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "titulo": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "descripcion": {
-                  "type": "string"
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "edicionFecha": {
-                  "type": "string"
-                },
-                "paginas": {
-                  "type": "integer"
-                },
-                "documento": {
-                  "type": "string"
-                },
-                "edicionNumero": {
-                  "type": "integer"
-                },
-                "etiquetas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
           },
           "imagen": {
             "required": [
@@ -653,22 +594,105 @@
                 "type": "string"
               }
             }
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "presentacion": {
+            "type": "string"
+          },
+          "comunicado": {
+            "type": "string"
+          },
+          "experiencia": {
+            "type": "string"
+          },
+          "citas": {
+            "type": "string"
+          },
+          "bibliografia": {
+            "type": "string"
+          },
+          "libros": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "descripcion",
+                "edicionNumero"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "edicionFecha": {
+                  "type": "string"
+                },
+                "paginas": {
+                  "type": "integer"
+                },
+                "documento": {
+                  "type": "string"
+                },
+                "edicionNumero": {
+                  "type": "integer"
+                },
+                "etiquetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
       "NewGuias": {
-        "required": [
-          "descripcion",
-          "citas"
-        ],
         "properties": {
           "nombre": {
+            "type": "string"
+          },
+          "subtitulo": {
             "type": "string"
           },
           "descripcion": {
             "type": "string"
           },
+          "presentacion": {
+            "type": "string"
+          },
+          "comunicado": {
+            "type": "string"
+          },
+          "experiencia": {
+            "type": "string"
+          },
           "citas": {
+            "type": "string"
+          },
+          "bibliografia": {
             "type": "string"
           },
           "libros": {
