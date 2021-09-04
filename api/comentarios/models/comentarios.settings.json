@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "comentarios",
+  "info": {
+    "name": "Comentarios",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "texto": {
+      "type": "richtext"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "comentarios"
+    },
+    "uid": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "respuestas": {
+      "collection": "comentarios",
+      "via": "respondiendo"
+    },
+    "respondiendo": {
+      "model": "comentarios",
+      "via": "respuestas"
+    }
+  }
+}

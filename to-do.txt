@@ -1,1 +1,6 @@
 https://github.com/strapi/foodadvisor/blob/master/api/api/restaurant/models/Restaurant.js
+
+check https://stackoverflow.com/questions/62631528/how-to-update-user-in-strapi
+
+isOwner Policy
+https://strapi.io/documentation/developer-docs/latest/guides/is-owner.html

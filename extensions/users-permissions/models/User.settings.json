@@ -86,6 +86,10 @@
     },
     "frase": {
       "type": "string"
+    },
+    "comentarios": {
+      "via": "user",
+      "collection": "comentarios"
     }
   }
 }

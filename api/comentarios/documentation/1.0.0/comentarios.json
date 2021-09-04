@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/grupos": {
+    "/comentarios": {
       "get": {
         "deprecated": false,
-        "description": "Find all the grupos's records",
+        "description": "Find all the comentarios's records",
         "responses": {
           "200": {
-            "description": "Retrieve grupos document(s)",
+            "description": "Retrieve comentarios document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Grupos"
+                    "$ref": "#/components/schemas/Comentarios"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Grupos"
+          "Comentarios"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new grupos record",
+        "description": "Create a new comentarios record",
         "responses": {
           "200": {
-            "description": "Retrieve grupos document(s)",
+            "description": "Retrieve comentarios document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Grupos"
+                  "$ref": "#/components/schemas/Comentarios"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Grupos"
+          "Comentarios"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewGrupos"
+                "$ref": "#/components/schemas/NewComentarios"
               }
             }
           }
         }
       }
     },
-    "/grupos/count": {
+    "/comentarios/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of grupos documents",
+        "description": "Retrieve the number of comentarios documents",
         "responses": {
           "200": {
-            "description": "Retrieve grupos document(s)",
+            "description": "Retrieve comentarios document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Grupos"
+          "Comentarios"
         ],
         "parameters": []
       }
     },
-    "/grupos/{id}": {
+    "/comentarios/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one grupos record",
+        "description": "Find one comentarios record",
         "responses": {
           "200": {
-            "description": "Retrieve grupos document(s)",
+            "description": "Retrieve comentarios document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Grupos"
+                  "$ref": "#/components/schemas/Comentarios"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Grupos"
+          "Comentarios"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single grupos record",
+        "description": "Update a single comentarios record",
         "responses": {
           "200": {
-            "description": "Retrieve grupos document(s)",
+            "description": "Retrieve comentarios document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Grupos"
+                  "$ref": "#/components/schemas/Comentarios"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Grupos"
+          "Comentarios"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewGrupos"
+                "$ref": "#/components/schemas/NewComentarios"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single grupos record",
+        "description": "Delete a single comentarios record",
         "responses": {
           "200": {
-            "description": "deletes a single grupos based on the ID supplied",
+            "description": "deletes a single comentarios based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Grupos"
+          "Comentarios"
         ],
         "parameters": [
           {
@@ -514,85 +514,124 @@
   },
   "components": {
     "schemas": {
-      "Grupos": {
+      "Comentarios": {
         "required": [
-          "id"
+          "id",
+          "uid"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "nombre": {
+          "texto": {
             "type": "string"
           },
-          "descripcion": {
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "nombreSimbolico": {
+                "type": "string"
+              },
+              "grupos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "equipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "frase": {
+                "type": "string"
+              },
+              "comentarios": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "uid": {
             "type": "string"
           },
-          "users": {
+          "respuestas": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "username",
-                "email"
+                "uid"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "username": {
+                "texto": {
                   "type": "string"
                 },
-                "email": {
+                "user": {
                   "type": "string"
                 },
-                "provider": {
+                "uid": {
                   "type": "string"
                 },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmationToken": {
-                  "type": "string"
-                },
-                "confirmed": {
-                  "type": "boolean"
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "nombreSimbolico": {
-                  "type": "string"
-                },
-                "grupos": {
+                "respuestas": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "equipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "imagen": {
+                "respondiendo": {
                   "type": "string"
                 },
-                "frase": {
+                "published_at": {
                   "type": "string"
-                },
-                "comentarios": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -602,22 +641,77 @@
                 }
               }
             }
+          },
+          "respondiendo": {
+            "required": [
+              "id",
+              "uid"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "texto": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "uid": {
+                "type": "string"
+              },
+              "respuestas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "respondiendo": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
-      "NewGrupos": {
+      "NewComentarios": {
+        "required": [
+          "uid"
+        ],
         "properties": {
-          "nombre": {
+          "texto": {
             "type": "string"
           },
-          "descripcion": {
+          "user": {
             "type": "string"
           },
-          "users": {
+          "uid": {
+            "type": "string"
+          },
+          "respuestas": {
             "type": "array",
             "items": {
               "type": "string"
             }
+          },
+          "respondiendo": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           },
           "created_by": {
             "type": "string"
@@ -631,7 +725,7 @@
   },
   "tags": [
     {
-      "name": "Grupos"
+      "name": "Comentarios"
     }
   ]
 }

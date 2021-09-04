@@ -1427,6 +1427,47 @@
           },
           "frase": {
             "type": "string"
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "uid"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "uid": {
+                  "type": "string"
+                },
+                "respuestas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "respondiendo": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -1486,6 +1527,12 @@
           },
           "frase": {
             "type": "string"
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"
