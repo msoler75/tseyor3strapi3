@@ -5,18 +5,4 @@
  * to customize this model
  */
 
-module.exports = {
-
-    lifecycles: {
-
-        // Called when entry is created
-        async beforeCreate(data) {
-            console.log('beforeCreate', data)
-            //data 
-            //await saveImagenes(data)
-            // console.log(data)
-        },
-      },
-
-
-};
+module.exports = {};

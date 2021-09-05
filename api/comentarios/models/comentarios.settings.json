@@ -13,12 +13,13 @@
   "pluginOptions": {},
   "attributes": {
     "texto": {
-      "type": "richtext"
+      "type": "richtext",
+      "minLength": 2
     },
     "user": {
+      "via": "comentarios",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "comentarios"
+      "model": "user"
     },
     "uid": {
       "type": "string",

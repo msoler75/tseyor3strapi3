@@ -524,7 +524,8 @@
             "type": "string"
           },
           "texto": {
-            "type": "string"
+            "type": "string",
+            "minLength": 2
           },
           "user": {
             "required": [
@@ -692,7 +693,8 @@
         ],
         "properties": {
           "texto": {
-            "type": "string"
+            "type": "string",
+            "minLength": 2
           },
           "user": {
             "type": "string"
