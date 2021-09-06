@@ -808,7 +808,8 @@
                   "type": "string",
                   "enum": [
                     "curso",
-                    "encuentro"
+                    "encuentro",
+                    "presentacion"
                   ]
                 },
                 "sala": {

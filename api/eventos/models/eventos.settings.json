@@ -60,7 +60,8 @@
       "type": "enumeration",
       "enum": [
         "curso",
-        "encuentro"
+        "encuentro",
+        "presentacion"
       ]
     },
     "sala": {

@@ -687,7 +687,8 @@
             "type": "string",
             "enum": [
               "curso",
-              "encuentro"
+              "encuentro",
+              "presentacion"
             ]
           },
           "sala": {
@@ -767,7 +768,8 @@
             "type": "string",
             "enum": [
               "curso",
-              "encuentro"
+              "encuentro",
+              "presentacion"
             ]
           },
           "sala": {
