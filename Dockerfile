@@ -1,21 +1,17 @@
-FROM node:12
+FROM node:14-alpine3.14
 
 WORKDIR /usr/src/app
 
-RUN mkdir ./backend
-
-WORKDIR /usr/src/app/backend
-
 COPY package*.json .
-RUN npm install
+RUN npm ci
 # RUN npm ci --only=production 
-COPY . .
+COPY . ./
 
 
-EXPOSE 8080
+EXPOSE 1337
 
 ENV HOST 0.0.0.0
-ENV PORT 8080
+ENV PORT 1337
 ENV NODE_ENV production
 
 RUN npm run build
