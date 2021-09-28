@@ -8,9 +8,62 @@ module.exports = ({ env }) => ({
   },
   upload: {
     // https://github.com/Lith/strapi-provider-upload-google-cloud-storage#setting-up-the-configuration-file
-    provider: "google-cloud-storage",
+    provider: "multiple-provider",
     providerOptions: {
-      bucketName: "tseyor2022",
+      selectProvider(file) {
+        if(file.name.match(/\.(jpe?g|png|webp|svg|gif)$/))
+          return 'images'
+        else
+          return 'default'
+      },
+      providers: {
+        'local': {
+          provider: 'local'
+        },
+        'default': {
+          provider: 'google-cloud-storage',
+          options: {
+            bucketName: "tseyor",
+            publicFiles: true,
+            uniform: true,
+            basePath: "",
+            skipCheckBucket: true,
+            generateUploadFileName: (file) => {
+             const extension = file.ext.toLowerCase().substring(1);
+             let carpeta = extension
+             if(extension.match(/jpe?g|png|webp|svg|gif/i))
+               carpeta = 'imagenes'
+             if(extension.match(/mp3|mpg?4|m4a|wma|wav|mpe?g|aiff|au|aax?|midi?/i))
+               carpeta = 'audios'
+             if(extension.match(/pdf|odt|docx?/i))
+               carpeta = 'docs'
+             return `${carpeta}/${slugify(pathParse(file.name).name)}.${extension}`;
+           }, 
+          }
+        },
+        'images' : {
+          provider: 'google-cloud-storage',
+          options: {
+            bucketName: "tseyorimagenes",
+            publicFiles: true,
+            uniform: true,
+            basePath: "",
+            skipCheckBucket: true,
+            generateUploadFileName: (file) => {
+             // const hash = md5(file.name); // Some hashing function, for example MD-5
+             // const extension = file.ext.toLowerCase().substring(1);
+             // let carpeta = 'imagenes'
+             // return `${carpeta}/${slugify(pathParse(file.name).name)}-${hash}.${extension}`;
+             // return `${slugify(pathParse(file.name).name)}.${extension}`;
+             return file.name
+           }, 
+          }
+        }
+      }
+    }
+
+    /*providerOptions: {
+      bucketName: "tseyor",
       publicFiles: true,
       uniform: true,
       basePath: "",
@@ -28,7 +81,7 @@ module.exports = ({ env }) => ({
           carpeta = 'docs'
         return `${carpeta}/${slugify(pathParse(file.name).name)}-${hash}.${extension}`;
       }, 
-    }
+    }*/
   },
   graphql: {
     amountLimit: 500,

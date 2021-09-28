@@ -4,3 +4,7 @@ check https://stackoverflow.com/questions/62631528/how-to-update-user-in-strapi
 
 isOwner Policy
 https://strapi.io/documentation/developer-docs/latest/guides/is-owner.html
+
+
+
+https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/ComputeEngine/
