@@ -1428,6 +1428,75 @@
           "frase": {
             "type": "string"
           },
+          "asistire": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "titulo",
+                "descripcion",
+                "imagen"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "fechaComienzo": {
+                  "type": "string"
+                },
+                "fechaFinal": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "imagenes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "tipoEvento": {
+                  "type": "string",
+                  "enum": [
+                    "curso",
+                    "encuentro",
+                    "presentacion"
+                  ]
+                },
+                "sala": {
+                  "type": "string"
+                },
+                "asistentes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "comentarios": {
             "type": "array",
             "items": {
@@ -1442,7 +1511,76 @@
                 "texto": {
                   "type": "string"
                 },
+                "uid": {
+                  "type": "string"
+                },
+                "respuestas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "respondiendo": {
+                  "type": "string"
+                },
                 "user": {
+                  "type": "string"
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "likes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "uid": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "likeit": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "uid"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "texto": {
                   "type": "string"
                 },
                 "uid": {
@@ -1456,6 +1594,15 @@
                 },
                 "respondiendo": {
                   "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -1528,7 +1675,25 @@
           "frase": {
             "type": "string"
           },
+          "asistire": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "comentarios": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "likes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "likeit": {
             "type": "array",
             "items": {
               "type": "string"

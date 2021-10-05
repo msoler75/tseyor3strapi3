@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/boletines": {
+    "/likes": {
       "get": {
         "deprecated": false,
-        "description": "Find all the boletines's records",
+        "description": "Find all the likes's records",
         "responses": {
           "200": {
-            "description": "Retrieve boletines document(s)",
+            "description": "Retrieve likes document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Boletines"
+                    "$ref": "#/components/schemas/Likes"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Boletines"
+          "Likes"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new boletines record",
+        "description": "Create a new likes record",
         "responses": {
           "200": {
-            "description": "Retrieve boletines document(s)",
+            "description": "Retrieve likes document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Boletines"
+                  "$ref": "#/components/schemas/Likes"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Boletines"
+          "Likes"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewBoletines"
+                "$ref": "#/components/schemas/NewLikes"
               }
             }
           }
         }
       }
     },
-    "/boletines/count": {
+    "/likes/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of boletines documents",
+        "description": "Retrieve the number of likes documents",
         "responses": {
           "200": {
-            "description": "Retrieve boletines document(s)",
+            "description": "Retrieve likes document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Boletines"
+          "Likes"
         ],
         "parameters": []
       }
     },
-    "/boletines/{id}": {
+    "/likes/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one boletines record",
+        "description": "Find one likes record",
         "responses": {
           "200": {
-            "description": "Retrieve boletines document(s)",
+            "description": "Retrieve likes document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Boletines"
+                  "$ref": "#/components/schemas/Likes"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Boletines"
+          "Likes"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single boletines record",
+        "description": "Update a single likes record",
         "responses": {
           "200": {
-            "description": "Retrieve boletines document(s)",
+            "description": "Retrieve likes document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Boletines"
+                  "$ref": "#/components/schemas/Likes"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Boletines"
+          "Likes"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewBoletines"
+                "$ref": "#/components/schemas/NewLikes"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single boletines record",
+        "description": "Delete a single likes record",
         "responses": {
           "200": {
-            "description": "deletes a single boletines based on the ID supplied",
+            "description": "deletes a single likes based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Boletines"
+          "Likes"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Boletines": {
+      "Likes": {
         "required": [
           "id"
         ],
@@ -522,376 +522,108 @@
           "id": {
             "type": "string"
           },
-          "titulo": {
+          "uid": {
             "type": "string"
           },
-          "texto": {
-            "type": "string"
-          },
-          "audios": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "titulo"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "titulo": {
-                  "type": "string"
-                },
-                "audio": {
-                  "type": "string"
-                },
-                "descripcion": {
-                  "type": "string"
-                },
-                "categoria": {
-                  "type": "string",
-                  "enum": [
-                    "meditaciones",
-                    "talleres",
-                    "reflexiones",
-                    "cuentos",
-                    "musica",
-                    "clasica",
-                    "otros"
-                  ]
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "libros": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "descripcion",
-                "edicionNumero"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "titulo": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "descripcion": {
-                  "type": "string"
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "edicionFecha": {
-                  "type": "string"
-                },
-                "paginas": {
-                  "type": "integer"
-                },
-                "documento": {
-                  "type": "string"
-                },
-                "edicionNumero": {
-                  "type": "integer"
-                },
-                "etiquetas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+          "user": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "nombreSimbolico": {
+                "type": "string"
+              },
+              "grupos": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
-              }
-            }
-          },
-          "comunicados": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "titulo",
-                "descripcion",
-                "fechaComunicado"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "titulo": {
-                  "type": "string"
-                },
-                "texto": {
-                  "type": "string"
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "descripcion": {
-                  "type": "string"
-                },
-                "fechaComunicado": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "imagenes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+              },
+              "equipos": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
-              }
-            }
-          },
-          "entradas": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "titulo",
-                "imagen",
-                "texto"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "titulo": {
-                  "type": "string"
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "texto": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "blog": {
-                  "type": "string"
-                },
-                "imagenes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "frase": {
+                "type": "string"
+              },
+              "asistire": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
-              }
-            }
-          },
-          "noticias": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "descripcion",
-                "texto",
-                "imagen"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "titular": {
-                  "type": "string"
-                },
-                "descripcion": {
-                  "type": "string"
-                },
-                "texto": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "imagenes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+              },
+              "comentarios": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
-              }
-            }
-          },
-          "eventos": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "titulo",
-                "descripcion",
-                "imagen"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "titulo": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "texto": {
-                  "type": "string"
-                },
-                "descripcion": {
-                  "type": "string"
-                },
-                "fechaComienzo": {
-                  "type": "string"
-                },
-                "fechaFinal": {
-                  "type": "string"
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "imagenes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "tipoEvento": {
-                  "type": "string",
-                  "enum": [
-                    "curso",
-                    "encuentro",
-                    "presentacion"
-                  ]
-                },
-                "sala": {
-                  "type": "string"
-                },
-                "asistentes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+              },
+              "likes": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
+              },
+              "likeit": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
-          },
-          "slug": {
-            "type": "uid"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
-      "NewBoletines": {
+      "NewLikes": {
         "properties": {
-          "titulo": {
+          "uid": {
             "type": "string"
           },
-          "texto": {
+          "user": {
             "type": "string"
-          },
-          "audios": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "libros": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "comunicados": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "entradas": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "noticias": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "eventos": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "slug": {
-            "type": "uid"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           },
           "created_by": {
             "type": "string"
@@ -905,7 +637,7 @@
   },
   "tags": [
     {
-      "name": "Boletines"
+      "name": "Likes"
     }
   ]
 }

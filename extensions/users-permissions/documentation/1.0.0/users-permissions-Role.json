@@ -582,7 +582,25 @@
                 "frase": {
                   "type": "string"
                 },
+                "asistire": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likeit": {
                   "type": "array",
                   "items": {
                     "type": "string"

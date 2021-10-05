@@ -510,6 +510,172 @@
           }
         ]
       }
+    },
+    "/comentarios/{id}/like": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single comentarios record",
+        "responses": {
+          "200": {
+            "description": "Retrieve comentarios document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Comentarios"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/comentarios/{id}/dislike": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single comentarios record",
+        "responses": {
+          "200": {
+            "description": "Retrieve comentarios document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Comentarios"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -526,6 +692,100 @@
           "texto": {
             "type": "string",
             "minLength": 2
+          },
+          "uid": {
+            "type": "string"
+          },
+          "respuestas": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "uid"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "uid": {
+                  "type": "string"
+                },
+                "respuestas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "respondiendo": {
+                  "type": "string"
+                },
+                "user": {
+                  "type": "string"
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "respondiendo": {
+            "required": [
+              "id",
+              "uid"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "texto": {
+                "type": "string"
+              },
+              "uid": {
+                "type": "string"
+              },
+              "respuestas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "respondiendo": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "likes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           },
           "user": {
             "required": [
@@ -585,7 +845,25 @@
               "frase": {
                 "type": "string"
               },
+              "asistire": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "comentarios": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likeit": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -599,40 +877,89 @@
               }
             }
           },
-          "uid": {
-            "type": "string"
-          },
-          "respuestas": {
+          "likes": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "uid"
+                "username",
+                "email"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "texto": {
+                "username": {
                   "type": "string"
                 },
-                "user": {
+                "email": {
                   "type": "string"
                 },
-                "uid": {
+                "provider": {
                   "type": "string"
                 },
-                "respuestas": {
+                "password": {
+                  "type": "string"
+                },
+                "resetPasswordToken": {
+                  "type": "string"
+                },
+                "confirmationToken": {
+                  "type": "string"
+                },
+                "confirmed": {
+                  "type": "boolean"
+                },
+                "blocked": {
+                  "type": "boolean"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "nombreSimbolico": {
+                  "type": "string"
+                },
+                "grupos": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "respondiendo": {
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "imagen": {
                   "type": "string"
                 },
-                "published_at": {
+                "frase": {
                   "type": "string"
+                },
+                "asistire": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likeit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -640,44 +967,6 @@
                 "updated_by": {
                   "type": "string"
                 }
-              }
-            }
-          },
-          "respondiendo": {
-            "required": [
-              "id",
-              "uid"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "texto": {
-                "type": "string"
-              },
-              "user": {
-                "type": "string"
-              },
-              "uid": {
-                "type": "string"
-              },
-              "respuestas": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "respondiendo": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
               }
             }
           },
@@ -696,9 +985,6 @@
             "type": "string",
             "minLength": 2
           },
-          "user": {
-            "type": "string"
-          },
           "uid": {
             "type": "string"
           },
@@ -710,6 +996,15 @@
           },
           "respondiendo": {
             "type": "string"
+          },
+          "user": {
+            "type": "string"
+          },
+          "likes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

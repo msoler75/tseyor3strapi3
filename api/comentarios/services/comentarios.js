@@ -1,8 +1,21 @@
-'use strict';
+const likesservices = require('../../likeslib/services.js')
 
-/**
- * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-services)
- * to customize this service
- */
+module.exports = {
+  /**
+   * Promise to edit record
+   *
+   * @return {Promise}
+   */
 
-module.exports = {};
+  async like(params, userId) {
+      return likesservices.like('comentarios', params, userId)
+  },
+
+
+  
+  async dislike(params, userId) {
+    return likesservices.dislike('comentarios', params, userId)
+  },
+
+};
+ 

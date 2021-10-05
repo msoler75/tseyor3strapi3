@@ -67,6 +67,11 @@
     "sala": {
       "via": "eventos",
       "model": "salas"
+    },
+    "asistentes": {
+      "via": "asistire",
+      "plugin": "users-permissions",
+      "collection": "user"
     }
   }
 }

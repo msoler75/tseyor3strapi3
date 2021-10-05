@@ -16,11 +16,6 @@
       "type": "richtext",
       "minLength": 2
     },
-    "user": {
-      "via": "comentarios",
-      "plugin": "users-permissions",
-      "model": "user"
-    },
     "uid": {
       "type": "string",
       "unique": false,
@@ -33,6 +28,17 @@
     "respondiendo": {
       "model": "comentarios",
       "via": "respuestas"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "comentarios"
+    },
+    "likes": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "likeit",
+      "dominant": true
     }
   }
 }

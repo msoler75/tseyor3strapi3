@@ -525,6 +525,9 @@
           "nombre": {
             "type": "string"
           },
+          "slug": {
+            "type": "uid"
+          },
           "subtitulo": {
             "type": "string"
           },
@@ -666,9 +669,6 @@
                 }
               }
             }
-          },
-          "slug": {
-            "type": "uid"
           }
         }
       },
@@ -676,6 +676,9 @@
         "properties": {
           "nombre": {
             "type": "string"
+          },
+          "slug": {
+            "type": "uid"
           },
           "subtitulo": {
             "type": "string"
@@ -703,9 +706,6 @@
             "items": {
               "type": "string"
             }
-          },
-          "slug": {
-            "type": "uid"
           },
           "created_by": {
             "type": "string"

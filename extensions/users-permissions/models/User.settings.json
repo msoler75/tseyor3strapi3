@@ -85,8 +85,21 @@
     "frase": {
       "type": "string"
     },
+    "asistire": {
+      "collection": "eventos",
+      "via": "asistentes",
+      "dominant": true
+    },
     "comentarios": {
       "via": "user",
+      "collection": "comentarios"
+    },
+    "likes": {
+      "via": "user",
+      "collection": "likes"
+    },
+    "likeit": {
+      "via": "likes",
       "collection": "comentarios"
     }
   }

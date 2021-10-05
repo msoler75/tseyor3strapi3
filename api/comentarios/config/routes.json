@@ -41,6 +41,22 @@
       }
     },
     {
+      "method": "PUT",
+      "path": "/comentarios/:id/like",
+      "handler": "comentarios.like",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/comentarios/:id/dislike",
+      "handler": "comentarios.dislike",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/comentarios/:id",
       "handler": "comentarios.delete",
