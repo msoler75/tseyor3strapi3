@@ -72,6 +72,10 @@
       "via": "asistire",
       "plugin": "users-permissions",
       "collection": "user"
+    },
+    "organiza": {
+      "model": "centros",
+      "via": "eventos"
     }
   }
 }

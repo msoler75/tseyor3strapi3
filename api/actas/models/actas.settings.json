@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "actas",
   "info": {
-    "name": "Actas"
+    "name": "Actas",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -12,8 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "reunion": {
-      "model": "reuniones",
-      "via": "acta"
+      "via": "acta",
+      "model": "reuniones"
     },
     "texto": {
       "type": "richtext"
@@ -36,6 +37,9 @@
     "equipo": {
       "via": "actas",
       "model": "equipos"
+    },
+    "anexos": {
+      "collection": "anexos"
     }
   }
 }

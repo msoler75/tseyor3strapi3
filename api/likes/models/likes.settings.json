@@ -16,9 +16,9 @@
       "type": "string"
     },
     "user": {
+      "via": "likes",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "likes"
+      "model": "user"
     }
   }
 }

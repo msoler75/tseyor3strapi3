@@ -676,6 +676,172 @@
           }
         ]
       }
+    },
+    "/equipos/{id}/suscribe": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single equipos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve equipos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Equipos"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/equipos/{id}/unsuscribe": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single equipos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve equipos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Equipos"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -761,7 +927,7 @@
               }
             }
           },
-          "users": {
+          "miembros": {
             "type": "array",
             "items": {
               "required": [
@@ -809,12 +975,6 @@
                     "type": "string"
                   }
                 },
-                "equipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "imagen": {
                   "type": "string"
                 },
@@ -840,6 +1000,24 @@
                   }
                 },
                 "likeit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificacionesEquipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordina": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -891,6 +1069,12 @@
                 "acta": {
                   "type": "string"
                 },
+                "anexos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -930,6 +1114,12 @@
                 },
                 "equipo": {
                   "type": "string"
+                },
+                "anexos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -1054,21 +1244,16 @@
               }
             }
           },
-          "coordina": {
+          "coordinadores": {
             "type": "array",
             "items": {
               "required": [
                 "id",
+                "username",
                 "email"
               ],
               "properties": {
                 "id": {
-                  "type": "string"
-                },
-                "firstname": {
-                  "type": "string"
-                },
-                "lastname": {
                   "type": "string"
                 },
                 "username": {
@@ -1077,28 +1262,209 @@
                 "email": {
                   "type": "string"
                 },
+                "provider": {
+                  "type": "string"
+                },
                 "password": {
                   "type": "string"
                 },
                 "resetPasswordToken": {
                   "type": "string"
                 },
-                "registrationToken": {
+                "confirmationToken": {
                   "type": "string"
                 },
-                "isActive": {
+                "confirmed": {
                   "type": "boolean"
                 },
-                "roles": {
+                "blocked": {
+                  "type": "boolean"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "nombreSimbolico": {
+                  "type": "string"
+                },
+                "grupos": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
+                "imagen": {
+                  "type": "string"
+                },
+                "frase": {
+                  "type": "string"
+                },
+                "asistire": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likeit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificacionesEquipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordina": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "zonahoraria": {
+            "type": "string",
+            "default": "Espana",
+            "enum": [
+              "Argentina",
+              "Bolivia",
+              "Chile",
+              "Colombia",
+              "Espana",
+              "Mexico",
+              "Panama",
+              "Peru",
+              "PuertoRico",
+              "Venezuela"
+            ]
+          },
+          "suscriptores": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "username",
+                "email"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "resetPasswordToken": {
+                  "type": "string"
+                },
+                "confirmationToken": {
+                  "type": "string"
+                },
+                "confirmed": {
+                  "type": "boolean"
+                },
                 "blocked": {
                   "type": "boolean"
                 },
-                "preferedLanguage": {
+                "role": {
+                  "type": "string"
+                },
+                "nombreSimbolico": {
+                  "type": "string"
+                },
+                "grupos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "frase": {
+                  "type": "string"
+                },
+                "asistire": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likeit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificacionesEquipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordina": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
               }
@@ -1118,7 +1484,7 @@
           "descripcion": {
             "type": "string"
           },
-          "users": {
+          "miembros": {
             "type": "array",
             "items": {
               "type": "string"
@@ -1154,7 +1520,29 @@
               "type": "string"
             }
           },
-          "coordina": {
+          "coordinadores": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "zonahoraria": {
+            "type": "string",
+            "default": "Espana",
+            "enum": [
+              "Argentina",
+              "Bolivia",
+              "Chile",
+              "Colombia",
+              "Espana",
+              "Mexico",
+              "Panama",
+              "Peru",
+              "PuertoRico",
+              "Venezuela"
+            ]
+          },
+          "suscriptores": {
             "type": "array",
             "items": {
               "type": "string"

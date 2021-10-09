@@ -50,6 +50,9 @@
     },
     "ultimaActualizacion": {
       "type": "date"
+    },
+    "relacionados": {
+      "collection": "normativas"
     }
   }
 }

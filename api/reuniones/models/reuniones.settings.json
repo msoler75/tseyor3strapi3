@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "reuniones",
   "info": {
-    "name": "Reuniones"
+    "name": "Reuniones",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -43,6 +44,9 @@
     "acta": {
       "via": "reunion",
       "model": "actas"
+    },
+    "anexos": {
+      "collection": "anexos"
     }
   }
 }

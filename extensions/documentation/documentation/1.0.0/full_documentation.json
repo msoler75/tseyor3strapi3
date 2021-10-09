@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/05/2021 9:51:29 AM"
+    "x-generation-date": "10/09/2021 2:43:08 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1067,20 +1067,19 @@
         ]
       }
     },
-    "/agenda": {
+    "/anexos": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the anexos's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve anexos document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Anexos"
                   }
                 }
               }
@@ -1119,7 +1118,7 @@
         },
         "summary": "",
         "tags": [
-          "Agenda"
+          "Anexos"
         ],
         "parameters": [
           {
@@ -1257,6 +1256,324 @@
               }
             },
             "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new anexos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve anexos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Anexos"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Anexos"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewAnexos"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/anexos/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the number of anexos documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve anexos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Anexos"
+        ],
+        "parameters": []
+      }
+    },
+    "/anexos/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one anexos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve anexos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Anexos"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Anexos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single anexos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve anexos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Anexos"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Anexos"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewAnexos"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single anexos record",
+        "responses": {
+          "200": {
+            "description": "deletes a single anexos based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Anexos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ]
       }
@@ -6192,6 +6509,172 @@
         ]
       }
     },
+    "/equipos/{id}/suscribe": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single equipos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve equipos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Equipos"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/equipos/{id}/unsuscribe": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single equipos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve equipos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Equipos"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/etiquetas": {
       "get": {
         "deprecated": false,
@@ -11008,6 +11491,199 @@
         ]
       }
     },
+    "/pepe": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the pepe's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve pepe document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pepe"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Pepe"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      }
+    },
     "/redes": {
       "get": {
         "deprecated": false,
@@ -14810,6 +15486,12 @@
               "acta": {
                 "type": "string"
               },
+              "anexos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -14915,7 +15597,7 @@
               "imagen": {
                 "type": "string"
               },
-              "users": {
+              "miembros": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -14951,7 +15633,28 @@
                   "type": "string"
                 }
               },
-              "coordina": {
+              "coordinadores": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "zonahoraria": {
+                "type": "string",
+                "enum": [
+                  "Argentina",
+                  "Bolivia",
+                  "Chile",
+                  "Colombia",
+                  "Espana",
+                  "Mexico",
+                  "Panama",
+                  "Peru",
+                  "PuertoRico",
+                  "Venezuela"
+                ]
+              },
+              "suscriptores": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -14965,6 +15668,35 @@
               },
               "updated_by": {
                 "type": "string"
+              }
+            }
+          },
+          "anexos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "titulo"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -14988,6 +15720,12 @@
           },
           "equipo": {
             "type": "string"
+          },
+          "anexos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -15162,6 +15900,12 @@
                 "acta": {
                   "type": "string"
                 },
+                "anexos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -15194,7 +15938,7 @@
               "imagen": {
                 "type": "string"
               },
-              "users": {
+              "miembros": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -15230,7 +15974,28 @@
                   "type": "string"
                 }
               },
-              "coordina": {
+              "coordinadores": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "zonahoraria": {
+                "type": "string",
+                "enum": [
+                  "Argentina",
+                  "Bolivia",
+                  "Chile",
+                  "Colombia",
+                  "Espana",
+                  "Mexico",
+                  "Panama",
+                  "Peru",
+                  "PuertoRico",
+                  "Venezuela"
+                ]
+              },
+              "suscriptores": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -15349,6 +16114,50 @@
             "type": "boolean"
           },
           "equipo": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Anexos": {
+        "required": [
+          "id",
+          "titulo"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "titulo": {
+            "type": "string"
+          },
+          "texto": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewAnexos": {
+        "required": [
+          "titulo"
+        ],
+        "properties": {
+          "titulo": {
+            "type": "string"
+          },
+          "texto": {
             "type": "string"
           },
           "published_at": {
@@ -15979,6 +16788,9 @@
                     "type": "string"
                   }
                 },
+                "organiza": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -16235,7 +17047,7 @@
               "imagen": {
                 "type": "string"
               },
-              "users": {
+              "miembros": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -16271,7 +17083,28 @@
                   "type": "string"
                 }
               },
-              "coordina": {
+              "coordinadores": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "zonahoraria": {
+                "type": "string",
+                "enum": [
+                  "Argentina",
+                  "Bolivia",
+                  "Chile",
+                  "Colombia",
+                  "Espana",
+                  "Mexico",
+                  "Panama",
+                  "Peru",
+                  "PuertoRico",
+                  "Venezuela"
+                ]
+              },
+              "suscriptores": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -16301,7 +17134,9 @@
                 "enum": [
                   "es",
                   "mx",
-                  "br"
+                  "br",
+                  "co",
+                  "ar"
                 ]
               },
               "provincia": {
@@ -16331,7 +17166,7 @@
               "centro": {
                 "type": "string"
               },
-              "user": {
+              "usuario": {
                 "type": "string"
               },
               "published_at": {
@@ -16342,6 +17177,78 @@
               },
               "updated_by": {
                 "type": "string"
+              }
+            }
+          },
+          "eventos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "titulo",
+                "descripcion",
+                "imagen"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "fechaComienzo": {
+                  "type": "string"
+                },
+                "fechaFinal": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "imagenes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "tipoEvento": {
+                  "type": "string",
+                  "enum": [
+                    "curso",
+                    "encuentro",
+                    "presentacion"
+                  ]
+                },
+                "sala": {
+                  "type": "string"
+                },
+                "asistentes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "organiza": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -16372,6 +17279,12 @@
           },
           "contacto": {
             "type": "string"
+          },
+          "eventos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -16574,6 +17487,18 @@
                   "type": "string"
                 }
               },
+              "notificacionesEquipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "coordina": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -16661,6 +17586,18 @@
                   }
                 },
                 "likeit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificacionesEquipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordina": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -16943,7 +17880,9 @@
             "enum": [
               "es",
               "mx",
-              "br"
+              "br",
+              "co",
+              "ar"
             ]
           },
           "provincia": {
@@ -17071,6 +18010,12 @@
               "contacto": {
                 "type": "string"
               },
+              "eventos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -17082,19 +18027,14 @@
               }
             }
           },
-          "user": {
+          "usuario": {
             "required": [
               "id",
+              "username",
               "email"
             ],
             "properties": {
               "id": {
-                "type": "string"
-              },
-              "firstname": {
-                "type": "string"
-              },
-              "lastname": {
                 "type": "string"
               },
               "username": {
@@ -17103,28 +18043,88 @@
               "email": {
                 "type": "string"
               },
+              "provider": {
+                "type": "string"
+              },
               "password": {
                 "type": "string"
               },
               "resetPasswordToken": {
                 "type": "string"
               },
-              "registrationToken": {
+              "confirmationToken": {
                 "type": "string"
               },
-              "isActive": {
+              "confirmed": {
                 "type": "boolean"
               },
-              "roles": {
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "nombreSimbolico": {
+                "type": "string"
+              },
+              "grupos": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
               },
-              "blocked": {
-                "type": "boolean"
+              "equipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
-              "preferedLanguage": {
+              "imagen": {
+                "type": "string"
+              },
+              "frase": {
+                "type": "string"
+              },
+              "asistire": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "comentarios": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likeit": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notificacionesEquipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "coordina": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
                 "type": "string"
               }
             }
@@ -17142,7 +18142,9 @@
             "enum": [
               "es",
               "mx",
-              "br"
+              "br",
+              "co",
+              "ar"
             ]
           },
           "provincia": {
@@ -17169,7 +18171,7 @@
           "centro": {
             "type": "string"
           },
-          "user": {
+          "usuario": {
             "type": "string"
           },
           "published_at": {
@@ -17503,7 +18505,7 @@
               }
             }
           },
-          "users": {
+          "miembros": {
             "type": "array",
             "items": {
               "required": [
@@ -17551,12 +18553,6 @@
                     "type": "string"
                   }
                 },
-                "equipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "imagen": {
                   "type": "string"
                 },
@@ -17582,6 +18578,24 @@
                   }
                 },
                 "likeit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificacionesEquipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordina": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -17633,6 +18647,12 @@
                 "acta": {
                   "type": "string"
                 },
+                "anexos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -17672,6 +18692,12 @@
                 },
                 "equipo": {
                   "type": "string"
+                },
+                "anexos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -17796,21 +18822,16 @@
               }
             }
           },
-          "coordina": {
+          "coordinadores": {
             "type": "array",
             "items": {
               "required": [
                 "id",
+                "username",
                 "email"
               ],
               "properties": {
                 "id": {
-                  "type": "string"
-                },
-                "firstname": {
-                  "type": "string"
-                },
-                "lastname": {
                   "type": "string"
                 },
                 "username": {
@@ -17819,28 +18840,209 @@
                 "email": {
                   "type": "string"
                 },
+                "provider": {
+                  "type": "string"
+                },
                 "password": {
                   "type": "string"
                 },
                 "resetPasswordToken": {
                   "type": "string"
                 },
-                "registrationToken": {
+                "confirmationToken": {
                   "type": "string"
                 },
-                "isActive": {
+                "confirmed": {
                   "type": "boolean"
                 },
-                "roles": {
+                "blocked": {
+                  "type": "boolean"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "nombreSimbolico": {
+                  "type": "string"
+                },
+                "grupos": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
+                "imagen": {
+                  "type": "string"
+                },
+                "frase": {
+                  "type": "string"
+                },
+                "asistire": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likeit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificacionesEquipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordina": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "zonahoraria": {
+            "type": "string",
+            "default": "Espana",
+            "enum": [
+              "Argentina",
+              "Bolivia",
+              "Chile",
+              "Colombia",
+              "Espana",
+              "Mexico",
+              "Panama",
+              "Peru",
+              "PuertoRico",
+              "Venezuela"
+            ]
+          },
+          "suscriptores": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "username",
+                "email"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "resetPasswordToken": {
+                  "type": "string"
+                },
+                "confirmationToken": {
+                  "type": "string"
+                },
+                "confirmed": {
+                  "type": "boolean"
+                },
                 "blocked": {
                   "type": "boolean"
                 },
-                "preferedLanguage": {
+                "role": {
+                  "type": "string"
+                },
+                "nombreSimbolico": {
+                  "type": "string"
+                },
+                "grupos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "frase": {
+                  "type": "string"
+                },
+                "asistire": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likeit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificacionesEquipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordina": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
                   "type": "string"
                 }
               }
@@ -17860,7 +19062,7 @@
           "descripcion": {
             "type": "string"
           },
-          "users": {
+          "miembros": {
             "type": "array",
             "items": {
               "type": "string"
@@ -17896,7 +19098,29 @@
               "type": "string"
             }
           },
-          "coordina": {
+          "coordinadores": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "zonahoraria": {
+            "type": "string",
+            "default": "Espana",
+            "enum": [
+              "Argentina",
+              "Bolivia",
+              "Chile",
+              "Colombia",
+              "Espana",
+              "Mexico",
+              "Panama",
+              "Peru",
+              "PuertoRico",
+              "Venezuela"
+            ]
+          },
+          "suscriptores": {
             "type": "array",
             "items": {
               "type": "string"
@@ -18325,12 +19549,78 @@
                     "type": "string"
                   }
                 },
+                "notificacionesEquipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordina": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
                 "updated_by": {
                   "type": "string"
                 }
+              }
+            }
+          },
+          "organiza": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "nombre": {
+                "type": "string"
+              },
+              "tipo": {
+                "type": "string",
+                "enum": [
+                  "Casa",
+                  "Muulasterio",
+                  "Otro"
+                ]
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "imagenes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "equipo": {
+                "type": "string"
+              },
+              "contacto": {
+                "type": "string"
+              },
+              "eventos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           },
@@ -18383,6 +19673,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "organiza": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -18489,6 +19782,18 @@
                   }
                 },
                 "likeit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificacionesEquipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordina": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -19069,6 +20374,18 @@
                   "type": "string"
                 }
               },
+              "notificacionesEquipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "coordina": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -19200,6 +20517,66 @@
             "type": "string",
             "format": "date"
           },
+          "relacionados": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "adjuntos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "tipo": {
+                  "type": "string",
+                  "enum": [
+                    "estatuto",
+                    "protocolo",
+                    "normativa",
+                    "acuerdo",
+                    "anexo",
+                    "legal"
+                  ]
+                },
+                "ultimaActualizacion": {
+                  "type": "string"
+                },
+                "relacionados": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -19234,6 +20611,12 @@
           "ultimaActualizacion": {
             "type": "string",
             "format": "date"
+          },
+          "relacionados": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -19507,6 +20890,40 @@
           }
         }
       },
+      "Pepe": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewPepe": {
+        "properties": {
+          "descripcion": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
       "Redes": {
         "required": [
           "id"
@@ -19572,7 +20989,7 @@
               "imagen": {
                 "type": "string"
               },
-              "users": {
+              "miembros": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -19608,7 +21025,28 @@
                   "type": "string"
                 }
               },
-              "coordina": {
+              "coordinadores": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "zonahoraria": {
+                "type": "string",
+                "enum": [
+                  "Argentina",
+                  "Bolivia",
+                  "Chile",
+                  "Colombia",
+                  "Espana",
+                  "Mexico",
+                  "Panama",
+                  "Peru",
+                  "PuertoRico",
+                  "Venezuela"
+                ]
+              },
+              "suscriptores": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -19782,6 +21220,12 @@
               "equipo": {
                 "type": "string"
               },
+              "anexos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -19790,6 +21234,35 @@
               },
               "updated_by": {
                 "type": "string"
+              }
+            }
+          },
+          "anexos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "titulo"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -19819,6 +21292,12 @@
           },
           "acta": {
             "type": "string"
+          },
+          "anexos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -19915,6 +21394,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "organiza": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -20075,12 +21557,6 @@
                     "type": "string"
                   }
                 },
-                "equipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "imagen": {
                   "type": "string"
                 },
@@ -20106,6 +21582,24 @@
                   }
                 },
                 "likeit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificacionesEquipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordina": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -20258,79 +21752,6 @@
               }
             }
           },
-          "equipos": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "nombre": {
-                  "type": "string"
-                },
-                "descripcion": {
-                  "type": "string"
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "users": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "reuniones": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "actas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "actividades": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "pizarra": {
-                  "type": "string"
-                },
-                "libros": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "coordina": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "imagen": {
             "required": [
               "id",
@@ -20458,6 +21879,9 @@
                     "type": "string"
                   }
                 },
+                "organiza": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -20588,6 +22012,288 @@
                 }
               }
             }
+          },
+          "notificacionesEquipos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "miembros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "reuniones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actividades": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pizarra": {
+                  "type": "string"
+                },
+                "libros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordinadores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "zonahoraria": {
+                  "type": "string",
+                  "enum": [
+                    "Argentina",
+                    "Bolivia",
+                    "Chile",
+                    "Colombia",
+                    "Espana",
+                    "Mexico",
+                    "Panama",
+                    "Peru",
+                    "PuertoRico",
+                    "Venezuela"
+                  ]
+                },
+                "suscriptores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "coordina": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "miembros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "reuniones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actividades": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pizarra": {
+                  "type": "string"
+                },
+                "libros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordinadores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "zonahoraria": {
+                  "type": "string",
+                  "enum": [
+                    "Argentina",
+                    "Bolivia",
+                    "Chile",
+                    "Colombia",
+                    "Espana",
+                    "Mexico",
+                    "Panama",
+                    "Peru",
+                    "PuertoRico",
+                    "Venezuela"
+                  ]
+                },
+                "suscriptores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "equipos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "miembros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "reuniones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actividades": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pizarra": {
+                  "type": "string"
+                },
+                "libros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordinadores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "zonahoraria": {
+                  "type": "string",
+                  "enum": [
+                    "Argentina",
+                    "Bolivia",
+                    "Chile",
+                    "Colombia",
+                    "Espana",
+                    "Mexico",
+                    "Panama",
+                    "Peru",
+                    "PuertoRico",
+                    "Venezuela"
+                  ]
+                },
+                "suscriptores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -20639,12 +22345,6 @@
               "type": "string"
             }
           },
-          "equipos": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "frase": {
             "type": "string"
           },
@@ -20667,6 +22367,24 @@
             }
           },
           "likeit": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notificacionesEquipos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "coordina": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "equipos": {
             "type": "array",
             "items": {
               "type": "string"
@@ -20712,7 +22430,7 @@
       "name": "Actividades"
     },
     {
-      "name": "Agenda"
+      "name": "Anexos"
     },
     {
       "name": "Audios"
@@ -20773,6 +22491,9 @@
     },
     {
       "name": "Paginas"
+    },
+    {
+      "name": "Pepe"
     },
     {
       "name": "Redes"

@@ -675,6 +675,12 @@
                 "acta": {
                   "type": "string"
                 },
+                "anexos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -707,7 +713,7 @@
               "imagen": {
                 "type": "string"
               },
-              "users": {
+              "miembros": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -743,7 +749,28 @@
                   "type": "string"
                 }
               },
-              "coordina": {
+              "coordinadores": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "zonahoraria": {
+                "type": "string",
+                "enum": [
+                  "Argentina",
+                  "Bolivia",
+                  "Chile",
+                  "Colombia",
+                  "Espana",
+                  "Mexico",
+                  "Panama",
+                  "Peru",
+                  "PuertoRico",
+                  "Venezuela"
+                ]
+              },
+              "suscriptores": {
                 "type": "array",
                 "items": {
                   "type": "string"

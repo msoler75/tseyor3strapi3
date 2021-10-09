@@ -2,11 +2,11 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/agenda",
-      "handler": "agenda.find",
+      "path": "/pepe",
+      "handler": "pepe.find",
       "config": {
         "policies": []
       }
     }
-  ]
+ ]
 }

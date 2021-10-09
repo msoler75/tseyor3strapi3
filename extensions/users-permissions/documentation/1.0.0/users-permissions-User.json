@@ -1285,79 +1285,6 @@
               }
             }
           },
-          "equipos": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "nombre": {
-                  "type": "string"
-                },
-                "descripcion": {
-                  "type": "string"
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "users": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "reuniones": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "actas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "actividades": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "pizarra": {
-                  "type": "string"
-                },
-                "libros": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "coordina": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "imagen": {
             "required": [
               "id",
@@ -1485,6 +1412,9 @@
                     "type": "string"
                   }
                 },
+                "organiza": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1615,6 +1545,288 @@
                 }
               }
             }
+          },
+          "notificacionesEquipos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "miembros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "reuniones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actividades": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pizarra": {
+                  "type": "string"
+                },
+                "libros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordinadores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "zonahoraria": {
+                  "type": "string",
+                  "enum": [
+                    "Argentina",
+                    "Bolivia",
+                    "Chile",
+                    "Colombia",
+                    "Espana",
+                    "Mexico",
+                    "Panama",
+                    "Peru",
+                    "PuertoRico",
+                    "Venezuela"
+                  ]
+                },
+                "suscriptores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "coordina": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "miembros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "reuniones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actividades": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pizarra": {
+                  "type": "string"
+                },
+                "libros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordinadores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "zonahoraria": {
+                  "type": "string",
+                  "enum": [
+                    "Argentina",
+                    "Bolivia",
+                    "Chile",
+                    "Colombia",
+                    "Espana",
+                    "Mexico",
+                    "Panama",
+                    "Peru",
+                    "PuertoRico",
+                    "Venezuela"
+                  ]
+                },
+                "suscriptores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "equipos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "miembros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "reuniones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actividades": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pizarra": {
+                  "type": "string"
+                },
+                "libros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordinadores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "zonahoraria": {
+                  "type": "string",
+                  "enum": [
+                    "Argentina",
+                    "Bolivia",
+                    "Chile",
+                    "Colombia",
+                    "Espana",
+                    "Mexico",
+                    "Panama",
+                    "Peru",
+                    "PuertoRico",
+                    "Venezuela"
+                  ]
+                },
+                "suscriptores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -1666,12 +1878,6 @@
               "type": "string"
             }
           },
-          "equipos": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "frase": {
             "type": "string"
           },
@@ -1694,6 +1900,24 @@
             }
           },
           "likeit": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notificacionesEquipos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "coordina": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "equipos": {
             "type": "array",
             "items": {
               "type": "string"

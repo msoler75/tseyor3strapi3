@@ -690,7 +690,7 @@
               "imagen": {
                 "type": "string"
               },
-              "users": {
+              "miembros": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -726,7 +726,28 @@
                   "type": "string"
                 }
               },
-              "coordina": {
+              "coordinadores": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "zonahoraria": {
+                "type": "string",
+                "enum": [
+                  "Argentina",
+                  "Bolivia",
+                  "Chile",
+                  "Colombia",
+                  "Espana",
+                  "Mexico",
+                  "Panama",
+                  "Peru",
+                  "PuertoRico",
+                  "Venezuela"
+                ]
+              },
+              "suscriptores": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -756,7 +777,9 @@
                 "enum": [
                   "es",
                   "mx",
-                  "br"
+                  "br",
+                  "co",
+                  "ar"
                 ]
               },
               "provincia": {
@@ -786,7 +809,7 @@
               "centro": {
                 "type": "string"
               },
-              "user": {
+              "usuario": {
                 "type": "string"
               },
               "published_at": {
@@ -797,6 +820,78 @@
               },
               "updated_by": {
                 "type": "string"
+              }
+            }
+          },
+          "eventos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "titulo",
+                "descripcion",
+                "imagen"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "fechaComienzo": {
+                  "type": "string"
+                },
+                "fechaFinal": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "imagenes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "tipoEvento": {
+                  "type": "string",
+                  "enum": [
+                    "curso",
+                    "encuentro",
+                    "presentacion"
+                  ]
+                },
+                "sala": {
+                  "type": "string"
+                },
+                "asistentes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "organiza": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -827,6 +922,12 @@
           },
           "contacto": {
             "type": "string"
+          },
+          "eventos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

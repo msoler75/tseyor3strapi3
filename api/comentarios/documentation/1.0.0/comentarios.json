@@ -869,6 +869,18 @@
                   "type": "string"
                 }
               },
+              "notificacionesEquipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "coordina": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -956,6 +968,18 @@
                   }
                 },
                 "likeit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificacionesEquipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordina": {
                   "type": "array",
                   "items": {
                     "type": "string"

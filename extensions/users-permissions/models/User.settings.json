@@ -67,11 +67,6 @@
       "via": "users",
       "dominant": true
     },
-    "equipos": {
-      "via": "users",
-      "collection": "equipos",
-      "dominant": true
-    },
     "imagen": {
       "model": "file",
       "via": "related",
@@ -86,8 +81,8 @@
       "type": "string"
     },
     "asistire": {
-      "collection": "eventos",
       "via": "asistentes",
+      "collection": "eventos",
       "dominant": true
     },
     "comentarios": {
@@ -101,6 +96,19 @@
     "likeit": {
       "via": "likes",
       "collection": "comentarios"
+    },
+    "notificacionesEquipos": {
+      "via": "suscriptores",
+      "collection": "equipos"
+    },
+    "coordina": {
+      "via": "coordinadores",
+      "collection": "equipos"
+    },
+    "equipos": {
+      "via": "miembros",
+      "collection": "equipos",
+      "dominant": true
     }
   }
 }

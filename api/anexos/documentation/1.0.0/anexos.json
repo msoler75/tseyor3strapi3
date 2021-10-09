@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/eventos": {
+    "/anexos": {
       "get": {
         "deprecated": false,
-        "description": "Find all the eventos's records",
+        "description": "Find all the anexos's records",
         "responses": {
           "200": {
-            "description": "Retrieve eventos document(s)",
+            "description": "Retrieve anexos document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Eventos"
+                    "$ref": "#/components/schemas/Anexos"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Eventos"
+          "Anexos"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new eventos record",
+        "description": "Create a new anexos record",
         "responses": {
           "200": {
-            "description": "Retrieve eventos document(s)",
+            "description": "Retrieve anexos document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Eventos"
+                  "$ref": "#/components/schemas/Anexos"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Eventos"
+          "Anexos"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEventos"
+                "$ref": "#/components/schemas/NewAnexos"
               }
             }
           }
         }
       }
     },
-    "/eventos/count": {
+    "/anexos/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of eventos documents",
+        "description": "Retrieve the number of anexos documents",
         "responses": {
           "200": {
-            "description": "Retrieve eventos document(s)",
+            "description": "Retrieve anexos document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Eventos"
+          "Anexos"
         ],
         "parameters": []
       }
     },
-    "/eventos/{id}": {
+    "/anexos/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one eventos record",
+        "description": "Find one anexos record",
         "responses": {
           "200": {
-            "description": "Retrieve eventos document(s)",
+            "description": "Retrieve anexos document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Eventos"
+                  "$ref": "#/components/schemas/Anexos"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Eventos"
+          "Anexos"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single eventos record",
+        "description": "Update a single anexos record",
         "responses": {
           "200": {
-            "description": "Retrieve eventos document(s)",
+            "description": "Retrieve anexos document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Eventos"
+                  "$ref": "#/components/schemas/Anexos"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Eventos"
+          "Anexos"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEventos"
+                "$ref": "#/components/schemas/NewAnexos"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single eventos record",
+        "description": "Delete a single anexos record",
         "responses": {
           "200": {
-            "description": "deletes a single eventos based on the ID supplied",
+            "description": "deletes a single anexos based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Eventos"
+          "Anexos"
         ],
         "parameters": [
           {
@@ -514,12 +514,10 @@
   },
   "components": {
     "schemas": {
-      "Eventos": {
+      "Anexos": {
         "required": [
           "id",
-          "titulo",
-          "descripcion",
-          "imagen"
+          "titulo"
         ],
         "properties": {
           "id": {
@@ -528,367 +526,8 @@
           "titulo": {
             "type": "string"
           },
-          "slug": {
-            "type": "uid"
-          },
           "texto": {
             "type": "string"
-          },
-          "descripcion": {
-            "type": "string",
-            "maxLength": 1024
-          },
-          "fechaComienzo": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "fechaFinal": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "imagen": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "imagenes": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "hash",
-                "mime",
-                "size",
-                "url",
-                "provider"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "alternativeText": {
-                  "type": "string"
-                },
-                "caption": {
-                  "type": "string"
-                },
-                "width": {
-                  "type": "integer"
-                },
-                "height": {
-                  "type": "integer"
-                },
-                "formats": {
-                  "type": "object"
-                },
-                "hash": {
-                  "type": "string"
-                },
-                "ext": {
-                  "type": "string"
-                },
-                "mime": {
-                  "type": "string"
-                },
-                "size": {
-                  "type": "number"
-                },
-                "url": {
-                  "type": "string"
-                },
-                "previewUrl": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "provider_metadata": {
-                  "type": "object"
-                },
-                "related": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "tipoEvento": {
-            "type": "string",
-            "enum": [
-              "curso",
-              "encuentro",
-              "presentacion"
-            ]
-          },
-          "sala": {
-            "required": [
-              "id",
-              "nombre",
-              "enlace"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "nombre": {
-                "type": "string"
-              },
-              "descripcion": {
-                "type": "string"
-              },
-              "tipo": {
-                "type": "string",
-                "enum": [
-                  "paltalk",
-                  "google"
-                ]
-              },
-              "enlace": {
-                "type": "string"
-              },
-              "eventos": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "asistentes": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "username",
-                "email"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "username": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmationToken": {
-                  "type": "string"
-                },
-                "confirmed": {
-                  "type": "boolean"
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "nombreSimbolico": {
-                  "type": "string"
-                },
-                "grupos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "equipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "frase": {
-                  "type": "string"
-                },
-                "asistire": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "comentarios": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "likes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "likeit": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "notificacionesEquipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "coordina": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "organiza": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "nombre": {
-                "type": "string"
-              },
-              "tipo": {
-                "type": "string",
-                "enum": [
-                  "Casa",
-                  "Muulasterio",
-                  "Otro"
-                ]
-              },
-              "imagen": {
-                "type": "string"
-              },
-              "imagenes": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "descripcion": {
-                "type": "string"
-              },
-              "equipo": {
-                "type": "string"
-              },
-              "contacto": {
-                "type": "string"
-              },
-              "eventos": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
           },
           "published_at": {
             "type": "string",
@@ -896,51 +535,15 @@
           }
         }
       },
-      "NewEventos": {
+      "NewAnexos": {
         "required": [
-          "titulo",
-          "descripcion"
+          "titulo"
         ],
         "properties": {
           "titulo": {
             "type": "string"
           },
-          "slug": {
-            "type": "uid"
-          },
           "texto": {
-            "type": "string"
-          },
-          "descripcion": {
-            "type": "string",
-            "maxLength": 1024
-          },
-          "fechaComienzo": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "fechaFinal": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "tipoEvento": {
-            "type": "string",
-            "enum": [
-              "curso",
-              "encuentro",
-              "presentacion"
-            ]
-          },
-          "sala": {
-            "type": "string"
-          },
-          "asistentes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "organiza": {
             "type": "string"
           },
           "published_at": {
@@ -959,7 +562,7 @@
   },
   "tags": [
     {
-      "name": "Eventos"
+      "name": "Anexos"
     }
   ]
 }

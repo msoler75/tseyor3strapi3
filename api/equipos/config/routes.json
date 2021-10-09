@@ -63,6 +63,22 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "PUT",
+      "path": "/equipos/:id/suscribe",
+      "handler": "equipos.suscribe",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/equipos/:id/unsuscribe",
+      "handler": "equipos.unsuscribe",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

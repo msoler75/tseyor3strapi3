@@ -30,14 +30,14 @@
       "via": "respuestas"
     },
     "user": {
+      "via": "comentarios",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "comentarios"
+      "model": "user"
     },
     "likes": {
+      "via": "likeit",
       "plugin": "users-permissions",
       "collection": "user",
-      "via": "likeit",
       "dominant": true
     }
   }

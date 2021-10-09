@@ -9,6 +9,12 @@ module.exports = {
 
       // https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#controllers
 
+      async find(ctx) {
+        const userid = ctx.state.user?ctx.state.user.id:0
+        console.log('noticias.find userid', userid)
+        return []
+      },
+
     async like(ctx) {
         return likescontroller.like('noticias', ctx)
     },

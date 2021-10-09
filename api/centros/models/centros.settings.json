@@ -56,6 +56,10 @@
     "contacto": {
       "via": "centro",
       "model": "contactos"
+    },
+    "eventos": {
+      "via": "organiza",
+      "collection": "eventos"
     }
   }
 }

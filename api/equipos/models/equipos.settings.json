@@ -28,10 +28,10 @@
       "required": false,
       "pluginOptions": {}
     },
-    "users": {
-      "via": "equipos",
+    "miembros": {
       "plugin": "users-permissions",
-      "collection": "user"
+      "collection": "user",
+      "via": "equipos"
     },
     "slug": {
       "type": "uid",
@@ -55,9 +55,33 @@
     "libros": {
       "collection": "libros"
     },
-    "coordina": {
-      "plugin": "admin",
-      "collection": "user"
+    "coordinadores": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "coordina",
+      "dominant": true
+    },
+    "zonahoraria": {
+      "type": "enumeration",
+      "enum": [
+        "Argentina",
+        "Bolivia",
+        "Chile",
+        "Colombia",
+        "Espana",
+        "Mexico",
+        "Panama",
+        "Peru",
+        "PuertoRico",
+        "Venezuela"
+      ],
+      "default": "Espana"
+    },
+    "suscriptores": {
+      "via": "notificacionesEquipos",
+      "plugin": "users-permissions",
+      "collection": "user",
+      "dominant": true
     }
   }
 }

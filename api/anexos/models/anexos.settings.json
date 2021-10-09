@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "anexos",
+  "info": {
+    "name": "Anexos"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "texto": {
+      "type": "richtext"
+    }
+  }
+}

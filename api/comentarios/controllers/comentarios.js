@@ -28,22 +28,28 @@ module.exports = {
       },
 
 
+      // https://strapi.io/documentation/developer-docs/latest/guides/is-owner.html#limit-the-update
       async update(ctx) {
         const { id } = ctx.params;
 
-        let entity = await strapi.services.comentarios.findOne({ id });
-        
-        // check  owner
-        if(entity.user && entity.user.id===ctx.state.user.id)
-        {
-          if (ctx.is('multipart')) {
-            const { data, files } = parseMultipartData(ctx);
-            entity = await strapi.services.comentarios.update({ id }, data, {
-              files,
-            });
-          } else {
-            entity = await strapi.services.comentarios.update({ id }, ctx.request.body);
-          }
+        let entity;
+
+        const [comment] = await strapi.services.comentarios.find({
+          id: ctx.params.id,
+          'user.id': ctx.state.user.id,
+        });
+    
+        if (!comment) {
+          return ctx.unauthorized(`Acceso denegado`);
+        }
+
+        if (ctx.is('multipart')) {
+          const { data, files } = parseMultipartData(ctx);
+          entity = await strapi.services.comentarios.update({ id }, data, {
+            files,
+          });
+        } else {
+          entity = await strapi.services.comentarios.update({ id }, ctx.request.body);
         }
     
         return sanitizeEntity(entity, { model: strapi.models.comentarios });
@@ -54,11 +60,16 @@ module.exports = {
 
         const { id } = ctx.params;
 
-        let entity = await strapi.services.comentarios.findOne({ id });
-        
-        // check owner
-        if(entity.user && entity.user.id===ctx.state.user.id)
-          entity = await strapi.services.comentarios.delete({ id });
+        const [comment] = await strapi.services.comentarios.find({
+          id: ctx.params.id,
+          'user.id': ctx.state.user.id,
+        });
+    
+        if (!comment) {
+          return ctx.unauthorized(`Acceso denegado`);
+        }
+
+        let entity = await strapi.services.comentarios.delete({ id });
     
         return sanitizeEntity(entity, { model: strapi.models.comentarios });
       },
@@ -68,7 +79,7 @@ module.exports = {
 
     async like(ctx) {
       return likescontroller.like('comentarios', ctx)
-  },
+    },
 
 
   
