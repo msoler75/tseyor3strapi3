@@ -1,18 +1,19 @@
 {
   "paths": {
-    "/pepe": {
+    "/agenda": {
       "get": {
         "deprecated": false,
-        "description": "Find all the pepe's records",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve pepe document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Pepe"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -51,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Pepe"
+          "Agenda"
         ],
         "parameters": [
           {
@@ -194,47 +195,9 @@
       }
     }
   },
-  "components": {
-    "schemas": {
-      "Pepe": {
-        "required": [
-          "id"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "descripcion": {
-            "type": "string"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
-      "NewPepe": {
-        "properties": {
-          "descripcion": {
-            "type": "string"
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "created_by": {
-            "type": "string"
-          },
-          "updated_by": {
-            "type": "string"
-          }
-        }
-      }
-    }
-  },
   "tags": [
     {
-      "name": "Pepe"
+      "name": "Agenda"
     }
   ]
 }
