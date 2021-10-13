@@ -1415,52 +1415,19 @@
                 "organiza": {
                   "type": "string"
                 },
-                "published_at": {
-                  "type": "string"
+                "zonahoraria": {
+                  "type": "string",
+                  "enum": [
+                    "Argentina",
+                    "Espana",
+                    "Mexico",
+                    "Chile",
+                    "Colombia",
+                    "Venezuela"
+                  ]
                 },
-                "created_by": {
+                "autor": {
                   "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "comentarios": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "uid"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "texto": {
-                  "type": "string"
-                },
-                "uid": {
-                  "type": "string"
-                },
-                "respuestas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "respondiendo": {
-                  "type": "string"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "likes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -1525,7 +1492,7 @@
                 "respondiendo": {
                   "type": "string"
                 },
-                "user": {
+                "autor": {
                   "type": "string"
                 },
                 "likes": {
@@ -1815,6 +1782,139 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "uid"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "uid": {
+                  "type": "string"
+                },
+                "respuestas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "respondiendo": {
+                  "type": "string"
+                },
+                "autor": {
+                  "type": "string"
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "eventos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "titulo",
+                "descripcion",
+                "imagen"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "fechaComienzo": {
+                  "type": "string"
+                },
+                "fechaFinal": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "imagenes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "tipoEvento": {
+                  "type": "string",
+                  "enum": [
+                    "curso",
+                    "encuentro",
+                    "presentacion"
+                  ]
+                },
+                "sala": {
+                  "type": "string"
+                },
+                "asistentes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "organiza": {
+                  "type": "string"
+                },
+                "zonahoraria": {
+                  "type": "string",
+                  "enum": [
+                    "Argentina",
+                    "Espana",
+                    "Mexico",
+                    "Chile",
+                    "Colombia",
+                    "Venezuela"
+                  ]
+                },
+                "autor": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -1887,12 +1987,6 @@
               "type": "string"
             }
           },
-          "comentarios": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "likes": {
             "type": "array",
             "items": {
@@ -1918,6 +2012,18 @@
             }
           },
           "equipos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "eventos": {
             "type": "array",
             "items": {
               "type": "string"

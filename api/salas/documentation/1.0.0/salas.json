@@ -601,6 +601,20 @@
                 "organiza": {
                   "type": "string"
                 },
+                "zonahoraria": {
+                  "type": "string",
+                  "enum": [
+                    "Argentina",
+                    "Espana",
+                    "Mexico",
+                    "Chile",
+                    "Colombia",
+                    "Venezuela"
+                  ]
+                },
+                "autor": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },

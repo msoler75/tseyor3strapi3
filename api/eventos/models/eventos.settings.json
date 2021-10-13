@@ -76,6 +76,23 @@
     "organiza": {
       "model": "centros",
       "via": "eventos"
+    },
+    "zonahoraria": {
+      "type": "enumeration",
+      "enum": [
+        "Argentina",
+        "Espana",
+        "Mexico",
+        "Chile",
+        "Colombia",
+        "Venezuela"
+      ],
+      "default": "Espana"
+    },
+    "autor": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "eventos"
     }
   }
 }

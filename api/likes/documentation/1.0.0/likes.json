@@ -571,12 +571,6 @@
                   "type": "string"
                 }
               },
-              "equipos": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "imagen": {
                 "type": "string"
               },
@@ -584,12 +578,6 @@
                 "type": "string"
               },
               "asistire": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "comentarios": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -614,6 +602,24 @@
                 }
               },
               "coordina": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "equipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "comentarios": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "eventos": {
                 "type": "array",
                 "items": {
                   "type": "string"

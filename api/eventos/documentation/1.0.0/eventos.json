@@ -779,12 +779,6 @@
                     "type": "string"
                   }
                 },
-                "equipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "imagen": {
                   "type": "string"
                 },
@@ -792,12 +786,6 @@
                   "type": "string"
                 },
                 "asistire": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "comentarios": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -822,6 +810,24 @@
                   }
                 },
                 "coordina": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "eventos": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -890,6 +896,126 @@
               }
             }
           },
+          "zonahoraria": {
+            "type": "string",
+            "default": "Espana",
+            "enum": [
+              "Argentina",
+              "Espana",
+              "Mexico",
+              "Chile",
+              "Colombia",
+              "Venezuela"
+            ]
+          },
+          "autor": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "nombreSimbolico": {
+                "type": "string"
+              },
+              "grupos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "frase": {
+                "type": "string"
+              },
+              "asistire": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likeit": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notificacionesEquipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "coordina": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "equipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "comentarios": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "eventos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -941,6 +1067,21 @@
             }
           },
           "organiza": {
+            "type": "string"
+          },
+          "zonahoraria": {
+            "type": "string",
+            "default": "Espana",
+            "enum": [
+              "Argentina",
+              "Espana",
+              "Mexico",
+              "Chile",
+              "Colombia",
+              "Venezuela"
+            ]
+          },
+          "autor": {
             "type": "string"
           },
           "published_at": {

@@ -85,10 +85,6 @@
       "collection": "eventos",
       "dominant": true
     },
-    "comentarios": {
-      "via": "user",
-      "collection": "comentarios"
-    },
     "likes": {
       "via": "user",
       "collection": "likes"
@@ -109,6 +105,14 @@
       "via": "miembros",
       "collection": "equipos",
       "dominant": true
+    },
+    "comentarios": {
+      "via": "autor",
+      "collection": "comentarios"
+    },
+    "eventos": {
+      "via": "autor",
+      "collection": "eventos"
     }
   }
 }

@@ -18,7 +18,7 @@ module.exports = {
         let entity;
         if (ctx.is('multipart')) {
             const { data, files } = parseMultipartData(ctx);
-            data.user = ctx.state.user.id;
+            data.autor = ctx.state.user.id;
             entity = await strapi.services.comentarios.create(data, { files });
         } else {
             ctx.request.body.user = ctx.state.user.id;
@@ -29,7 +29,7 @@ module.exports = {
 
 
       // https://strapi.io/documentation/developer-docs/latest/guides/is-owner.html#limit-the-update
-      async update(ctx) {
+      /* async update(ctx) {
         const { id } = ctx.params;
 
         let entity;
@@ -54,7 +54,9 @@ module.exports = {
     
         return sanitizeEntity(entity, { model: strapi.models.comentarios });
       },
+      */
 
+      /*
 
       async delete(ctx) {
 
@@ -73,6 +75,8 @@ module.exports = {
     
         return sanitizeEntity(entity, { model: strapi.models.comentarios });
       },
+
+      */
 
 
          // https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#controllers

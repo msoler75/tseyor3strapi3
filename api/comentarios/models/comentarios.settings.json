@@ -29,10 +29,10 @@
       "model": "comentarios",
       "via": "respuestas"
     },
-    "user": {
-      "via": "comentarios",
+    "autor": {
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "comentarios"
     },
     "likes": {
       "via": "likeit",

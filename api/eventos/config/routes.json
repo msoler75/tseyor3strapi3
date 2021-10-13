@@ -37,7 +37,7 @@
       "path": "/eventos/:id",
       "handler": "eventos.update",
       "config": {
-        "policies": []
+        "policies": ["global::is-owner"]
       }
     },
     {
@@ -45,7 +45,7 @@
       "path": "/eventos/:id",
       "handler": "eventos.delete",
       "config": {
-        "policies": []
+        "policies": ["global::is-owner"]
       }
     }
   ]

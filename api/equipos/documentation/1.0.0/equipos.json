@@ -987,12 +987,6 @@
                     "type": "string"
                   }
                 },
-                "comentarios": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "likes": {
                   "type": "array",
                   "items": {
@@ -1018,6 +1012,18 @@
                   }
                 },
                 "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "eventos": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1304,12 +1310,6 @@
                     "type": "string"
                   }
                 },
-                "comentarios": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "likes": {
                   "type": "array",
                   "items": {
@@ -1335,6 +1335,18 @@
                   }
                 },
                 "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "eventos": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1425,12 +1437,6 @@
                     "type": "string"
                   }
                 },
-                "comentarios": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "likes": {
                   "type": "array",
                   "items": {
@@ -1456,6 +1462,18 @@
                   }
                 },
                 "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "eventos": {
                   "type": "array",
                   "items": {
                     "type": "string"
