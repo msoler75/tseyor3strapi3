@@ -2,15 +2,13 @@
 
 module.exports = async (ctx, next) => {
   // console.log('isOwner?', ctx.state.user.username)
-  // console.log(ctx.request)
-  const url = ctx.request.url
-  // console.log('url', url)
-  const parts = url.split('/')
-  const last = parts[parts.length - 1]
-  const collection = parts[parts.length - (last.match(/^\d+$/) ? 2 : 1)]
-  // console.log('collection', collection)
+
+  if(!ctx.state.user)
+    return ctx.unauthorized(`Debes autenticarte`)
+
+  const collection = ctx.request.route.controller
   if (!strapi.services[collection])
-    return ctx.unauthorized(`Colección ${collection} no encontrada`)
+    return ctx.notFound(`Colección ${collection} no encontrada`)
 
   const [content] = await strapi.services[collection].find({
     id: ctx.params.id,
@@ -20,7 +18,7 @@ module.exports = async (ctx, next) => {
   // console.log('content', content)
 
   if (!content) {
-    return ctx.unauthorized(`Acceso denegado`)
+    return ctx.forbidden(`Acceso denegado`)
   }
   return await next()
 }

@@ -20,7 +20,8 @@
       "type": "datetime"
     },
     "od": {
-      "type": "richtext"
+      "type": "richtext",
+      "minLength": 10
     },
     "adjuntos": {
       "collection": "file",
@@ -37,9 +38,9 @@
     "cancelada": {
       "type": "boolean"
     },
-    "actividades": {
-      "via": "reuniones",
-      "model": "actividades"
+    "actividad": {
+      "model": "actividades",
+      "via": "reuniones"
     },
     "acta": {
       "via": "reunion",

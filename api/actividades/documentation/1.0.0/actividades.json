@@ -641,58 +641,6 @@
               }
             }
           },
-          "reuniones": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "equipo": {
-                  "type": "string"
-                },
-                "fecha": {
-                  "type": "string"
-                },
-                "od": {
-                  "type": "string"
-                },
-                "adjuntos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "cancelada": {
-                  "type": "boolean"
-                },
-                "actividades": {
-                  "type": "string"
-                },
-                "acta": {
-                  "type": "string"
-                },
-                "anexos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "publica": {
             "type": "boolean"
           },
@@ -784,6 +732,58 @@
               },
               "updated_by": {
                 "type": "string"
+              }
+            }
+          },
+          "reuniones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "equipo": {
+                  "type": "string"
+                },
+                "fecha": {
+                  "type": "string"
+                },
+                "od": {
+                  "type": "string"
+                },
+                "adjuntos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "cancelada": {
+                  "type": "boolean"
+                },
+                "actividad": {
+                  "type": "string"
+                },
+                "acta": {
+                  "type": "string"
+                },
+                "anexos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -879,17 +879,17 @@
           "sala": {
             "type": "string"
           },
-          "reuniones": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "publica": {
             "type": "boolean"
           },
           "equipo": {
             "type": "string"
+          },
+          "reuniones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

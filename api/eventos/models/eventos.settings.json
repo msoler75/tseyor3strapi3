@@ -26,7 +26,8 @@
     "descripcion": {
       "type": "text",
       "maxLength": 1024,
-      "required": true
+      "required": true,
+      "minLength": 8
     },
     "fechaComienzo": {
       "type": "datetime"

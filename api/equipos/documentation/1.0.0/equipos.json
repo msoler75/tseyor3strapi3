@@ -1069,7 +1069,7 @@
                 "cancelada": {
                   "type": "boolean"
                 },
-                "actividades": {
+                "actividad": {
                   "type": "string"
                 },
                 "acta": {
@@ -1169,17 +1169,17 @@
                 "sala": {
                   "type": "string"
                 },
-                "reuniones": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "publica": {
                   "type": "boolean"
                 },
                 "equipo": {
                   "type": "string"
+                },
+                "reuniones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"

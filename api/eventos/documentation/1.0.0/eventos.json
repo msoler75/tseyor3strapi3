@@ -536,7 +536,8 @@
           },
           "descripcion": {
             "type": "string",
-            "maxLength": 1024
+            "maxLength": 1024,
+            "minLength": 8
           },
           "fechaComienzo": {
             "type": "string",
@@ -1039,7 +1040,8 @@
           },
           "descripcion": {
             "type": "string",
-            "maxLength": 1024
+            "maxLength": 1024,
+            "minLength": 8
           },
           "fechaComienzo": {
             "type": "string",

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/13/2021 6:48:58 PM"
+    "x-generation-date": "10/22/2021 9:55:04 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -15481,7 +15481,7 @@
               "cancelada": {
                 "type": "boolean"
               },
-              "actividades": {
+              "actividad": {
                 "type": "string"
               },
               "acta": {
@@ -15689,6 +15689,12 @@
                 "texto": {
                   "type": "string"
                 },
+                "imagenes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -15867,58 +15873,6 @@
               }
             }
           },
-          "reuniones": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "equipo": {
-                  "type": "string"
-                },
-                "fecha": {
-                  "type": "string"
-                },
-                "od": {
-                  "type": "string"
-                },
-                "adjuntos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "cancelada": {
-                  "type": "boolean"
-                },
-                "actividades": {
-                  "type": "string"
-                },
-                "acta": {
-                  "type": "string"
-                },
-                "anexos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "publica": {
             "type": "boolean"
           },
@@ -16010,6 +15964,58 @@
               },
               "updated_by": {
                 "type": "string"
+              }
+            }
+          },
+          "reuniones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "equipo": {
+                  "type": "string"
+                },
+                "fecha": {
+                  "type": "string"
+                },
+                "od": {
+                  "type": "string"
+                },
+                "adjuntos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "cancelada": {
+                  "type": "boolean"
+                },
+                "actividad": {
+                  "type": "string"
+                },
+                "acta": {
+                  "type": "string"
+                },
+                "anexos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -16105,17 +16111,17 @@
           "sala": {
             "type": "string"
           },
-          "reuniones": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "publica": {
             "type": "boolean"
           },
           "equipo": {
             "type": "string"
+          },
+          "reuniones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -16143,6 +16149,76 @@
           },
           "texto": {
             "type": "string"
+          },
+          "imagenes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "alternativeText": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "formats": {
+                  "type": "object"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -18694,7 +18770,7 @@
                 "cancelada": {
                   "type": "boolean"
                 },
-                "actividades": {
+                "actividad": {
                   "type": "string"
                 },
                 "acta": {
@@ -18794,17 +18870,17 @@
                 "sala": {
                   "type": "string"
                 },
-                "reuniones": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "publica": {
                   "type": "boolean"
                 },
                 "equipo": {
                   "type": "string"
+                },
+                "reuniones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -19335,7 +19411,8 @@
           },
           "descripcion": {
             "type": "string",
-            "maxLength": 1024
+            "maxLength": 1024,
+            "minLength": 8
           },
           "fechaComienzo": {
             "type": "string",
@@ -19838,7 +19915,8 @@
           },
           "descripcion": {
             "type": "string",
-            "maxLength": 1024
+            "maxLength": 1024,
+            "minLength": 8
           },
           "fechaComienzo": {
             "type": "string",
@@ -21252,7 +21330,8 @@
             "format": "date-time"
           },
           "od": {
-            "type": "string"
+            "type": "string",
+            "minLength": 10
           },
           "adjuntos": {
             "type": "array",
@@ -21327,7 +21406,7 @@
           "cancelada": {
             "type": "boolean"
           },
-          "actividades": {
+          "actividad": {
             "required": [
               "id",
               "horarios"
@@ -21355,17 +21434,17 @@
               "sala": {
                 "type": "string"
               },
-              "reuniones": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "publica": {
                 "type": "boolean"
               },
               "equipo": {
                 "type": "string"
+              },
+              "reuniones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "published_at": {
                 "type": "string"
@@ -21438,6 +21517,12 @@
                 "texto": {
                   "type": "string"
                 },
+                "imagenes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -21466,12 +21551,13 @@
             "format": "date-time"
           },
           "od": {
-            "type": "string"
+            "type": "string",
+            "minLength": 10
           },
           "cancelada": {
             "type": "boolean"
           },
-          "actividades": {
+          "actividad": {
             "type": "string"
           },
           "acta": {

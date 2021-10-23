@@ -548,7 +548,7 @@
               "cancelada": {
                 "type": "boolean"
               },
-              "actividades": {
+              "actividad": {
                 "type": "string"
               },
               "acta": {
@@ -755,6 +755,12 @@
                 },
                 "texto": {
                   "type": "string"
+                },
+                "imagenes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"

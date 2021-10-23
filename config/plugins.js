@@ -11,6 +11,7 @@ module.exports = ({ env }) => ({
     provider: "multiple-provider",
     providerOptions: {
       selectProvider(file) {
+        return 'local';
         if(file.name.match(/\.(jpe?g|png|webp|svg|gif)$/))
           return 'images'
         else

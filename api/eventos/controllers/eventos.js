@@ -18,7 +18,7 @@ module.exports = {
             data.autor = ctx.state.user.id;
             entity = await strapi.services.eventos.create(data, { files });
         } else {
-            ctx.request.body.user = ctx.state.user.id;
+            ctx.request.body.autor = ctx.state.user.id;
             entity = await strapi.services.eventos.create(ctx.request.body);
         }
         return sanitizeEntity(entity, { model: strapi.models.eventos });

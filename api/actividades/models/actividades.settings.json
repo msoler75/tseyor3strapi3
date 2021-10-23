@@ -34,16 +34,16 @@
     "sala": {
       "model": "salas"
     },
-    "reuniones": {
-      "via": "actividades",
-      "collection": "reuniones"
-    },
     "publica": {
       "type": "boolean"
     },
     "equipo": {
       "via": "actividades",
       "model": "equipos"
+    },
+    "reuniones": {
+      "via": "actividad",
+      "collection": "reuniones"
     }
   }
 }
