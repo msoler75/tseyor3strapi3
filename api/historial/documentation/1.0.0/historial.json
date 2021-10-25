@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/likes": {
+    "/historials": {
       "get": {
         "deprecated": false,
-        "description": "Find all the likes's records",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve likes document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Likes"
+                    "$ref": "#/components/schemas/Historial"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Likes"
+          "Historial"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new likes record",
+        "description": "Create a new record",
         "responses": {
           "200": {
-            "description": "Retrieve likes document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Likes"
+                  "$ref": "#/components/schemas/Historial"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Likes"
+          "Historial"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewLikes"
+                "$ref": "#/components/schemas/NewHistorial"
               }
             }
           }
         }
       }
     },
-    "/likes/count": {
+    "/historials/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of likes documents",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve likes document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Likes"
+          "Historial"
         ],
         "parameters": []
       }
     },
-    "/likes/{id}": {
+    "/historials/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one likes record",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve likes document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Likes"
+                  "$ref": "#/components/schemas/Historial"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Likes"
+          "Historial"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single likes record",
+        "description": "Update a record",
         "responses": {
           "200": {
-            "description": "Retrieve likes document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Likes"
+                  "$ref": "#/components/schemas/Historial"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Likes"
+          "Historial"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewLikes"
+                "$ref": "#/components/schemas/NewHistorial"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single likes record",
+        "description": "Delete a record",
         "responses": {
           "200": {
-            "description": "deletes a single likes based on the ID supplied",
+            "description": "deletes a single record based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Likes"
+          "Historial"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Likes": {
+      "Historial": {
         "required": [
           "id"
         ],
@@ -522,10 +522,13 @@
           "id": {
             "type": "string"
           },
-          "uid": {
+          "titulo": {
             "type": "string"
           },
-          "user": {
+          "url": {
+            "type": "string"
+          },
+          "autor": {
             "required": [
               "id",
               "username",
@@ -638,16 +641,49 @@
                 "type": "string"
               }
             }
+          },
+          "accion": {
+            "type": "string",
+            "enum": [
+              "like_contenido",
+              "like_comentario",
+              "comentario",
+              "comentario_respuesta",
+              "evento_creado",
+              "evento_asiste",
+              "reunion_creada",
+              "acta_creada",
+              "equipo_entrada",
+              "equipo_salida"
+            ]
           }
         }
       },
-      "NewLikes": {
+      "NewHistorial": {
         "properties": {
-          "uid": {
+          "titulo": {
             "type": "string"
           },
-          "user": {
+          "url": {
             "type": "string"
+          },
+          "autor": {
+            "type": "string"
+          },
+          "accion": {
+            "type": "string",
+            "enum": [
+              "like_contenido",
+              "like_comentario",
+              "comentario",
+              "comentario_respuesta",
+              "evento_creado",
+              "evento_asiste",
+              "reunion_creada",
+              "acta_creada",
+              "equipo_entrada",
+              "equipo_salida"
+            ]
           },
           "created_by": {
             "type": "string"
@@ -661,7 +697,7 @@
   },
   "tags": [
     {
-      "name": "Likes"
+      "name": "Historial"
     }
   ]
 }

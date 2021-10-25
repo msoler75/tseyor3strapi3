@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "historial",
+  "info": {
+    "name": "Historial",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "autor": {
+      "via": "historial",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "accion": {
+      "type": "enumeration",
+      "enum": [
+        "like_contenido",
+        "like_comentario",
+        "comentario",
+        "comentario_respuesta",
+        "evento_creado",
+        "evento_asiste",
+        "reunion_creada",
+        "acta_creada",
+        "equipo_entrada",
+        "equipo_salida"
+      ]
+    }
+  }
+}

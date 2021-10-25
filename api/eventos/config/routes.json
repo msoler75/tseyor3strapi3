@@ -41,6 +41,22 @@
       }
     },
     {
+      "method": "PUT",
+      "path": "/eventos/:id/join",
+      "handler": "eventos.join",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/eventos/:id/leave",
+      "handler": "eventos.leave",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/eventos/:id",
       "handler": "eventos.delete",

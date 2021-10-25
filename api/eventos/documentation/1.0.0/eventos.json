@@ -510,6 +510,172 @@
           }
         ]
       }
+    },
+    "/eventos/{id}/join": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single eventos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve eventos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Eventos"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/eventos/{id}/leave": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single eventos record",
+        "responses": {
+          "200": {
+            "description": "Retrieve eventos document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Eventos"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -732,117 +898,6 @@
               }
             }
           },
-          "asistentes": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "username",
-                "email"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "username": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmationToken": {
-                  "type": "string"
-                },
-                "confirmed": {
-                  "type": "boolean"
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "nombreSimbolico": {
-                  "type": "string"
-                },
-                "grupos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "frase": {
-                  "type": "string"
-                },
-                "asistire": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "likes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "likeit": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "notificacionesEquipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "coordina": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "equipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "comentarios": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "eventos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "organiza": {
             "required": [
               "id"
@@ -961,7 +1016,7 @@
               "frase": {
                 "type": "string"
               },
-              "asistire": {
+              "asiste": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -1009,11 +1064,134 @@
                   "type": "string"
                 }
               },
+              "historial": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
               "updated_by": {
                 "type": "string"
+              }
+            }
+          },
+          "asistentes": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "username",
+                "email"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "resetPasswordToken": {
+                  "type": "string"
+                },
+                "confirmationToken": {
+                  "type": "string"
+                },
+                "confirmed": {
+                  "type": "boolean"
+                },
+                "blocked": {
+                  "type": "boolean"
+                },
+                "role": {
+                  "type": "string"
+                },
+                "nombreSimbolico": {
+                  "type": "string"
+                },
+                "grupos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "frase": {
+                  "type": "string"
+                },
+                "asiste": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "likeit": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "notificacionesEquipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordina": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "eventos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "historial": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -1062,12 +1240,6 @@
           "sala": {
             "type": "string"
           },
-          "asistentes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "organiza": {
             "type": "string"
           },
@@ -1085,6 +1257,12 @@
           },
           "autor": {
             "type": "string"
+          },
+          "asistentes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

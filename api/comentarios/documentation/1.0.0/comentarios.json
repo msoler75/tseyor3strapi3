@@ -839,7 +839,7 @@
               "frase": {
                 "type": "string"
               },
-              "asistire": {
+              "asiste": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -882,6 +882,12 @@
                 }
               },
               "eventos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "historial": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -949,7 +955,7 @@
                 "frase": {
                   "type": "string"
                 },
-                "asistire": {
+                "asiste": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -992,6 +998,12 @@
                   }
                 },
                 "eventos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "historial": {
                   "type": "array",
                   "items": {
                     "type": "string"

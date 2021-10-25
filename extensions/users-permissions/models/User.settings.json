@@ -80,9 +80,9 @@
     "frase": {
       "type": "string"
     },
-    "asistire": {
-      "via": "asistentes",
+    "asiste": {
       "collection": "eventos",
+      "via": "asistentes",
       "dominant": true
     },
     "likes": {
@@ -113,6 +113,10 @@
     "eventos": {
       "via": "autor",
       "collection": "eventos"
+    },
+    "historial": {
+      "via": "autor",
+      "collection": "historial"
     }
   }
 }

@@ -1355,7 +1355,7 @@
           "frase": {
             "type": "string"
           },
-          "asistire": {
+          "asiste": {
             "type": "array",
             "items": {
               "required": [
@@ -1406,12 +1406,6 @@
                 "sala": {
                   "type": "string"
                 },
-                "asistentes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "organiza": {
                   "type": "string"
                 },
@@ -1428,6 +1422,12 @@
                 },
                 "autor": {
                   "type": "string"
+                },
+                "asistentes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -1893,12 +1893,6 @@
                 "sala": {
                   "type": "string"
                 },
-                "asistentes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "organiza": {
                   "type": "string"
                 },
@@ -1916,8 +1910,57 @@
                 "autor": {
                   "type": "string"
                 },
+                "asistentes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "historial": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "autor": {
+                  "type": "string"
+                },
+                "accion": {
+                  "type": "string",
+                  "enum": [
+                    "like_contenido",
+                    "like_comentario",
+                    "comentario",
+                    "comentario_respuesta",
+                    "evento_creado",
+                    "evento_asiste",
+                    "reunion_creada",
+                    "acta_creada",
+                    "equipo_entrada",
+                    "equipo_salida"
+                  ]
                 },
                 "created_by": {
                   "type": "string"
@@ -1981,7 +2024,7 @@
           "frase": {
             "type": "string"
           },
-          "asistire": {
+          "asiste": {
             "type": "array",
             "items": {
               "type": "string"
@@ -2024,6 +2067,12 @@
             }
           },
           "eventos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "historial": {
             "type": "array",
             "items": {
               "type": "string"

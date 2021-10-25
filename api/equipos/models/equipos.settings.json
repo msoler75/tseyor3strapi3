@@ -29,9 +29,9 @@
       "pluginOptions": {}
     },
     "miembros": {
+      "via": "equipos",
       "plugin": "users-permissions",
-      "collection": "user",
-      "via": "equipos"
+      "collection": "user"
     },
     "slug": {
       "type": "uid",
@@ -56,9 +56,9 @@
       "collection": "libros"
     },
     "coordinadores": {
+      "via": "coordina",
       "plugin": "users-permissions",
       "collection": "user",
-      "via": "coordina",
       "dominant": true
     },
     "zonahoraria": {

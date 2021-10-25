@@ -30,9 +30,9 @@
       "via": "respuestas"
     },
     "autor": {
+      "via": "comentarios",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "comentarios"
+      "model": "user"
     },
     "likes": {
       "via": "likeit",

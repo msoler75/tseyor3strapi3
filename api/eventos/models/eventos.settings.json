@@ -69,11 +69,6 @@
       "via": "eventos",
       "model": "salas"
     },
-    "asistentes": {
-      "via": "asistire",
-      "plugin": "users-permissions",
-      "collection": "user"
-    },
     "organiza": {
       "model": "centros",
       "via": "eventos"
@@ -91,9 +86,14 @@
       "default": "Espana"
     },
     "autor": {
+      "via": "eventos",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "eventos"
+      "model": "user"
+    },
+    "asistentes": {
+      "via": "asiste",
+      "plugin": "users-permissions",
+      "collection": "user"
     }
   }
 }
