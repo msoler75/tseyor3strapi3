@@ -43,19 +43,19 @@ module.exports = {
     lifecycles: {
 
         async beforeSave(params, data) {
-            console.log('beforeSave', params, data)
+            // console.log('beforeSave', params, data)
         },
 
         // Called when entry is updated
         async beforeUpdate(params, data) {
-            console.log('beforeUpdate')
-            await saveImagenes(data)
+            // console.log('beforeUpdate')
+            // await saveImagenes(data)
         },
 
         // Called when entry is created
         async beforeCreate(data) {
-            console.log('beforeCreate')
-            await saveImagenes(data)
+            // console.log('beforeCreate')
+            // await saveImagenes(data)
         },
       },
 
