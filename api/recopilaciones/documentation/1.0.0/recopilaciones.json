@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/grupos": {
+    "/recopilaciones": {
       "get": {
         "deprecated": false,
-        "description": "Find all the grupos's records",
+        "description": "Find all the recopilaciones's records",
         "responses": {
           "200": {
-            "description": "Retrieve grupos document(s)",
+            "description": "Retrieve recopilaciones document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Grupos"
+                    "$ref": "#/components/schemas/Recopilaciones"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Grupos"
+          "Recopilaciones"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new grupos record",
+        "description": "Create a new recopilaciones record",
         "responses": {
           "200": {
-            "description": "Retrieve grupos document(s)",
+            "description": "Retrieve recopilaciones document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Grupos"
+                  "$ref": "#/components/schemas/Recopilaciones"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Grupos"
+          "Recopilaciones"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewGrupos"
+                "$ref": "#/components/schemas/NewRecopilaciones"
               }
             }
           }
         }
       }
     },
-    "/grupos/count": {
+    "/recopilaciones/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of grupos documents",
+        "description": "Retrieve the number of recopilaciones documents",
         "responses": {
           "200": {
-            "description": "Retrieve grupos document(s)",
+            "description": "Retrieve recopilaciones document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Grupos"
+          "Recopilaciones"
         ],
         "parameters": []
       }
     },
-    "/grupos/{id}": {
+    "/recopilaciones/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one grupos record",
+        "description": "Find one recopilaciones record",
         "responses": {
           "200": {
-            "description": "Retrieve grupos document(s)",
+            "description": "Retrieve recopilaciones document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Grupos"
+                  "$ref": "#/components/schemas/Recopilaciones"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Grupos"
+          "Recopilaciones"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single grupos record",
+        "description": "Update a single recopilaciones record",
         "responses": {
           "200": {
-            "description": "Retrieve grupos document(s)",
+            "description": "Retrieve recopilaciones document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Grupos"
+                  "$ref": "#/components/schemas/Recopilaciones"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Grupos"
+          "Recopilaciones"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewGrupos"
+                "$ref": "#/components/schemas/NewRecopilaciones"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single grupos record",
+        "description": "Delete a single recopilaciones record",
         "responses": {
           "200": {
-            "description": "deletes a single grupos based on the ID supplied",
+            "description": "deletes a single recopilaciones based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Grupos"
+          "Recopilaciones"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Grupos": {
+      "Recopilaciones": {
         "required": [
           "id"
         ],
@@ -522,150 +522,144 @@
           "id": {
             "type": "string"
           },
-          "nombre": {
+          "titulo": {
             "type": "string"
           },
           "descripcion": {
             "type": "string"
           },
-          "users": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "username",
-                "email"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "username": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmationToken": {
-                  "type": "string"
-                },
-                "confirmed": {
-                  "type": "boolean"
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "nombreSimbolico": {
-                  "type": "string"
-                },
-                "grupos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "frase": {
-                  "type": "string"
-                },
-                "asiste": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "likes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "likeit": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "notificacionesEquipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "coordina": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "equipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "comentarios": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "eventos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "historial": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "recopilaciones": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+          "autor": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "nombreSimbolico": {
+                "type": "string"
+              },
+              "grupos": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "frase": {
+                "type": "string"
+              },
+              "asiste": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likeit": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notificacionesEquipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "coordina": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "equipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "comentarios": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "eventos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "historial": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "recopilaciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           }
         }
       },
-      "NewGrupos": {
+      "NewRecopilaciones": {
         "properties": {
-          "nombre": {
+          "titulo": {
             "type": "string"
           },
           "descripcion": {
             "type": "string"
           },
-          "users": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "autor": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -679,7 +673,7 @@
   },
   "tags": [
     {
-      "name": "Grupos"
+      "name": "Recopilaciones"
     }
   ]
 }

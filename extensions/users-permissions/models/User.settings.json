@@ -117,6 +117,10 @@
     "historial": {
       "via": "autor",
       "collection": "historial"
+    },
+    "recopilaciones": {
+      "via": "autor",
+      "collection": "recopilaciones"
     }
   }
 }

@@ -1471,6 +1471,7 @@
             "items": {
               "required": [
                 "id",
+                "texto",
                 "uid"
               ],
               "properties": {
@@ -1496,6 +1497,18 @@
                   "type": "string"
                 },
                 "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "adjuntos": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1800,6 +1813,7 @@
             "items": {
               "required": [
                 "id",
+                "texto",
                 "uid"
               ],
               "properties": {
@@ -1825,6 +1839,18 @@
                   "type": "string"
                 },
                 "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "adjuntos": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1958,9 +1984,39 @@
                     "evento_asiste",
                     "reunion_creada",
                     "acta_creada",
+                    "recopilacion_creada",
+                    "experiencia_compartida",
                     "equipo_entrada",
                     "equipo_salida"
                   ]
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "recopilaciones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "autor": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -2073,6 +2129,12 @@
             }
           },
           "historial": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "recopilaciones": {
             "type": "array",
             "items": {
               "type": "string"

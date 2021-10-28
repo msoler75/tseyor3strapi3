@@ -634,6 +634,12 @@
                   "type": "string"
                 }
               },
+              "recopilaciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -653,6 +659,8 @@
               "evento_asiste",
               "reunion_creada",
               "acta_creada",
+              "recopilacion_creada",
+              "experiencia_compartida",
               "equipo_entrada",
               "equipo_salida"
             ]
@@ -681,6 +689,8 @@
               "evento_asiste",
               "reunion_creada",
               "acta_creada",
+              "recopilacion_creada",
+              "experiencia_compartida",
               "equipo_entrada",
               "equipo_salida"
             ]

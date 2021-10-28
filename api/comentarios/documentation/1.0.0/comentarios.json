@@ -683,6 +683,7 @@
       "Comentarios": {
         "required": [
           "id",
+          "texto",
           "uid"
         ],
         "properties": {
@@ -701,6 +702,7 @@
             "items": {
               "required": [
                 "id",
+                "texto",
                 "uid"
               ],
               "properties": {
@@ -731,6 +733,18 @@
                     "type": "string"
                   }
                 },
+                "nombre": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "adjuntos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -746,6 +760,7 @@
           "respondiendo": {
             "required": [
               "id",
+              "texto",
               "uid"
             ],
             "properties": {
@@ -771,6 +786,18 @@
                 "type": "string"
               },
               "likes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nombre": {
+                "type": "string"
+              },
+              "correo": {
+                "type": "string"
+              },
+              "adjuntos": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -893,6 +920,12 @@
                   "type": "string"
                 }
               },
+              "recopilaciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -1009,6 +1042,88 @@
                     "type": "string"
                   }
                 },
+                "recopilaciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "correo": {
+            "type": "string"
+          },
+          "adjuntos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "alternativeText": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "formats": {
+                  "type": "object"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -1026,6 +1141,7 @@
       },
       "NewComentarios": {
         "required": [
+          "texto",
           "uid"
         ],
         "properties": {
@@ -1053,6 +1169,12 @@
             "items": {
               "type": "string"
             }
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "correo": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

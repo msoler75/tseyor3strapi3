@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/recopilaciones",
+      "handler": "recopilaciones.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/recopilaciones/count",
+      "handler": "recopilaciones.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/recopilaciones/:id",
+      "handler": "recopilaciones.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/recopilaciones",
+      "handler": "recopilaciones.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/recopilaciones/:id",
+      "handler": "recopilaciones.update",
+      "config": {
+        "policies": ["global::is-owner"]
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/recopilaciones/:id",
+      "handler": "recopilaciones.delete",
+      "config": {
+        "policies": ["global::is-owner"]
+      }
+    }
+  ]
+}

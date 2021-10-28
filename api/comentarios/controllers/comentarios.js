@@ -18,10 +18,12 @@ module.exports = {
         let entity;
         if (ctx.is('multipart')) {
             const { data, files } = parseMultipartData(ctx);
-            data.autor = ctx.state.user.id;
+            if(ctx.state.user)
+              data.autor = ctx.state.user.id
             entity = await strapi.services.comentarios.create(data, { files });
         } else {
-            ctx.request.body.autor = ctx.state.user.id;
+            if(ctx.state.user)
+              ctx.request.body.autor = ctx.state.user.id
             entity = await strapi.services.comentarios.create(ctx.request.body);
         }
         return sanitizeEntity(entity, { model: strapi.models.comentarios });

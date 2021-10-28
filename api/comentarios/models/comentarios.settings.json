@@ -14,7 +14,8 @@
   "attributes": {
     "texto": {
       "type": "richtext",
-      "minLength": 2
+      "minLength": 2,
+      "required": true
     },
     "uid": {
       "type": "string",
@@ -39,6 +40,24 @@
       "plugin": "users-permissions",
       "collection": "user",
       "dominant": true
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "correo": {
+      "type": "string"
+    },
+    "adjuntos": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

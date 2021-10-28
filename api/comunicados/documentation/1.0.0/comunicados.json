@@ -529,7 +529,8 @@
             "type": "string"
           },
           "texto": {
-            "type": "string"
+            "type": "string",
+            "minLength": 300
           },
           "imagen": {
             "required": [
@@ -696,7 +697,8 @@
             "type": "string"
           },
           "texto": {
-            "type": "string"
+            "type": "string",
+            "minLength": 300
           },
           "descripcion": {
             "type": "string",

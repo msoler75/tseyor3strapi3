@@ -17,7 +17,8 @@
       "required": true
     },
     "texto": {
-      "type": "richtext"
+      "type": "richtext",
+      "minLength": 300
     },
     "imagen": {
       "model": "file",

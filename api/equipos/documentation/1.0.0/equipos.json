@@ -1035,6 +1035,12 @@
                     "type": "string"
                   }
                 },
+                "recopilaciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -1364,6 +1370,12 @@
                     "type": "string"
                   }
                 },
+                "recopilaciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -1492,6 +1504,12 @@
                   }
                 },
                 "historial": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "recopilaciones": {
                   "type": "array",
                   "items": {
                     "type": "string"

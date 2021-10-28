@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recopilaciones",
+  "info": {
+    "name": "Recopilaciones",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "autor": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "recopilaciones"
+    }
+  }
+}

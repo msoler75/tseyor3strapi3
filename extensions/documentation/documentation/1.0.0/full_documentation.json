@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/25/2021 9:20:13 AM"
+    "x-generation-date": "10/28/2021 4:33:07 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -12362,6 +12362,517 @@
         ]
       }
     },
+    "/recopilaciones": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the recopilaciones's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve recopilaciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Recopilaciones"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Recopilaciones"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new recopilaciones record",
+        "responses": {
+          "200": {
+            "description": "Retrieve recopilaciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Recopilaciones"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Recopilaciones"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewRecopilaciones"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recopilaciones/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the number of recopilaciones documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve recopilaciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Recopilaciones"
+        ],
+        "parameters": []
+      }
+    },
+    "/recopilaciones/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one recopilaciones record",
+        "responses": {
+          "200": {
+            "description": "Retrieve recopilaciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Recopilaciones"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Recopilaciones"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single recopilaciones record",
+        "responses": {
+          "200": {
+            "description": "Retrieve recopilaciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Recopilaciones"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Recopilaciones"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewRecopilaciones"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single recopilaciones record",
+        "responses": {
+          "200": {
+            "description": "deletes a single recopilaciones based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Recopilaciones"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/redes": {
       "get": {
         "deprecated": false,
@@ -18083,6 +18594,7 @@
       "Comentarios": {
         "required": [
           "id",
+          "texto",
           "uid"
         ],
         "properties": {
@@ -18101,6 +18613,7 @@
             "items": {
               "required": [
                 "id",
+                "texto",
                 "uid"
               ],
               "properties": {
@@ -18131,6 +18644,18 @@
                     "type": "string"
                   }
                 },
+                "nombre": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "adjuntos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -18146,6 +18671,7 @@
           "respondiendo": {
             "required": [
               "id",
+              "texto",
               "uid"
             ],
             "properties": {
@@ -18171,6 +18697,18 @@
                 "type": "string"
               },
               "likes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "nombre": {
+                "type": "string"
+              },
+              "correo": {
+                "type": "string"
+              },
+              "adjuntos": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -18293,6 +18831,12 @@
                   "type": "string"
                 }
               },
+              "recopilaciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -18409,6 +18953,88 @@
                     "type": "string"
                   }
                 },
+                "recopilaciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "correo": {
+            "type": "string"
+          },
+          "adjuntos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "alternativeText": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "formats": {
+                  "type": "object"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -18426,6 +19052,7 @@
       },
       "NewComentarios": {
         "required": [
+          "texto",
           "uid"
         ],
         "properties": {
@@ -18454,6 +19081,12 @@
               "type": "string"
             }
           },
+          "nombre": {
+            "type": "string"
+          },
+          "correo": {
+            "type": "string"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -18481,7 +19114,8 @@
             "type": "string"
           },
           "texto": {
-            "type": "string"
+            "type": "string",
+            "minLength": 300
           },
           "imagen": {
             "required": [
@@ -18648,7 +19282,8 @@
             "type": "string"
           },
           "texto": {
-            "type": "string"
+            "type": "string",
+            "minLength": 300
           },
           "descripcion": {
             "type": "string",
@@ -18934,6 +19569,12 @@
                 }
               },
               "historial": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "recopilaciones": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -19431,6 +20072,12 @@
                     "type": "string"
                   }
                 },
+                "recopilaciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -19760,6 +20407,12 @@
                     "type": "string"
                   }
                 },
+                "recopilaciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -19888,6 +20541,12 @@
                   }
                 },
                 "historial": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "recopilaciones": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -20492,6 +21151,12 @@
                   "type": "string"
                 }
               },
+              "recopilaciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -20603,6 +21268,12 @@
                   }
                 },
                 "historial": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "recopilaciones": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -20815,6 +21486,12 @@
                   }
                 },
                 "historial": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "recopilaciones": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -21174,6 +21851,12 @@
                   "type": "string"
                 }
               },
+              "recopilaciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -21193,6 +21876,8 @@
               "evento_asiste",
               "reunion_creada",
               "acta_creada",
+              "recopilacion_creada",
+              "experiencia_compartida",
               "equipo_entrada",
               "equipo_salida"
             ]
@@ -21221,6 +21906,8 @@
               "evento_asiste",
               "reunion_creada",
               "acta_creada",
+              "recopilacion_creada",
+              "experiencia_compartida",
               "equipo_entrada",
               "equipo_salida"
             ]
@@ -21593,6 +22280,12 @@
                 }
               },
               "historial": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "recopilaciones": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -22093,6 +22786,161 @@
           "published_at": {
             "type": "string",
             "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Recopilaciones": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "titulo": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "autor": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "nombreSimbolico": {
+                "type": "string"
+              },
+              "grupos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "frase": {
+                "type": "string"
+              },
+              "asiste": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likeit": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notificacionesEquipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "coordina": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "equipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "comentarios": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "eventos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "historial": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "recopilaciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "NewRecopilaciones": {
+        "properties": {
+          "titulo": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "autor": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -22817,6 +23665,12 @@
                     "type": "string"
                   }
                 },
+                "recopilaciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -23150,6 +24004,7 @@
             "items": {
               "required": [
                 "id",
+                "texto",
                 "uid"
               ],
               "properties": {
@@ -23175,6 +24030,18 @@
                   "type": "string"
                 },
                 "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "adjuntos": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -23479,6 +24346,7 @@
             "items": {
               "required": [
                 "id",
+                "texto",
                 "uid"
               ],
               "properties": {
@@ -23504,6 +24372,18 @@
                   "type": "string"
                 },
                 "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "adjuntos": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -23637,9 +24517,39 @@
                     "evento_asiste",
                     "reunion_creada",
                     "acta_creada",
+                    "recopilacion_creada",
+                    "experiencia_compartida",
                     "equipo_entrada",
                     "equipo_salida"
                   ]
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "recopilaciones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "autor": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -23757,6 +24667,12 @@
               "type": "string"
             }
           },
+          "recopilaciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "created_by": {
             "type": "string"
           },
@@ -23864,6 +24780,9 @@
     },
     {
       "name": "Paginas"
+    },
+    {
+      "name": "Recopilaciones"
     },
     {
       "name": "Redes"

@@ -34,6 +34,8 @@
         "evento_asiste",
         "reunion_creada",
         "acta_creada",
+        "recopilacion_creada",
+        "experiencia_compartida",
         "equipo_entrada",
         "equipo_salida"
       ]
