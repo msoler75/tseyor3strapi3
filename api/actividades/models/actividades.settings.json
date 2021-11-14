@@ -12,6 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo"
+    },
     "titulo": {
       "type": "string"
     },
@@ -44,6 +48,10 @@
     "reuniones": {
       "via": "actividad",
       "collection": "reuniones"
+    },
+    "actas": {
+      "via": "actividad",
+      "collection": "actas"
     }
   }
 }

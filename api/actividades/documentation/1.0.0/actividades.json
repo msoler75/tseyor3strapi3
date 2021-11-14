@@ -787,6 +787,58 @@
               }
             }
           },
+          "actas": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "reunion": {
+                  "type": "string"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "adjuntos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "fechaAuxiliar": {
+                  "type": "string"
+                },
+                "equipo": {
+                  "type": "string"
+                },
+                "anexos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actividad": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "slug": {
+            "type": "uid"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -890,6 +942,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "actas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "slug": {
+            "type": "uid"
           },
           "published_at": {
             "type": "string",

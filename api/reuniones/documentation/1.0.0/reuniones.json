@@ -734,6 +734,15 @@
                   "type": "string"
                 }
               },
+              "actas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "slug": {
+                "type": "uid"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -776,6 +785,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "actividad": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"

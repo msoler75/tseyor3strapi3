@@ -40,6 +40,10 @@
     },
     "anexos": {
       "collection": "anexos"
+    },
+    "actividad": {
+      "via": "actas",
+      "model": "actividades"
     }
   }
 }

@@ -774,6 +774,66 @@
               }
             }
           },
+          "actividad": {
+            "required": [
+              "id",
+              "horarios"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "titulo": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "tipo": {
+                "type": "string",
+                "enum": [
+                  "reunion",
+                  "otras"
+                ]
+              },
+              "horarios": {
+                "type": "component"
+              },
+              "sala": {
+                "type": "string"
+              },
+              "publica": {
+                "type": "boolean"
+              },
+              "equipo": {
+                "type": "string"
+              },
+              "reuniones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "actas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -800,6 +860,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "actividad": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

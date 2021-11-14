@@ -39,8 +39,8 @@
       "type": "boolean"
     },
     "actividad": {
-      "model": "actividades",
-      "via": "reuniones"
+      "via": "reuniones",
+      "model": "actividades"
     },
     "acta": {
       "via": "reunion",

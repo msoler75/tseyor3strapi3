@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/28/2021 4:33:07 PM"
+    "x-generation-date": "11/14/2021 5:34:44 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -16895,6 +16895,66 @@
               }
             }
           },
+          "actividad": {
+            "required": [
+              "id",
+              "horarios"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "titulo": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "tipo": {
+                "type": "string",
+                "enum": [
+                  "reunion",
+                  "otras"
+                ]
+              },
+              "horarios": {
+                "type": "component"
+              },
+              "sala": {
+                "type": "string"
+              },
+              "publica": {
+                "type": "boolean"
+              },
+              "equipo": {
+                "type": "string"
+              },
+              "reuniones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "actas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "slug": {
+                "type": "uid"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -16921,6 +16981,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "actividad": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -17207,6 +17270,58 @@
               }
             }
           },
+          "actas": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "reunion": {
+                  "type": "string"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "adjuntos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "fechaAuxiliar": {
+                  "type": "string"
+                },
+                "equipo": {
+                  "type": "string"
+                },
+                "anexos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actividad": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "slug": {
+            "type": "uid"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -17310,6 +17425,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "actas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "slug": {
+            "type": "uid"
           },
           "published_at": {
             "type": "string",
@@ -20176,6 +20300,9 @@
                     "type": "string"
                   }
                 },
+                "actividad": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -20229,6 +20356,15 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "actas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "uid"
                 },
                 "published_at": {
                   "type": "string"
@@ -23210,6 +23346,15 @@
                   "type": "string"
                 }
               },
+              "actas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "slug": {
+                "type": "uid"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -23252,6 +23397,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "actividad": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
