@@ -848,7 +848,8 @@
     "schemas": {
       "Equipos": {
         "required": [
-          "id"
+          "id",
+          "imagen"
         ],
         "properties": {
           "id": {
@@ -1069,7 +1070,7 @@
                 "fecha": {
                   "type": "string"
                 },
-                "od": {
+                "texto": {
                   "type": "string"
                 },
                 "adjuntos": {
@@ -1093,6 +1094,9 @@
                     "type": "string"
                   }
                 },
+                "titulo": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1109,7 +1113,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "fecha"
               ],
               "properties": {
                 "id": {
@@ -1127,7 +1132,7 @@
                     "type": "string"
                   }
                 },
-                "fechaAuxiliar": {
+                "fecha": {
                   "type": "string"
                 },
                 "equipo": {
@@ -1165,6 +1170,9 @@
                 "id": {
                   "type": "string"
                 },
+                "slug": {
+                  "type": "uid"
+                },
                 "titulo": {
                   "type": "string"
                 },
@@ -1201,9 +1209,6 @@
                   "items": {
                     "type": "string"
                   }
-                },
-                "slug": {
-                  "type": "uid"
                 },
                 "published_at": {
                   "type": "string"

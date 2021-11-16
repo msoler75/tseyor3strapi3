@@ -19,7 +19,7 @@
     "fecha": {
       "type": "datetime"
     },
-    "od": {
+    "texto": {
       "type": "richtext",
       "minLength": 10
     },
@@ -48,6 +48,9 @@
     },
     "anexos": {
       "collection": "anexos"
+    },
+    "titulo": {
+      "type": "string"
     }
   }
 }

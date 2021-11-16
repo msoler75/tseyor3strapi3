@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/14/2021 5:34:44 PM"
+    "x-generation-date": "11/16/2021 10:19:27 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -16637,7 +16637,8 @@
     "schemas": {
       "Actas": {
         "required": [
-          "id"
+          "id",
+          "fecha"
         ],
         "properties": {
           "id": {
@@ -16657,7 +16658,7 @@
               "fecha": {
                 "type": "string"
               },
-              "od": {
+              "texto": {
                 "type": "string"
               },
               "adjuntos": {
@@ -16680,6 +16681,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "titulo": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -16765,13 +16769,14 @@
               }
             }
           },
-          "fechaAuxiliar": {
+          "fecha": {
             "type": "string",
             "format": "date"
           },
           "equipo": {
             "required": [
-              "id"
+              "id",
+              "imagen"
             ],
             "properties": {
               "id": {
@@ -16883,6 +16888,9 @@
                     "type": "string"
                   }
                 },
+                "slug": {
+                  "type": "uid"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -16903,6 +16911,9 @@
             "properties": {
               "id": {
                 "type": "string"
+              },
+              "slug": {
+                "type": "uid"
               },
               "titulo": {
                 "type": "string"
@@ -16941,9 +16952,6 @@
                   "type": "string"
                 }
               },
-              "slug": {
-                "type": "uid"
-              },
               "published_at": {
                 "type": "string"
               },
@@ -16962,6 +16970,9 @@
         }
       },
       "NewActas": {
+        "required": [
+          "fecha"
+        ],
         "properties": {
           "reunion": {
             "type": "string"
@@ -16969,7 +16980,7 @@
           "texto": {
             "type": "string"
           },
-          "fechaAuxiliar": {
+          "fecha": {
             "type": "string",
             "format": "date"
           },
@@ -17005,6 +17016,9 @@
         "properties": {
           "id": {
             "type": "string"
+          },
+          "slug": {
+            "type": "uid"
           },
           "titulo": {
             "type": "string"
@@ -17129,7 +17143,8 @@
           },
           "equipo": {
             "required": [
-              "id"
+              "id",
+              "imagen"
             ],
             "properties": {
               "id": {
@@ -17234,7 +17249,7 @@
                 "fecha": {
                   "type": "string"
                 },
-                "od": {
+                "texto": {
                   "type": "string"
                 },
                 "adjuntos": {
@@ -17258,6 +17273,9 @@
                     "type": "string"
                   }
                 },
+                "titulo": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -17274,7 +17292,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "fecha"
               ],
               "properties": {
                 "id": {
@@ -17292,7 +17311,7 @@
                     "type": "string"
                   }
                 },
-                "fechaAuxiliar": {
+                "fecha": {
                   "type": "string"
                 },
                 "equipo": {
@@ -17319,9 +17338,6 @@
               }
             }
           },
-          "slug": {
-            "type": "uid"
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -17333,6 +17349,9 @@
           "horarios"
         ],
         "properties": {
+          "slug": {
+            "type": "uid"
+          },
           "titulo": {
             "type": "string"
           },
@@ -17432,9 +17451,6 @@
               "type": "string"
             }
           },
-          "slug": {
-            "type": "uid"
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -17532,6 +17548,9 @@
               }
             }
           },
+          "slug": {
+            "type": "uid"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -17548,6 +17567,9 @@
           },
           "texto": {
             "type": "string"
+          },
+          "slug": {
+            "type": "uid"
           },
           "published_at": {
             "type": "string",
@@ -18435,7 +18457,8 @@
           },
           "equipo": {
             "required": [
-              "id"
+              "id",
+              "imagen"
             ],
             "properties": {
               "id": {
@@ -18634,12 +18657,6 @@
                 "sala": {
                   "type": "string"
                 },
-                "asistentes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "organiza": {
                   "type": "string"
                 },
@@ -18656,6 +18673,12 @@
                 },
                 "autor": {
                   "type": "string"
+                },
+                "asistentes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -20009,7 +20032,8 @@
       },
       "Equipos": {
         "required": [
-          "id"
+          "id",
+          "imagen"
         ],
         "properties": {
           "id": {
@@ -20230,7 +20254,7 @@
                 "fecha": {
                   "type": "string"
                 },
-                "od": {
+                "texto": {
                   "type": "string"
                 },
                 "adjuntos": {
@@ -20254,6 +20278,9 @@
                     "type": "string"
                   }
                 },
+                "titulo": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -20270,7 +20297,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "fecha"
               ],
               "properties": {
                 "id": {
@@ -20288,7 +20316,7 @@
                     "type": "string"
                   }
                 },
-                "fechaAuxiliar": {
+                "fecha": {
                   "type": "string"
                 },
                 "equipo": {
@@ -20326,6 +20354,9 @@
                 "id": {
                   "type": "string"
                 },
+                "slug": {
+                  "type": "uid"
+                },
                 "titulo": {
                   "type": "string"
                 },
@@ -20362,9 +20393,6 @@
                   "items": {
                     "type": "string"
                   }
-                },
-                "slug": {
-                  "type": "uid"
                 },
                 "published_at": {
                   "type": "string"
@@ -23136,7 +23164,8 @@
           },
           "equipo": {
             "required": [
-              "id"
+              "id",
+              "imagen"
             ],
             "properties": {
               "id": {
@@ -23229,7 +23258,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "od": {
+          "texto": {
             "type": "string",
             "minLength": 10
           },
@@ -23315,6 +23344,9 @@
               "id": {
                 "type": "string"
               },
+              "slug": {
+                "type": "uid"
+              },
               "titulo": {
                 "type": "string"
               },
@@ -23352,9 +23384,6 @@
                   "type": "string"
                 }
               },
-              "slug": {
-                "type": "uid"
-              },
               "published_at": {
                 "type": "string"
               },
@@ -23368,7 +23397,8 @@
           },
           "acta": {
             "required": [
-              "id"
+              "id",
+              "fecha"
             ],
             "properties": {
               "id": {
@@ -23386,7 +23416,7 @@
                   "type": "string"
                 }
               },
-              "fechaAuxiliar": {
+              "fecha": {
                 "type": "string"
               },
               "equipo": {
@@ -23435,6 +23465,9 @@
                     "type": "string"
                   }
                 },
+                "slug": {
+                  "type": "uid"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -23446,6 +23479,9 @@
                 }
               }
             }
+          },
+          "titulo": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -23462,7 +23498,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "od": {
+          "texto": {
             "type": "string",
             "minLength": 10
           },
@@ -23480,6 +23516,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "titulo": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -24211,7 +24250,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "imagen"
               ],
               "properties": {
                 "id": {
@@ -24305,7 +24345,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "imagen"
               ],
               "properties": {
                 "id": {
@@ -24399,7 +24440,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "imagen"
               ],
               "properties": {
                 "id": {

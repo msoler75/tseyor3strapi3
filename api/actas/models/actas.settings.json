@@ -31,8 +31,9 @@
       "required": false,
       "pluginOptions": {}
     },
-    "fechaAuxiliar": {
-      "type": "date"
+    "fecha": {
+      "type": "date",
+      "required": true
     },
     "equipo": {
       "via": "actas",

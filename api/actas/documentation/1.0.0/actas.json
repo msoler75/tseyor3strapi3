@@ -516,7 +516,8 @@
     "schemas": {
       "Actas": {
         "required": [
-          "id"
+          "id",
+          "fecha"
         ],
         "properties": {
           "id": {
@@ -536,7 +537,7 @@
               "fecha": {
                 "type": "string"
               },
-              "od": {
+              "texto": {
                 "type": "string"
               },
               "adjuntos": {
@@ -559,6 +560,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "titulo": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -644,13 +648,14 @@
               }
             }
           },
-          "fechaAuxiliar": {
+          "fecha": {
             "type": "string",
             "format": "date"
           },
           "equipo": {
             "required": [
-              "id"
+              "id",
+              "imagen"
             ],
             "properties": {
               "id": {
@@ -762,6 +767,9 @@
                     "type": "string"
                   }
                 },
+                "slug": {
+                  "type": "uid"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -782,6 +790,9 @@
             "properties": {
               "id": {
                 "type": "string"
+              },
+              "slug": {
+                "type": "uid"
               },
               "titulo": {
                 "type": "string"
@@ -820,9 +831,6 @@
                   "type": "string"
                 }
               },
-              "slug": {
-                "type": "uid"
-              },
               "published_at": {
                 "type": "string"
               },
@@ -841,6 +849,9 @@
         }
       },
       "NewActas": {
+        "required": [
+          "fecha"
+        ],
         "properties": {
           "reunion": {
             "type": "string"
@@ -848,7 +859,7 @@
           "texto": {
             "type": "string"
           },
-          "fechaAuxiliar": {
+          "fecha": {
             "type": "string",
             "format": "date"
           },

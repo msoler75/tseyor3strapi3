@@ -32,6 +32,14 @@ async function normalizeData (data) {
   }
 }
 
+async function uniformDates(results) {
+    console.log(results)
+    for(const r of results)
+    {
+
+    }
+}
+
 module.exports = {
   lifecycles: {
     async beforeCreate (data) {
@@ -40,6 +48,14 @@ module.exports = {
 
     async beforeUpdate (params, data) {
       await normalizeData(data)
+    },
+
+    async afterFind(results, params, populate) {
+        uniformDates(results)
+    },
+
+    async afterFindOne(results, params, populate) {
+        uniformDates(results)
     }
   }
 }

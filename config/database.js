@@ -11,7 +11,7 @@ module.exports = ({ env }) => ({
         username: env('DATABASE_USERNAME', 'root'),
         password: env('DATABASE_PASSWORD', ''),
         ssl: env.bool('DATABASE_SSL', false),
-        timezone: 'Europe/Madrid'
+        timezone: env('DATABASE_TIMEZONE', 'utc')
       },
       options: {}
     },

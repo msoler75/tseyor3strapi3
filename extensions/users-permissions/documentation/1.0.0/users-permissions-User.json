@@ -1530,7 +1530,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "imagen"
               ],
               "properties": {
                 "id": {
@@ -1624,7 +1625,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "imagen"
               ],
               "properties": {
                 "id": {
@@ -1718,7 +1720,8 @@
             "type": "array",
             "items": {
               "required": [
-                "id"
+                "id",
+                "imagen"
               ],
               "properties": {
                 "id": {

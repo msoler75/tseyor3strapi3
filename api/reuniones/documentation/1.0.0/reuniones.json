@@ -524,7 +524,8 @@
           },
           "equipo": {
             "required": [
-              "id"
+              "id",
+              "imagen"
             ],
             "properties": {
               "id": {
@@ -617,7 +618,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "od": {
+          "texto": {
             "type": "string",
             "minLength": 10
           },
@@ -703,6 +704,9 @@
               "id": {
                 "type": "string"
               },
+              "slug": {
+                "type": "uid"
+              },
               "titulo": {
                 "type": "string"
               },
@@ -740,9 +744,6 @@
                   "type": "string"
                 }
               },
-              "slug": {
-                "type": "uid"
-              },
               "published_at": {
                 "type": "string"
               },
@@ -756,7 +757,8 @@
           },
           "acta": {
             "required": [
-              "id"
+              "id",
+              "fecha"
             ],
             "properties": {
               "id": {
@@ -774,7 +776,7 @@
                   "type": "string"
                 }
               },
-              "fechaAuxiliar": {
+              "fecha": {
                 "type": "string"
               },
               "equipo": {
@@ -823,6 +825,9 @@
                     "type": "string"
                   }
                 },
+                "slug": {
+                  "type": "uid"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -834,6 +839,9 @@
                 }
               }
             }
+          },
+          "titulo": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -850,7 +858,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "od": {
+          "texto": {
             "type": "string",
             "minLength": 10
           },
@@ -868,6 +876,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "titulo": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
