@@ -98,7 +98,7 @@ module.exports = {
       return ctx.unauthorized(`Reunión no existe`)
     }
 
-    if (err = await esCoordinador(ctx, reunion.actividad))
+    if (err = await esCoordinador(ctx, reunion.actividad.id))
       return ctx.unauthorized(err)
 
     entity = await strapi.services.reuniones.delete({ id })
