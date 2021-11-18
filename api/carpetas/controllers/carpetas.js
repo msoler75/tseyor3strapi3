@@ -55,6 +55,9 @@ module.exports = {
     // verificamos si están cambiando la carpeta de lugar
     if ('padre' in data || 'subcarpetas' in data) {
       const curdata = await strapi.services.carpetas.findOne({ id })
+      if(!curdata)
+        return ctx.notFound(`Carpeta ${id} no encontrada`)
+
       curdata.subcarpetas = curdata.subcarpetas.map(x => idy(x))
       if (
         'subcarpetas' in data &&
@@ -65,6 +68,13 @@ module.exports = {
       curdata.padre = idy(curdata.padre)
       if (curdata.fija && 'padre' in data && data.padre !== curdata.padre)
         return ctx.forbidden(`Esta carpeta no se puede mover`)
+
+      if('padre' in data && data.padre !== curdata.padre)
+      {
+          const padredata = await strapi.services.carpetas.findOne({ id: data.padre })
+          if(!padredata)
+            return ctx.notFound(`Carpeta ${data.padre} no encontrada`)
+      }
 
       if (await detectCycle(data, id)) 
         return ctx.forbidden(`Ciclo detectado`)

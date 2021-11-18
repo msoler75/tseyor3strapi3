@@ -14,10 +14,12 @@ async function detectCycle (data, id) {
   }
   const ids = []
   const next = []
-  if (data.padre) ids.push(data.padre.id?data.padre.id:data.padre)
+  if (data.padre) ids.push(data.padre.id ? data.padre.id : data.padre)
   if (id && ids.includes(id)) return true // caso raro
   if (id) ids.push(id)
   let current = data
+  if (!current.subcarpetas || typeof current.subcarpetas !== 'object')
+    current = await strapi.services.carpetas.findOne({ id })
   while (current) {
     for (const carpeta of current.subcarpetas) {
       const id = carpeta.id ? carpeta.id : carpeta
@@ -64,71 +66,67 @@ module.exports = {
     },
 
     async beforeUpdate (params, data) {
-      const id = typeof params.id === 'string' ? parseInt(params.id):params.id
+      const id = typeof params.id === 'string' ? parseInt(params.id) : params.id
       console.log('beforeUpdate', params, data)
-      if ('nombre' in data) 
-      {
-          data.slug = slugify(data.nombre, { lower: true })
-          console.log('slug', data.slug)
+      if ('nombre' in data) {
+        data.slug = slugify(data.nombre, { lower: true })
+        console.log('slug', data.slug)
       }
+
+      const orig =
+        (await strapi.services.carpetas.findOne({ id })) ||
+        (await strapi.services.carpetas.findOne({
+          id,
+          _publicationState: 'preview'
+        }))
+
       // evitamos la modificación manual de la ruta
       if ('ruta' in data) delete data.ruta
       // si cambia alguno de estos valores...
-      if ('slug' in data || 'padre' in data) {
+      if ('slug' in data || 'padre' in data || 'subcarpetas' in data) {
         // comprobamos la no circularidad infinita de carpetas
+
+        if (!('nombre' in data)) data.nombre = orig.nombre
+        if (!('subcarpetas' in data)) data.subcarpetas = orig.subcarpetas
+        if (!('padre' in data)) data.padre = orig.padre
+        data.slug = slugify(data.nombre, { lower: true })
+        console.log('data+orig', data)
+
         if (await detectCycle(data, id)) {
           data.padre = null
           data.subcarpetas = []
+          console.log('cycle detected!!')
         }
 
         // recalcularemos ruta de esta carpeta
-        let data2 =
-          'padre' in data && 'subcarpetas' in data
-            ? data
-            : (await strapi.services.carpetas.findOne({ id })) ||
+        let rutaPadre = ''
+        let padre = data.padre
+        console.log('padre', padre)
+        if (padre) {
+          const isObj = typeof padre === 'object'
+          let padreid = isObj ? padre.id : padre
+          padre = isObj
+            ? padre
+            : (await strapi.services.carpetas.findOne({ id: padreid })) ||
               (await strapi.services.carpetas.findOne({
-                id,
+                id: padreid,
                 _publicationState: 'preview'
               }))
-        console.log('data2', data2)
-        if (data2) {
-          let rutaPadre = ''
-          let padre = data.padre? data.padre : data2.padre
-          console.log('padre', padre)
-          if (padre) {
-            const isObj = typeof padre === 'object'
-            let padreid = isObj ? padre.id : padre
-            padre = isObj
-              ? padre
-              : (await strapi.services.carpetas.findOne({ id: padreid })) ||
-                (await strapi.services.carpetas.findOne({
-                  id: padreid,
-                  _publicationState: 'preview'
-                }))
-            rutaPadre = padre ? padre.ruta : ''
-          }
-          data.ruta = rutaPadre + '/' + data.slug
-          console.log('data.ruta', data.ruta)
+          rutaPadre = padre ? padre.ruta : ''
         }
-        
-        console.log('data', data)
+        data.ruta = rutaPadre + '/' + data.slug
+        console.log('data.ruta', data.ruta)
 
-        if(!('subcarpetas' in data))
-            data.subcarpetas = data2.subcarpetas
-
-        console.log('data*', data)
-        
         // llamamos a todas las subcarpetas y activamos update (data: padre) para que se auto modifiquen su ruta en beforeUpdate
-        for (let carpeta of data.subcarpetas)
-        {
-            console.log('actualizar subcarpeta', carpeta)
-            if(typeof carpeta !== 'object')
-                carpeta = await strapi.services.carpetas.findOne({id: carpeta})
-            console.log('actualizar subcarpeta', carpeta)
-            await strapi.services.carpetas.update(
-                { id: carpeta.id?carpeta.id:carpeta },
-                { slug: carpeta.slug, padre: {...data, id} }
-                )
+        for (let carpeta of data.subcarpetas) {
+          console.log('actualizar subcarpeta', carpeta)
+          if (typeof carpeta !== 'object')
+            carpeta = await strapi.services.carpetas.findOne({ id: carpeta })
+          console.log('actualizar subcarpeta', carpeta)
+          await strapi.services.carpetas.update(
+            { id: carpeta.id ? carpeta.id : carpeta },
+            { slug: carpeta.slug, padre: { ...data, id } }
+          )
         }
 
         // if(data.padre) data.padre = data.padre.id?data.padre.id:data.padre
@@ -136,12 +134,11 @@ module.exports = {
       }
     },
 
-
     async afterUpdate (result, params, data) {
-        console.log('afterUpdate', result, params, data)
+      console.log('afterUpdate', result, params, data)
       // si cambia alguno de estos valores...
       // if ('slug' in data || 'padre' in data) {
-        
+
       //}
     }
   }
