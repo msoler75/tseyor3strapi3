@@ -54,7 +54,7 @@ module.exports = {
     // console.log('--- leave ---')
     const {equipos, foundIn, equipoid } = await getEquipos(ctx, 'equipos');
     if (foundIn === -1) 
-        ctx.unauthorized(`No estás en ese equipo`);
+        return ctx.unauthorized(`No estás en ese equipo`);
     equipos.splice(foundIn, 1);
     // console.log('equipos2', equipos)
     await updateUser(ctx, 'equipos', equipos);
@@ -81,7 +81,7 @@ module.exports = {
     // console.log('--- leave ---')
     const {equipos, foundIn, equipoid } = await getEquipos(ctx, 'suscrito');
     if (foundIn === -1) 
-        ctx.unauthorized(`No estás en ese equipo`);
+        return ctx.unauthorized(`No estás en ese equipo`);
     equipos.splice(foundIn, 1);
     // console.log('equipos2', equipos)
     await updateUser(ctx, 'suscrito', equipos);

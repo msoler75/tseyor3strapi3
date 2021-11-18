@@ -121,6 +121,10 @@
     "recopilaciones": {
       "via": "autor",
       "collection": "recopilaciones"
+    },
+    "archivosSubidos": {
+      "via": "subidoPor",
+      "collection": "archivos"
     }
   }
 }

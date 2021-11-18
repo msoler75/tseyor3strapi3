@@ -1042,6 +1042,12 @@
                     "type": "string"
                   }
                 },
+                "archivosSubidos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -1393,6 +1399,12 @@
                     "type": "string"
                   }
                 },
+                "archivosSubidos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -1532,12 +1544,68 @@
                     "type": "string"
                   }
                 },
+                "archivosSubidos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
                 "updated_by": {
                   "type": "string"
                 }
+              }
+            }
+          },
+          "carpeta": {
+            "required": [
+              "id",
+              "nombre"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "nombre": {
+                "type": "string"
+              },
+              "descripcion": {
+                "type": "string"
+              },
+              "archivos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "fija": {
+                "type": "boolean"
+              },
+              "ruta": {
+                "type": "string"
+              },
+              "padre": {
+                "type": "string"
+              },
+              "subcarpetas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "slug": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           },
@@ -1618,6 +1686,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "carpeta": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

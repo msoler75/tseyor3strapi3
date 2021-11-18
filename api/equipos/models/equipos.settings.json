@@ -82,6 +82,9 @@
       "plugin": "users-permissions",
       "collection": "user",
       "dominant": true
+    },
+    "carpeta": {
+      "model": "carpetas"
     }
   }
 }

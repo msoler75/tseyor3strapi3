@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "archivos",
+  "info": {
+    "name": "Archivos"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "media": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "subidoPor": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "archivosSubidos"
+    },
+    "subidoEn": {
+      "type": "datetime"
+    },
+    "carpeta": {
+      "via": "archivos",
+      "model": "carpetas"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/carpetas",
+      "handler": "carpetas.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/carpetas/count",
+      "handler": "carpetas.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/carpetas/:id",
+      "handler": "carpetas.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/carpetas",
+      "handler": "carpetas.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/carpetas/:id",
+      "handler": "carpetas.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/carpetas/:id",
+      "handler": "carpetas.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

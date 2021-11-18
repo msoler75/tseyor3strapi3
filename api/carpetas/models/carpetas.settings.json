@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carpetas",
+  "info": {
+    "name": "Carpetas",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion": {
+      "type": "richtext"
+    },
+    "archivos": {
+      "collection": "archivos",
+      "via": "carpeta"
+    },
+    "fija": {
+      "type": "boolean",
+      "default": false
+    },
+    "ruta": {
+      "type": "string",
+      "unique": false
+    },
+    "padre": {
+      "model": "carpetas",
+      "via": "subcarpetas"
+    },
+    "subcarpetas": {
+      "collection": "carpetas",
+      "via": "padre"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

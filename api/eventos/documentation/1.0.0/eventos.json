@@ -1076,6 +1076,12 @@
                   "type": "string"
                 }
               },
+              "archivosSubidos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -1193,6 +1199,12 @@
                   }
                 },
                 "recopilaciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "archivosSubidos": {
                   "type": "array",
                   "items": {
                     "type": "string"

@@ -1609,6 +1609,9 @@
                     "type": "string"
                   }
                 },
+                "carpeta": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1704,6 +1707,9 @@
                     "type": "string"
                   }
                 },
+                "carpeta": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1798,6 +1804,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "carpeta": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -2029,6 +2038,45 @@
                 }
               }
             }
+          },
+          "archivosSubidos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "nombre",
+                "media"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "media": {
+                  "type": "string"
+                },
+                "subidoPor": {
+                  "type": "string"
+                },
+                "subidoEn": {
+                  "type": "string"
+                },
+                "carpeta": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -2138,6 +2186,12 @@
             }
           },
           "recopilaciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "archivosSubidos": {
             "type": "array",
             "items": {
               "type": "string"

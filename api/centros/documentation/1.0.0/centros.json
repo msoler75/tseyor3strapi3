@@ -754,6 +754,9 @@
                   "type": "string"
                 }
               },
+              "carpeta": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
