@@ -1,9 +1,13 @@
 'use strict';
 
+const cfs = require('../../../libs/carpetaslib/carpeta.js');
+
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#lifecycle-hooks)
  * to customize this model
  */
+
+
 
 const saveImagenes = async (data) => {
     if(!data.texto) return
@@ -39,25 +43,52 @@ const saveImagenes = async (data) => {
     data.imagen = bestImage
 }
 
+async function ubicarImagenesEnCarpeta(data) {
+    // agarramos todas las imagenes en un solo array
+    var mediaFiles = data.imagenes.concat([])
+    if(data.imagen&&!mediaFiles.find(x=>x.id===data.imagen.id))
+        mediaFiles.push(data.imagen)
+    if(!mediaFiles.length) return
+    const ruta = `/archivos/comunicados/${data.id}`
+    await cfs.crearCarpeta(ruta)
+    const archivos = await cfs.dameArchivosDeMediaList(mediaFiles)
+    await cfs.reemplazarArchivosARuta(ruta, archivos)
+}
+
 
 module.exports = {
 
     lifecycles: {
 
-        async beforeSave(params, data) {
-            console.log('beforeSave', params, data)
-        },
-
-        // Called when entry is updated
         async beforeUpdate(params, data) {
             console.log('beforeUpdate')
             await saveImagenes(data)
         },
 
-        // Called when entry is created
         async beforeCreate(data) {
             console.log('beforeCreate')
             await saveImagenes(data)
+        },        
+        
+        async afterCreate(result, data) {
+            console.log('afterCreate')
+            await ubicarImagenesEnCarpeta(result)
+        },
+
+        async afterUpdate(result, params, data) {
+            console.log('afterUpdate')
+            await ubicarImagenesEnCarpeta(result)
+        },
+
+        // truco para actualizar las imagenes
+        async afterFindOne(result, params, populate) {
+            console.log('afterFindOne')
+            await ubicarImagenesEnCarpeta(result)
+            /* let carpeta = await cfs.dameCarpeta('/ong')
+            console.log(carpeta)
+            carpeta = await cfs.dameCarpeta('/archivos/ong')
+            console.log(carpeta)
+            await cfs.crearCarpeta('/pepito/amoroso/celta') */
         },
       },
 

@@ -723,10 +723,6 @@
               }
             }
           },
-          "subidoEn": {
-            "type": "string",
-            "format": "date-time"
-          },
           "carpeta": {
             "required": [
               "id",
@@ -792,10 +788,6 @@
           },
           "subidoPor": {
             "type": "string"
-          },
-          "subidoEn": {
-            "type": "string",
-            "format": "date-time"
           },
           "carpeta": {
             "type": "string"

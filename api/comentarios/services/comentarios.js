@@ -1,4 +1,4 @@
-const likesservices = require('../../likeslib/services.js')
+const likesservices = require('../../../libs/likeslib/services.js')
 
 module.exports = {
   /**

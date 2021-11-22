@@ -553,9 +553,6 @@
                 "subidoPor": {
                   "type": "string"
                 },
-                "subidoEn": {
-                  "type": "string"
-                },
                 "carpeta": {
                   "type": "string"
                 },

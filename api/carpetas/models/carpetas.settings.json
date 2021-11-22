@@ -20,8 +20,8 @@
       "type": "richtext"
     },
     "archivos": {
-      "collection": "archivos",
-      "via": "carpeta"
+      "via": "carpeta",
+      "collection": "archivos"
     },
     "fija": {
       "type": "boolean",

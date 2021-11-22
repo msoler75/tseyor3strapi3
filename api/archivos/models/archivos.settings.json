@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "archivos",
   "info": {
-    "name": "Archivos"
+    "name": "Archivos",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -34,9 +35,6 @@
       "plugin": "users-permissions",
       "model": "user",
       "via": "archivosSubidos"
-    },
-    "subidoEn": {
-      "type": "datetime"
     },
     "carpeta": {
       "via": "archivos",

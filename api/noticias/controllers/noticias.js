@@ -1,4 +1,4 @@
-const likescontroller = require('../../likeslib/controllers.js')
+const likescontroller = require('../../../libs/likeslib/controllers.js')
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)

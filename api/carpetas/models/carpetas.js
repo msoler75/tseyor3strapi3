@@ -8,6 +8,7 @@
 const slugify = require('slugify')
 
 async function detectCycle (data, id) {
+  if (!id&&!data.subcarpetas) return false
   if (!data.subcarpetas && id) {
     const curdata = await strapi.services.carpetas.findOne({ id })
     data.subcarpetas = curdata.subcarpetas
@@ -18,7 +19,7 @@ async function detectCycle (data, id) {
   if (id && ids.includes(id)) return true // caso raro
   if (id) ids.push(id)
   let current = data
-  if (!current.subcarpetas || typeof current.subcarpetas !== 'object')
+  if (id && (!current.subcarpetas || typeof current.subcarpetas !== 'object'))
     current = await strapi.services.carpetas.findOne({ id })
   while (current) {
     for (const carpeta of current.subcarpetas) {
@@ -43,10 +44,8 @@ module.exports = {
     async beforeCreate (data) {
       data.slug = slugify(data.nombre, { lower: true })
       // comprobamos la no circularidad infinita de carpetas
-      if (await detectCycle(data)) {
-        data.padre = null
-        data.subcarpetas = []
-      }
+      if (await detectCycle(data))
+        throw strapi.errors.badRequest('No se puede crear una carpeta cíclica');
 
       let padreid = data.padre
       let rutaPadre = ''
@@ -93,9 +92,7 @@ module.exports = {
         console.log('data+orig', data)
 
         if (await detectCycle(data, id)) {
-          data.padre = null
-          data.subcarpetas = []
-          console.log('cycle detected!!')
+          throw strapi.errors.badRequest('No se puede crear una carpeta cíclica');
         }
 
         // recalcularemos ruta de esta carpeta

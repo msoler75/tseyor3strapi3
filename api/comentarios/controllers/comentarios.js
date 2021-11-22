@@ -3,7 +3,7 @@
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 
 
-const likescontroller = require('../../likeslib/controllers.js')
+const likescontroller = require('../../../libs/likeslib/controllers.js')
 
 
 /**
