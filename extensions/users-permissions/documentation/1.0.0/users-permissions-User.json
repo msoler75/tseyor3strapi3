@@ -2060,10 +2060,16 @@
                 "media": {
                   "type": "string"
                 },
-                "subidoPor": {
+                "autor": {
                   "type": "string"
                 },
                 "carpeta": {
+                  "type": "string"
+                },
+                "soloSuperAdmin": {
+                  "type": "boolean"
+                },
+                "slug": {
                   "type": "string"
                 },
                 "created_by": {

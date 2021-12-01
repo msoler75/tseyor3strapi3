@@ -27,10 +27,6 @@
       "type": "boolean",
       "default": false
     },
-    "ruta": {
-      "type": "string",
-      "unique": false
-    },
     "padre": {
       "model": "carpetas",
       "via": "subcarpetas"
@@ -41,6 +37,18 @@
     },
     "slug": {
       "type": "string"
+    },
+    "soloSuperAdmin": {
+      "type": "boolean",
+      "default": false,
+      "private": true
+    },
+    "ruta": {
+      "type": "string"
+    },
+    "permisos": {
+      "via": "carpetas",
+      "model": "permisos"
     }
   }
 }

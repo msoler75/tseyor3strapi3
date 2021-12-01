@@ -2,50 +2,50 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/archivos",
-      "handler": "archivos.find",
+      "path": "/permisos",
+      "handler": "permisos.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/archivos/count",
-      "handler": "archivos.count",
+      "path": "/permisos/count",
+      "handler": "permisos.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/archivos/:id",
-      "handler": "archivos.findOne",
+      "path": "/permisos/:id",
+      "handler": "permisos.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/archivos",
-      "handler": "archivos.create",
+      "path": "/permisos",
+      "handler": "permisos.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/archivos/:id",
-      "handler": "archivos.update",
+      "path": "/permisos/:id",
+      "handler": "permisos.update",
       "config": {
-        "policies": ["global::is-owner"]
+        "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/archivos/:id",
-      "handler": "archivos.delete",
+      "path": "/permisos/:id",
+      "handler": "permisos.delete",
       "config": {
-        "policies": ["global::is-owner"]
+        "policies": []
       }
     }
   ]

@@ -39,14 +39,82 @@ async function detectCycle (data, id) {
   return false
 }
 
+// comprueba si el usuario tiene acceso segun los permisos indicados
+async function tengoAcceso (modo, permisos, user) {
+  console.log('tengo acceso?', permisos)
+  // console.log('user', user)
+  if (!permisos) return true
+  const p = permisos[modo]
+  console.log('permisos son', p)
+  if(p.publico) return true
+  if(user&&user.id) {
+    console.log('miramos permisos de usuario', user)
+    if(p.autenticados) return true
+    if(p.muul && user.role.find(x=>x.type==='muul')) return true
+    if(p.usuarios.find(x=>x.id===user.id)) return true
+    for(const g of p.grupos) {
+      if(user.grupos.find(x=>x.id===g.id)) return true
+    }
+    for(const e of p.equipos) {
+      if(user.equipos.find(x=>x.id===e.id)) return true
+    }
+  }
+  return false
+}
+
+
 module.exports = {
+  async find (ctx) {},
+
+  async findOne(ctx) {
+    const { id } = ctx.params;
+
+    const carpeta = await strapi.services.carpetas.findOne({ id });
+
+    if (!carpeta) {
+      return ctx.notFound('La carpeta no existe');
+    }
+
+    // console.log(carpeta)
+
+     if (
+      carpeta &&
+      !(await tengoAcceso('lectura', carpeta.permisos, ctx.state.user))
+    ) {
+      return ctx.forbidden(`No tienes permisos`)
+    }
+    
+    return sanitizeEntity(carpeta, { model: strapi.models.carpetas })
+  },
+
   async update (ctx) {
     const { id } = ctx.params
     // nunca va a ser multipart
     const data = ctx.request.body
-    if ('fija' in data) {
-      // check user role permission
+
+    // comprobar permisos
+    const carpeta = await strapi.services.carpetas.findOne({ id })
+    if (
+      carpeta &&
+      !(await tengoAcceso('escritura', carpeta.permisos, ctx.state.user))
+    ) {
       return ctx.forbidden(`No tienes permisos`)
+    }
+
+    // no se pueden modificar estos campos desde la api
+    if (
+      'fija' in data ||
+      'soloSuperAdmin' in data ||
+      'permisos' in data ||
+      'slug' in data ||
+      'ruta' in data
+    ) {
+      // check user role permission
+      return ctx.forbidden(`Algunos campos no se pueden modificar desde la API`)
+    }
+
+    if ('archivos' in data) {
+      return ctx.forbidden(`No se pueden establecer archivos directamente`)
     }
 
     if ('padre' in data) data.padre = idy(data.padre)
@@ -55,8 +123,7 @@ module.exports = {
     // verificamos si están cambiando la carpeta de lugar
     if ('padre' in data || 'subcarpetas' in data) {
       const curdata = await strapi.services.carpetas.findOne({ id })
-      if(!curdata)
-        return ctx.notFound(`Carpeta ${id} no encontrada`)
+      if (!curdata) return ctx.notFound(`Carpeta ${id} no encontrada`)
 
       curdata.subcarpetas = curdata.subcarpetas.map(x => idy(x))
       if (
@@ -69,15 +136,15 @@ module.exports = {
       if (curdata.fija && 'padre' in data && data.padre !== curdata.padre)
         return ctx.forbidden(`Esta carpeta no se puede mover`)
 
-      if('padre' in data && data.padre !== curdata.padre)
-      {
-          const padredata = await strapi.services.carpetas.findOne({ id: data.padre })
-          if(!padredata)
-            return ctx.notFound(`Carpeta ${data.padre} no encontrada`)
+      if ('padre' in data && data.padre !== curdata.padre) {
+        const padredata = await strapi.services.carpetas.findOne({
+          id: data.padre
+        })
+        if (!padredata)
+          return ctx.notFound(`Carpeta ${data.padre} no encontrada`)
       }
 
-      if (await detectCycle(data, id)) 
-        return ctx.forbidden(`Ciclo detectado`)
+      if (await detectCycle(data, id)) return ctx.forbidden(`Ciclo detectado`)
     }
 
     let entity = await strapi.services.carpetas.update({ id }, data)

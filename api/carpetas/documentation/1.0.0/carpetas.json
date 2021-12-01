@@ -550,10 +550,16 @@
                 "media": {
                   "type": "string"
                 },
-                "subidoPor": {
+                "autor": {
                   "type": "string"
                 },
                 "carpeta": {
+                  "type": "string"
+                },
+                "soloSuperAdmin": {
+                  "type": "boolean"
+                },
+                "slug": {
                   "type": "string"
                 },
                 "created_by": {
@@ -568,9 +574,6 @@
           "fija": {
             "type": "boolean",
             "default": false
-          },
-          "ruta": {
-            "type": "string"
           },
           "padre": {
             "required": [
@@ -596,9 +599,6 @@
               "fija": {
                 "type": "boolean"
               },
-              "ruta": {
-                "type": "string"
-              },
               "padre": {
                 "type": "string"
               },
@@ -609,6 +609,15 @@
                 }
               },
               "slug": {
+                "type": "string"
+              },
+              "soloSuperAdmin": {
+                "type": "boolean"
+              },
+              "ruta": {
+                "type": "string"
+              },
+              "permisos": {
                 "type": "string"
               },
               "published_at": {
@@ -648,9 +657,6 @@
                 "fija": {
                   "type": "boolean"
                 },
-                "ruta": {
-                  "type": "string"
-                },
                 "padre": {
                   "type": "string"
                 },
@@ -661,6 +667,15 @@
                   }
                 },
                 "slug": {
+                  "type": "string"
+                },
+                "soloSuperAdmin": {
+                  "type": "boolean"
+                },
+                "ruta": {
+                  "type": "string"
+                },
+                "permisos": {
                   "type": "string"
                 },
                 "published_at": {
@@ -677,6 +692,42 @@
           },
           "slug": {
             "type": "string"
+          },
+          "ruta": {
+            "type": "string"
+          },
+          "permisos": {
+            "required": [
+              "id",
+              "lectura",
+              "escritura"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "ruta": {
+                "type": "string"
+              },
+              "carpetas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "lectura": {
+                "type": "component"
+              },
+              "escritura": {
+                "type": "component"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -705,9 +756,6 @@
             "type": "boolean",
             "default": false
           },
-          "ruta": {
-            "type": "string"
-          },
           "padre": {
             "type": "string"
           },
@@ -718,6 +766,16 @@
             }
           },
           "slug": {
+            "type": "string"
+          },
+          "soloSuperAdmin": {
+            "type": "boolean",
+            "default": false
+          },
+          "ruta": {
+            "type": "string"
+          },
+          "permisos": {
             "type": "string"
           },
           "published_at": {

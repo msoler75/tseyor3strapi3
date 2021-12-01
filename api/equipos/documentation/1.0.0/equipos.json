@@ -1583,9 +1583,6 @@
               "fija": {
                 "type": "boolean"
               },
-              "ruta": {
-                "type": "string"
-              },
               "padre": {
                 "type": "string"
               },
@@ -1596,6 +1593,15 @@
                 }
               },
               "slug": {
+                "type": "string"
+              },
+              "soloSuperAdmin": {
+                "type": "boolean"
+              },
+              "ruta": {
+                "type": "string"
+              },
+              "permisos": {
                 "type": "string"
               },
               "published_at": {

@@ -31,7 +31,7 @@
       "required": true,
       "pluginOptions": {}
     },
-    "subidoPor": {
+    "autor": {
       "plugin": "users-permissions",
       "model": "user",
       "via": "archivosSubidos"
@@ -39,6 +39,14 @@
     "carpeta": {
       "via": "archivos",
       "model": "carpetas"
+    },
+    "soloSuperAdmin": {
+      "type": "boolean",
+      "default": false,
+      "private": true
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }

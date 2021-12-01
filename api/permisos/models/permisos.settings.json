@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "permisos",
+  "info": {
+    "name": "Permisos",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ruta": {
+      "type": "string",
+      "unique": true
+    },
+    "carpetas": {
+      "collection": "carpetas",
+      "via": "permisos"
+    },
+    "lectura": {
+      "type": "component",
+      "repeatable": false,
+      "component": "permisos.quien-puede",
+      "required": true
+    },
+    "escritura": {
+      "type": "component",
+      "repeatable": false,
+      "component": "permisos.quien-puede",
+      "required": true
+    }
+  }
+}

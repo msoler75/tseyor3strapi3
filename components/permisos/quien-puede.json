@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_permisos_quien_puede",
+  "info": {
+    "name": "QuienPuede",
+    "icon": "unlock-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "publico": {
+      "type": "boolean",
+      "default": false
+    },
+    "autenticados": {
+      "type": "boolean",
+      "default": true
+    },
+    "muul": {
+      "type": "boolean",
+      "default": true
+    },
+    "grupos": {
+      "collection": "grupos"
+    },
+    "equipos": {
+      "collection": "equipos"
+    },
+    "usuarios": {
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}
