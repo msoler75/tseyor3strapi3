@@ -103,8 +103,13 @@ function idy (el) {
   return el
 }
 
+function changedPadre(orig, data)
+{
+  return idy(orig.padre) !== idy(data.padre)
+}
+
 function changedDirs (orig, data) {
-  if (idy(orig.padre) !== idy(data.padre)) return true
+  if(changedPadre(orig, data)) return true
   const f1 = orig.subcarpetas ? orig.subcarpetas.map(x => idy(x)) : []
   const f2 = data.subcarpetas ? data.subcarpetas.map(x => idy(x)) : []
   if (f1.length !== f2.length) return true
@@ -176,8 +181,7 @@ module.exports = {
       // evitamos la modificación manual de la ruta
       if ('ruta' in data) delete data.ruta
       // si cambia alguno de estos valores...
-      if ('slug' in data || 'padre' in data || 'subcarpetas' in data) {
-        // comprobamos la no circularidad infinita de carpetas
+      if ('slug' in data || 'padre' in data || 'subcarpetas' in data || 'soloSuperAdmin' in data) {
 
         if (!('nombre' in data)) data.nombre = orig.nombre
         if (!('subcarpetas' in data)) data.subcarpetas = orig.subcarpetas
@@ -193,6 +197,10 @@ module.exports = {
             )
           }
 
+
+          //if(changedPadre(orig, data))
+            //data.soloSuperAdmin = padre?padre.soloSuperAdmin:data.soloSuperAdmin
+
           // recalcularemos ruta de esta carpeta
           let rutaPadre = ''
           let padre = data.padre
@@ -202,7 +210,6 @@ module.exports = {
             let padreid = isObj ? padre.id : padre
             padre = isObj ? padre : await dameCarpeta({ id: padreid })
             // if('padre' in data)
-            // data.soloSuperAdmin = padre?padre.soloSuperAdmin:data.soloSuperAdmin
             rutaPadre = padre ? padre.ruta : ''
           }
           data.ruta = rutaPadre + '/' + data.slug
@@ -213,18 +220,32 @@ module.exports = {
 
           // llamamos a todas las subcarpetas y activamos update (data: padre) para que se auto modifiquen su ruta en beforeUpdate
           for (let carpeta of data.subcarpetas) {
-            console.log('actualizar subcarpeta', carpeta)
+            // console.log('actualizar subcarpeta', carpeta)
             if (typeof carpeta !== 'object')
               carpeta = await dameCarpeta({ id: carpeta })
-            console.log('actualizar subcarpeta', carpeta)
+            console.log('actualizar subcarpeta', carpeta.ruta)
             const save = { slug: carpeta.slug, padre: { ...data, id } }
-            if ('soloSuperAdmin' in data)
-              save.soloSuperAdmin = data.soloSuperAdmin
+            // si protegemos una carpeta, protegemos todas sus subcarpetas
+            if (data.soloSuperAdmin)
+            {
+              console.log('protegemos subcarpeta', carpeta.ruta)
+              save.soloSuperAdmin = 1
+            }
             await strapi.services.carpetas.update(
               { id: idy(carpeta) },
               save
             )
           }
+          // actualizamos solo la protección de subcarpetas
+        } else if(data.soloSuperAdmin) {
+          for (let carpeta of data.subcarpetas) {
+            console.log('protegemos subcarpeta', carpeta.ruta)
+            await strapi.services.carpetas.update(
+              { id: idy(carpeta) },
+              { soloSuperAdmin: 1}
+            )
+          }
+
         }
 
         // if(data.padre) data.padre = data.padre.id?data.padre.id:data.padre
