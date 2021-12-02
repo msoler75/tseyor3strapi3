@@ -12,6 +12,21 @@ async function damePermisos () {
   return permisos[0].map(x => ({ id: x.id, ruta: x.ruta.toLowerCase() }))
 }
 
+/**
+ * Busca en todas las rutas, ordenadas de forma descendente, por lo que cuando encuentre una que empareje, es la buena
+ * 
+ * Ejemplo:
+ * 
+ * buscamos permisos para la carpeta /archivos/muul/divulgacion
+ * 
+ * Y tenemos este listado de rutas:
+ * 
+ * /archivos/ong/actas
+ * /archivos/ong
+ * /archivos/muul        <--- encuentra esta
+ * /archivos/junantal
+ * /archivos
+*/
 function permisosRuta (permisos, ruta) {
   ruta = ruta.toLowerCase()
   for (const p of permisos) {
@@ -44,8 +59,21 @@ async function actualizaCarpetas () {
 
 module.exports = {
   lifecycles: {
+
+    async beforeCreate (data) {
+      // no se permiten asignar así las carpetas
+      if('carpetas' in data)
+        delete data.carpetas
+    },
+
     async afterCreate (result, data) {
       await actualizaCarpetas()
+    },
+
+    async beforeUpdate (params, data) {
+      // no se permiten asignar así las carpetas
+      if('carpetas' in data)
+        delete data.carpetas
     },
 
     async afterUpdate (result, params, data) {

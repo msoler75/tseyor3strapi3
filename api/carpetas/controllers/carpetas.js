@@ -40,7 +40,7 @@ async function detectCycle (data, id) {
 }
 
 // comprueba si el usuario tiene acceso segun los permisos indicados
-async function tengoAcceso (modo, permisos, user) {
+function tengoAcceso (modo, permisos, user) {
   console.log('tengo acceso?', permisos)
   // console.log('user', user)
   if (!permisos) return true
@@ -49,22 +49,32 @@ async function tengoAcceso (modo, permisos, user) {
   if(p.publico) return true
   if(user&&user.id) {
     console.log('miramos permisos de usuario', user)
-    if(p.autenticados) return true
-    if(p.muul && user.role.find(x=>x.type==='muul')) return true
-    if(p.usuarios.find(x=>x.id===user.id)) return true
+    if(p.autenticados) {console.log('es autenticado');return true}
+    if(p.delegados && user.role.find(x=>x.type==='delegado')) {console.log('es delegado');return true}
+    if(p.muul && user.role.find(x=>x.type==='muul')) {console.log('es muul');return true}
+    if(p.usuarios.find(x=>x.id===user.id)) {console.log('es usuario permitido');return true}
     for(const g of p.grupos) {
-      if(user.grupos.find(x=>x.id===g.id)) return true
+      if(user.grupos.find(x=>x.id===g.id)) {console.log('es de un grupo permitido');return true}
     }
     for(const e of p.equipos) {
-      if(user.equipos.find(x=>x.id===e.id)) return true
+      if(user.equipos.find(x=>x.id===e.id)) {console.log('es de un equipo permitido');return true}
     }
   }
+  console.log('sin permisos')
   return false
 }
 
 
 module.exports = {
-  async find (ctx) {},
+  async find (ctx) {
+      let entities;
+      if (ctx.query._q) {
+        entities = await strapi.services.carpetas.search(ctx.query);
+      } else {
+        entities = await strapi.services.carpetas.find(ctx.query);
+      }
+      return entities.filter(carpeta=>tengoAcceso('lectura', carpeta.permisos, ctx.state.user)).map(entity => sanitizeEntity(entity, { model: strapi.models.carpetas }));
+  },
 
   async findOne(ctx) {
     const { id } = ctx.params;
@@ -79,7 +89,7 @@ module.exports = {
 
      if (
       carpeta &&
-      !(await tengoAcceso('lectura', carpeta.permisos, ctx.state.user))
+      !tengoAcceso('lectura', carpeta.permisos, ctx.state.user)
     ) {
       return ctx.forbidden(`No tienes permisos`)
     }
@@ -96,7 +106,7 @@ module.exports = {
     const carpeta = await strapi.services.carpetas.findOne({ id })
     if (
       carpeta &&
-      !(await tengoAcceso('escritura', carpeta.permisos, ctx.state.user))
+      !tengoAcceso('escritura', carpeta.permisos, ctx.state.user)
     ) {
       return ctx.forbidden(`No tienes permisos`)
     }

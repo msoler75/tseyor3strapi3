@@ -15,6 +15,10 @@
       "type": "boolean",
       "default": true
     },
+    "delegados": {
+      "type": "boolean",
+      "default": true
+    },
     "muul": {
       "type": "boolean",
       "default": true

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/30/2021 10:42:58 PM"
+    "x-generation-date": "12/01/2021 9:55:28 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -25293,6 +25293,10 @@
                 "type": "boolean",
                 "default": true
               },
+              "muul": {
+                "type": "boolean",
+                "default": true
+              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -25551,7 +25555,7 @@
                   }
                 }
               },
-              "muul": {
+              "delegados": {
                 "type": "boolean",
                 "default": true
               }
@@ -25574,6 +25578,10 @@
                 "type": "boolean",
                 "default": true
               },
+              "muul": {
+                "type": "boolean",
+                "default": true
+              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -25832,7 +25840,7 @@
                   }
                 }
               },
-              "muul": {
+              "delegados": {
                 "type": "boolean",
                 "default": true
               }
@@ -25872,6 +25880,10 @@
                 "type": "boolean",
                 "default": true
               },
+              "muul": {
+                "type": "boolean",
+                "default": true
+              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -26130,7 +26142,7 @@
                   }
                 }
               },
-              "muul": {
+              "delegados": {
                 "type": "boolean",
                 "default": true
               }
@@ -26153,6 +26165,10 @@
                 "type": "boolean",
                 "default": true
               },
+              "muul": {
+                "type": "boolean",
+                "default": true
+              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -26411,7 +26427,7 @@
                   }
                 }
               },
-              "muul": {
+              "delegados": {
                 "type": "boolean",
                 "default": true
               }

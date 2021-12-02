@@ -603,6 +603,10 @@
                 "type": "boolean",
                 "default": true
               },
+              "muul": {
+                "type": "boolean",
+                "default": true
+              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -861,7 +865,7 @@
                   }
                 }
               },
-              "muul": {
+              "delegados": {
                 "type": "boolean",
                 "default": true
               }
@@ -884,6 +888,10 @@
                 "type": "boolean",
                 "default": true
               },
+              "muul": {
+                "type": "boolean",
+                "default": true
+              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -1142,7 +1150,7 @@
                   }
                 }
               },
-              "muul": {
+              "delegados": {
                 "type": "boolean",
                 "default": true
               }
@@ -1182,6 +1190,10 @@
                 "type": "boolean",
                 "default": true
               },
+              "muul": {
+                "type": "boolean",
+                "default": true
+              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -1440,7 +1452,7 @@
                   }
                 }
               },
-              "muul": {
+              "delegados": {
                 "type": "boolean",
                 "default": true
               }
@@ -1463,6 +1475,10 @@
                 "type": "boolean",
                 "default": true
               },
+              "muul": {
+                "type": "boolean",
+                "default": true
+              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -1721,7 +1737,7 @@
                   }
                 }
               },
-              "muul": {
+              "delegados": {
                 "type": "boolean",
                 "default": true
               }

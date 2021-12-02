@@ -27,23 +27,25 @@ const dameCarpeta = async params => {
   )
 }
 
-async function detectCycle (data, id) {
+async function detectCycle (data, id, orig) {
   if (!id && !data.subcarpetas) return false
   if (!data.subcarpetas && id) {
-    const curdata = await dameCarpeta({ id })
-    data.subcarpetas = curdata.subcarpetas
+    if (!orig) orig = await dameCarpeta({ id })
+    data.subcarpetas = orig.subcarpetas
   }
   const ids = []
   const next = []
-  if (data.padre) ids.push(data.padre.id ? data.padre.id : data.padre)
+  if (data.padre) ids.push(idy(data.padre))
   if (id && ids.includes(id)) return true // caso raro
   if (id) ids.push(id)
   let current = data
   if (id && (!current.subcarpetas || typeof current.subcarpetas !== 'object'))
-    current = await dameCarpeta({ id })
+    current = orig
+  if (!current) current = await dameCarpeta({ id })
   while (current) {
     for (const carpeta of current.subcarpetas) {
-      const id = carpeta.id ? carpeta.id : carpeta
+      const id = idy(carpeta)
+      next.push(id)
       if (ids.includes(id)) return true
       ids.push(id)
     }
@@ -71,20 +73,18 @@ async function eliminarContenidosCarpeta (carpeta) {
   }
 }
 
-async function damePermisos() {
+async function damePermisos () {
   const sql = `SELECT id, ruta FROM permisos ORDER BY ruta DESC`
   const knex = strapi.connections.default
   const permisos = await knex.raw(sql)
-  return permisos[0].map(x=>({id: x.id, ruta: x.ruta.toLowerCase() }))
+  return permisos[0].map(x => ({ id: x.id, ruta: x.ruta.toLowerCase() }))
 }
 
-async function permisosRuta(ruta) {
+async function permisosRuta (ruta) {
   const permisos = await damePermisos()
   ruta = ruta.toLowerCase()
-  for(const p of permisos)
-  {
-    if(ruta.indexOf(p.ruta)===0) 
-    {
+  for (const p of permisos) {
+    if (ruta.indexOf(p.ruta) === 0) {
       console.log('permisos de ruta', p.ruta)
       return p.id
     }
@@ -94,6 +94,32 @@ async function permisosRuta(ruta) {
 
 const isIterable = value => {
   return Symbol.iterator in Object(value)
+}
+
+function idy (el) {
+  if (!el) return null
+  if (typeof el !== 'object') return el
+  if (el.id) return el.id
+  return el
+}
+
+function changedDirs (orig, data) {
+  if (idy(orig.padre) !== idy(data.padre)) return true
+  const f1 = orig.subcarpetas ? orig.subcarpetas.map(x => idy(x)) : []
+  const f2 = data.subcarpetas ? data.subcarpetas.map(x => idy(x)) : []
+  if (f1.length !== f2.length) return true
+  for (const id of f1) if (!f2.includes(id)) return true
+  // ningun cambio
+  return false
+}
+
+function changedArchivos (orig, data) {
+  const a1 = orig.archivos ? orig.archivos.map(x => idy(x)) : []
+  const a2 = data.archivos ? data.archivos.map(x => idy(x)) : []
+  if (a1.length !== a2.length) return true
+  for (const id of a1) if (!a2.includes(id)) return true
+  // ningun cambio
+  return false
 }
 
 module.exports = {
@@ -140,6 +166,13 @@ module.exports = {
 
       const orig = await dameCarpeta({ id })
 
+      
+      // no se pueden asignar archivos mediante la carpeta
+      if('archivos' in data && changedArchivos(orig, data))
+        throw strapi.errors.badRequest(
+          'No se pueden asignar o cambiar archivos desde aquí'
+        )
+
       // evitamos la modificación manual de la ruta
       if ('ruta' in data) delete data.ruta
       // si cambia alguno de estos valores...
@@ -152,72 +185,70 @@ module.exports = {
         data.slug = slugify(data.nombre, { lower: true })
         console.log('data+orig', data)
 
-        if (await detectCycle(data, id)) {
-          throw strapi.errors.badRequest(
-            'No se puede ubicar una carpeta cíclica'
-          )
-        }
+        if (changedDirs(orig, data)) {
+          // solo revisaremos si ha habido cambios en carpeta padre o subcarpetas
+          if (await detectCycle(data, id)) {
+            throw strapi.errors.badRequest(
+              'No se puede ubicar una carpeta cíclica'
+            )
+          }
 
-        // recalcularemos ruta de esta carpeta
-        let rutaPadre = ''
-        let padre = data.padre
-        console.log('padre', padre)
-        if (padre) {
-          const isObj = typeof padre === 'object'
-          let padreid = isObj ? padre.id : padre
-          padre = isObj ? padre : await dameCarpeta({ id: padreid })
-          // if('padre' in data)
+          // recalcularemos ruta de esta carpeta
+          let rutaPadre = ''
+          let padre = data.padre
+          console.log('padre', padre)
+          if (padre) {
+            const isObj = typeof padre === 'object'
+            let padreid = isObj ? padre.id : padre
+            padre = isObj ? padre : await dameCarpeta({ id: padreid })
+            // if('padre' in data)
             // data.soloSuperAdmin = padre?padre.soloSuperAdmin:data.soloSuperAdmin
-          rutaPadre = padre ? padre.ruta : ''
-        }
-        data.ruta = rutaPadre + '/' + data.slug
-        console.log('data.ruta', data.ruta)
-        // instauramos los permiso de esta carpeta
-        data.permisos = await permisosRuta(data.ruta)
+            rutaPadre = padre ? padre.ruta : ''
+          }
+          data.ruta = rutaPadre + '/' + data.slug
+          console.log('data.ruta', data.ruta)
 
-        // llamamos a todas las subcarpetas y activamos update (data: padre) para que se auto modifiquen su ruta en beforeUpdate
-        for (let carpeta of data.subcarpetas) {
-          console.log('actualizar subcarpeta', carpeta)
-          if (typeof carpeta !== 'object')
-            carpeta = await dameCarpeta({ id: carpeta })
-          console.log('actualizar subcarpeta', carpeta)
-          const save = { slug: carpeta.slug, padre: { ...data, id } }
-          if( 'soloSuperAdmin' in data )
-          save.soloSuperAdmin = data.soloSuperAdmin
-          await strapi.services.carpetas.update(
-            { id: carpeta.id ? carpeta.id : carpeta },
-            save 
-          )
+          // instauramos los permiso de esta carpeta
+          data.permisos = await permisosRuta(data.ruta)
+
+          // llamamos a todas las subcarpetas y activamos update (data: padre) para que se auto modifiquen su ruta en beforeUpdate
+          for (let carpeta of data.subcarpetas) {
+            console.log('actualizar subcarpeta', carpeta)
+            if (typeof carpeta !== 'object')
+              carpeta = await dameCarpeta({ id: carpeta })
+            console.log('actualizar subcarpeta', carpeta)
+            const save = { slug: carpeta.slug, padre: { ...data, id } }
+            if ('soloSuperAdmin' in data)
+              save.soloSuperAdmin = data.soloSuperAdmin
+            await strapi.services.carpetas.update(
+              { id: idy(carpeta) },
+              save
+            )
+          }
         }
 
         // if(data.padre) data.padre = data.padre.id?data.padre.id:data.padre
         // if('subcarpetas' in data) data.subcarpetas = data.subcarpetas.map(x=>x.id)
+      }
+
+      // si hay algún cambio en soloSuperAdmin...
+      if (
+        ('soloSuperAdmin' in data &&
+        orig.soloSuperAdmin !== data.soloSuperAdmin)
+      ) {
+        if (!('archivos' in data)) data.archivos = orig.archivos
+        for (const archivo of data.archivos) {
+          await strapi.services.archivos.update(
+            { id: idy(archivo) },
+            { soloSuperAdmin: data.soloSuperAdmin }
+          )
+        }
       }
     },
 
     async afterUpdate (result, params, data) {
       console.log('carpetas.afterUpdate', /*result,*/ params, data)
       // si cambia el permiso especial de soloSuperAdmin... lo actualizamos en todos los archivos
-      if ('soloSuperAdmin' in data) {
-        for (let archivo of result.archivos) {
-          if (typeof archivo !== 'object')
-            archivo = await dameArchivo({ id: archivo })
-          console.log('actualizar archivo', archivo)
-          let save = {}
-          /*if ('slug' in data || 'padre' in data) {
-            save.nombre = archivo.nombre
-            save.carpeta = result
-          } else {*/
-            // cambio de permisos en archivos también
-            //if('soloSuperAdmin' in data) {
-            save.soloSuperAdmin = data.soloSuperAdmin
-          //}
-          await strapi.services.archivos.update(
-            { id: archivo.id ? archivo.id : archivo },
-            save
-          )
-        }
-      }
     },
 
     async beforeDelete (params) {

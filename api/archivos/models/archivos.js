@@ -17,7 +17,7 @@ const dameCarpeta = async params => {
   )
 }
 
-const dameArchivo = async params => {
+/* const dameArchivo = async params => {
   return (
     (await strapi.services.archivos.findOne(params)) ||
     (await strapi.services.archivos.findOne({
@@ -25,6 +25,14 @@ const dameArchivo = async params => {
       _publicationState: 'preview'
     }))
   )
+}
+*/
+
+function idy (el) {
+  if (!el) return null
+  if (typeof el !== 'object') return el
+  if (el.id) return el.id
+  return el
 }
 
 module.exports = {
@@ -35,9 +43,10 @@ module.exports = {
     async beforeCreate (data) {
       data.slug = slugify(data.nombre, { lower: true })
       if (data.carpeta) {
-        const carpeta = await dameCarpeta(data.carpeta)
+        const carpeta = await dameCarpeta({id: idy(data.carpeta)})
         if (carpeta) {
           data.ruta = carpeta.ruta + '/' + data.slug
+          data.soloSuperAdmin = carpeta.soloSuperAdmin
         }
       }
     },
@@ -66,6 +75,11 @@ module.exports = {
         } else data.ruta = ''
       }
       */
+     if('carpeta' in data && data.carpeta) {
+      const carpeta = await dameCarpeta({id: idy(data.carpeta)})
+      if(carpeta)
+        data.soloSuperAdmin = carpeta.soloSuperAdmin
+     }
     },
 
     /*async afterUpdate (result, params, data) {
