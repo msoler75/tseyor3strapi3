@@ -18,6 +18,7 @@ async function preparaListaPermisos () {
       ruta: x.ruta.toLowerCase()
     }))
     // listaPermisosAsc = await strapi.services.permisos.find({_sort: 'ruta::asc'})
+    // console.log('listapermisosdesc', listaPermisosDesc)
   }
 }
 
@@ -58,10 +59,12 @@ async function buscaPermisos (ruta) {
 async function actualizaCarpetas () {
   const carpetas = await strapi.services.carpetas.find({})
   for (const carpeta of carpetas) {
-    const oldpid = carpeta.permisos ? carpeta.permisos.id : null
+    const oldpid = idy(carpeta.permisos)
+    // console.log('->', carpeta.id, carpeta.ruta,'permisos=', oldpid)
     const newpid = await buscaPermisos(carpeta.ruta)
     // si ha habido cambios, actualizamos la carpeta con los nuevos permisos
     if (oldpid !== newpid) {
+      // console.log('carpeta', carpeta.id, carpeta.ruta, '->', 'permisos', newpid)
       await strapi.services.carpetas.update(
         { id: carpeta.id },
         { permisos: newpid }
@@ -71,8 +74,8 @@ async function actualizaCarpetas () {
 }
 
 const actions = {
-  'lectura': ['publico', 'autenticados', 'delegados', 'muul', 'equipos', 'grupos', 'usuarios'], 
-  'creacion': ['publico', 'autenticados', 'delegados', 'muul', 'equipos', 'grupos', 'usuarios'], 
+  'lectura': ['rol', 'grupos', 'equipos', 'usuarios'], 
+  'creacion': ['rol', 'grupos', 'equipos', 'usuarios'], 
   'administracion': ['usuarios']
 }
 
@@ -90,9 +93,8 @@ function actualizarConPermisosBase (permisos, action, permisosBase) {
       usuarios: []
     }
   }
-  if (permisos[action] === null) {
+  if (!(action in permisos) || permisos[action] === null) {
     permisos[action] = { heredado: true }
-    modificado = true
   }
   if (permisos[action].heredado) {
     for (const rol of actions[action]) {
@@ -204,7 +206,7 @@ module.exports = {
           let rutaPadre = data.ruta.replace(/\/[^/]+$/, '')
           const idPermisosBase = await buscaPermisos(rutaPadre)
           const permisosBase = await strapi.services.permisos.findOne({id:idPermisosBase})
-          for (const action in actions) {
+          for (const action of heredan) {
             actualizarConPermisosBase(data, action, permisosBase)
           }
         }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/06/2021 12:13:56 PM"
+    "x-generation-date": "12/06/2021 7:08:38 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -23924,6 +23924,10 @@
               "type": "string"
             }
           },
+          "soloSuperAdmin": {
+            "type": "boolean",
+            "default": false
+          },
           "created_by": {
             "type": "string"
           },
@@ -25293,22 +25297,6 @@
                 "type": "boolean",
                 "default": true
               },
-              "publico": {
-                "type": "boolean",
-                "default": false
-              },
-              "autenticados": {
-                "type": "boolean",
-                "default": false
-              },
-              "delegados": {
-                "type": "boolean",
-                "default": false
-              },
-              "muul": {
-                "type": "boolean",
-                "default": false
-              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -25330,6 +25318,9 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "soloSuperAdmin": {
+                      "type": "boolean"
                     },
                     "created_by": {
                       "type": "string"
@@ -25566,6 +25557,17 @@
                     }
                   }
                 }
+              },
+              "rol": {
+                "type": "string",
+                "default": "Nadie",
+                "enum": [
+                  "Publico",
+                  "Autenticados",
+                  "Delegados",
+                  "Muul",
+                  "Nadie"
+                ]
               }
             }
           },
@@ -25582,22 +25584,6 @@
                 "type": "boolean",
                 "default": true
               },
-              "publico": {
-                "type": "boolean",
-                "default": false
-              },
-              "autenticados": {
-                "type": "boolean",
-                "default": false
-              },
-              "delegados": {
-                "type": "boolean",
-                "default": false
-              },
-              "muul": {
-                "type": "boolean",
-                "default": false
-              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -25619,6 +25605,9 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "soloSuperAdmin": {
+                      "type": "boolean"
                     },
                     "created_by": {
                       "type": "string"
@@ -25855,6 +25844,17 @@
                     }
                   }
                 }
+              },
+              "rol": {
+                "type": "string",
+                "default": "Nadie",
+                "enum": [
+                  "Publico",
+                  "Autenticados",
+                  "Delegados",
+                  "Muul",
+                  "Nadie"
+                ]
               }
             }
           },
@@ -26031,22 +26031,6 @@
                 "type": "boolean",
                 "default": true
               },
-              "publico": {
-                "type": "boolean",
-                "default": false
-              },
-              "autenticados": {
-                "type": "boolean",
-                "default": false
-              },
-              "delegados": {
-                "type": "boolean",
-                "default": false
-              },
-              "muul": {
-                "type": "boolean",
-                "default": false
-              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -26068,6 +26052,9 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "soloSuperAdmin": {
+                      "type": "boolean"
                     },
                     "created_by": {
                       "type": "string"
@@ -26304,6 +26291,17 @@
                     }
                   }
                 }
+              },
+              "rol": {
+                "type": "string",
+                "default": "Nadie",
+                "enum": [
+                  "Publico",
+                  "Autenticados",
+                  "Delegados",
+                  "Muul",
+                  "Nadie"
+                ]
               }
             }
           },
@@ -26320,22 +26318,6 @@
                 "type": "boolean",
                 "default": true
               },
-              "publico": {
-                "type": "boolean",
-                "default": false
-              },
-              "autenticados": {
-                "type": "boolean",
-                "default": false
-              },
-              "delegados": {
-                "type": "boolean",
-                "default": false
-              },
-              "muul": {
-                "type": "boolean",
-                "default": false
-              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -26357,6 +26339,9 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "soloSuperAdmin": {
+                      "type": "boolean"
                     },
                     "created_by": {
                       "type": "string"
@@ -26593,6 +26578,17 @@
                     }
                   }
                 }
+              },
+              "rol": {
+                "type": "string",
+                "default": "Nadie",
+                "enum": [
+                  "Publico",
+                  "Autenticados",
+                  "Delegados",
+                  "Muul",
+                  "Nadie"
+                ]
               }
             }
           },
@@ -27803,6 +27799,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "soloSuperAdmin": {
+                  "type": "boolean"
                 },
                 "created_by": {
                   "type": "string"

@@ -11,22 +11,6 @@
       "type": "boolean",
       "default": true
     },
-    "publico": {
-      "type": "boolean",
-      "default": false
-    },
-    "autenticados": {
-      "type": "boolean",
-      "default": false
-    },
-    "delegados": {
-      "type": "boolean",
-      "default": false
-    },
-    "muul": {
-      "type": "boolean",
-      "default": false
-    },
     "grupos": {
       "collection": "grupos"
     },
@@ -36,6 +20,17 @@
     "usuarios": {
       "plugin": "users-permissions",
       "collection": "user"
+    },
+    "rol": {
+      "type": "enumeration",
+      "enum": [
+        "Publico",
+        "Autenticados",
+        "Delegados",
+        "Muul",
+        "Nadie"
+      ],
+      "default": "Nadie"
     }
   }
 }

@@ -63,8 +63,8 @@
       "type": "string"
     },
     "grupos": {
-      "collection": "grupos",
       "via": "users",
+      "collection": "grupos",
       "dominant": true
     },
     "imagen": {

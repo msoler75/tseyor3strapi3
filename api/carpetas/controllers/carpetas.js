@@ -39,29 +39,50 @@ async function detectCycle (data, id) {
   return false
 }
 
+function soyAutor(contenido, user) {
+    if(!user||!user.id||!('autor' in contenido) || !contenido.autor) return false
+    return contenido.autor===user.id || contenido.autor.id===user.id
+}
+
 // comprueba si el usuario tiene acceso segun los permisos indicados
-function tengoPermiso (modo, permisos, user) {
-  console.log('tengo acceso?', permisos)
-  // console.log('user', user)
-  if (!permisos) return true
-  const p = permisos[modo]
-  console.log('permisos son', p)
-  if(p.publico) return true
-  if(user&&user.id) {
-    console.log('miramos permisos de usuario', user)
-    if(p.autenticados) {console.log('es autenticado');return true}
-    if(p.delegados && user.role.find(x=>x.type==='delegado')) {console.log('es delegado');return true}
-    if(p.muul && user.role.find(x=>x.type==='muul')) {console.log('es muul');return true}
-    if(p.usuarios.find(x=>x.id===user.id)) {console.log('es usuario permitido');return true}
-    for(const g of p.grupos) {
-      if(user.grupos.find(x=>x.id===g.id)) {console.log('es de un grupo permitido');return true}
+function tengoPermiso (contenido, modo, user) {
+    if( soyAutor(contenido, user) ) return true
+    if(!('permisos' in contenido))
+      return false
+    const permisos = contenido.permisos
+    // console.log('tengo acceso?', permisos)
+    if (!permisos) return true
+    const p = permisos[modo]
+    if(!p) return false
+    // console.log('permisos son', p)
+    if (p.rol==='Publico') return true
+    // console.log('user', user)
+    if (user && user.id) {
+      // console.log('miramos permisos de usuario', user)
+      if (p.rol==='Autenticados') {
+        return true
+      }
+      if (p.rol==='Delegados' && user.role.find(x => x.type === 'delegado')) {
+        return true
+      }
+      if (p.rol==='Muul' && user.role.find(x => x.type === 'muul')) {
+        return true
+      }
+      if (p.usuarios.find(x => idy(x) === user.id)) {
+        return true
+      }
+      for (const g of p.grupos) {
+        if (user.grupos.find(x => idy(x) === idy(g))) {
+          return true
+        }
+      }
+      for (const e of p.equipos) {
+        if (user.equipos.find(x => idy(x) === idy(e))) {
+          return true
+        }
+      }
     }
-    for(const e of p.equipos) {
-      if(user.equipos.find(x=>x.id===e.id)) {console.log('es de un equipo permitido');return true}
-    }
-  }
-  console.log('sin permisos')
-  return false
+    return false
 }
 
 
@@ -73,7 +94,7 @@ module.exports = {
       } else {
         entities = await strapi.services.carpetas.find(ctx.query);
       }
-      return entities.filter(carpeta=>tengoPermiso('lectura', carpeta.permisos, ctx.state.user)).map(entity => sanitizeEntity(entity, { model: strapi.models.carpetas }));
+      return entities.filter(carpeta=>tengoPermiso(carpeta, 'lectura', ctx.state.user)).map(entity => sanitizeEntity(entity, { model: strapi.models.carpetas }));
   },
 
   async findOne(ctx) {
@@ -89,7 +110,7 @@ module.exports = {
 
      if (
       carpeta &&
-      !tengoPermiso('lectura', carpeta.permisos, ctx.state.user)
+      !tengoPermiso(carpeta, 'lectura', ctx.state.user)
     ) {
       return ctx.forbidden(`No tienes permisos`)
     }
@@ -106,7 +127,7 @@ module.exports = {
     const carpeta = await strapi.services.carpetas.findOne({ id })
     if (
       carpeta &&
-      !tengoPermiso('administracion', carpeta.permisos, ctx.state.user)
+      !tengoPermiso(carpeta, 'administracion', ctx.state.user)
     ) {
       return ctx.forbidden(`No tienes permisos`)
     }

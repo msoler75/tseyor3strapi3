@@ -1276,6 +1276,9 @@
                     "type": "string"
                   }
                 },
+                "soloSuperAdmin": {
+                  "type": "boolean"
+                },
                 "created_by": {
                   "type": "string"
                 },

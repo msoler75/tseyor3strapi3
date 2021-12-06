@@ -598,22 +598,6 @@
                 "type": "boolean",
                 "default": true
               },
-              "publico": {
-                "type": "boolean",
-                "default": false
-              },
-              "autenticados": {
-                "type": "boolean",
-                "default": false
-              },
-              "delegados": {
-                "type": "boolean",
-                "default": false
-              },
-              "muul": {
-                "type": "boolean",
-                "default": false
-              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -635,6 +619,9 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "soloSuperAdmin": {
+                      "type": "boolean"
                     },
                     "created_by": {
                       "type": "string"
@@ -871,6 +858,17 @@
                     }
                   }
                 }
+              },
+              "rol": {
+                "type": "string",
+                "default": "Nadie",
+                "enum": [
+                  "Publico",
+                  "Autenticados",
+                  "Delegados",
+                  "Muul",
+                  "Nadie"
+                ]
               }
             }
           },
@@ -887,22 +885,6 @@
                 "type": "boolean",
                 "default": true
               },
-              "publico": {
-                "type": "boolean",
-                "default": false
-              },
-              "autenticados": {
-                "type": "boolean",
-                "default": false
-              },
-              "delegados": {
-                "type": "boolean",
-                "default": false
-              },
-              "muul": {
-                "type": "boolean",
-                "default": false
-              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -924,6 +906,9 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "soloSuperAdmin": {
+                      "type": "boolean"
                     },
                     "created_by": {
                       "type": "string"
@@ -1160,6 +1145,17 @@
                     }
                   }
                 }
+              },
+              "rol": {
+                "type": "string",
+                "default": "Nadie",
+                "enum": [
+                  "Publico",
+                  "Autenticados",
+                  "Delegados",
+                  "Muul",
+                  "Nadie"
+                ]
               }
             }
           },
@@ -1336,22 +1332,6 @@
                 "type": "boolean",
                 "default": true
               },
-              "publico": {
-                "type": "boolean",
-                "default": false
-              },
-              "autenticados": {
-                "type": "boolean",
-                "default": false
-              },
-              "delegados": {
-                "type": "boolean",
-                "default": false
-              },
-              "muul": {
-                "type": "boolean",
-                "default": false
-              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -1373,6 +1353,9 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "soloSuperAdmin": {
+                      "type": "boolean"
                     },
                     "created_by": {
                       "type": "string"
@@ -1609,6 +1592,17 @@
                     }
                   }
                 }
+              },
+              "rol": {
+                "type": "string",
+                "default": "Nadie",
+                "enum": [
+                  "Publico",
+                  "Autenticados",
+                  "Delegados",
+                  "Muul",
+                  "Nadie"
+                ]
               }
             }
           },
@@ -1625,22 +1619,6 @@
                 "type": "boolean",
                 "default": true
               },
-              "publico": {
-                "type": "boolean",
-                "default": false
-              },
-              "autenticados": {
-                "type": "boolean",
-                "default": false
-              },
-              "delegados": {
-                "type": "boolean",
-                "default": false
-              },
-              "muul": {
-                "type": "boolean",
-                "default": false
-              },
               "grupos": {
                 "type": "array",
                 "items": {
@@ -1662,6 +1640,9 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "soloSuperAdmin": {
+                      "type": "boolean"
                     },
                     "created_by": {
                       "type": "string"
@@ -1898,6 +1879,17 @@
                     }
                   }
                 }
+              },
+              "rol": {
+                "type": "string",
+                "default": "Nadie",
+                "enum": [
+                  "Publico",
+                  "Autenticados",
+                  "Delegados",
+                  "Muul",
+                  "Nadie"
+                ]
               }
             }
           },
