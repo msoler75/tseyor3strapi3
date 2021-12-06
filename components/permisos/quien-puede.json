@@ -7,21 +7,25 @@
   },
   "options": {},
   "attributes": {
+    "heredado": {
+      "type": "boolean",
+      "default": true
+    },
     "publico": {
       "type": "boolean",
       "default": false
     },
     "autenticados": {
       "type": "boolean",
-      "default": true
+      "default": false
     },
     "delegados": {
       "type": "boolean",
-      "default": true
+      "default": false
     },
     "muul": {
       "type": "boolean",
-      "default": true
+      "default": false
     },
     "grupos": {
       "collection": "grupos"

@@ -18,7 +18,8 @@ module.exports = {
     // dada una ruta, devuelve la carpeta
     async dameCarpeta (ruta) {
         ruta = this.limpiarRuta(ruta)
-        return await strapi.services.carpetas.findOne({ruta})
+        return await strapi.services.carpetas.findOne({ruta}) ||
+        await strapi.services.carpetas.findOne({ruta, _publicationState: 'preview'})
     },
     
     // asigna los archivos a una carpeta según la ruta indicada, ignorando si hubiera otros archivos prevcamente
@@ -91,7 +92,7 @@ module.exports = {
 
     // dado un id de un archivo, devuelve el archivo o null
     async dameArchivoDeId(idArchivo) {
-        return await strapi.services.carpetas.findOne({id: idArchivo})
+        return await strapi.services.archivos.findOne({id: idArchivo})
     },
 
     // dado un id de un media o upload file, devuelve el objeto file (upload)
@@ -126,6 +127,7 @@ module.exports = {
                 archivos.push(archivo)
         }
         return archivos
-    }
+    },
+
 
 }

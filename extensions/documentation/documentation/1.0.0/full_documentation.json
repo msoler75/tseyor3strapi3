@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/02/2021 2:38:08 PM"
+    "x-generation-date": "12/06/2021 11:02:47 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -20344,6 +20344,9 @@
               "escritura": {
                 "type": "component"
               },
+              "administracion": {
+                "type": "component"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -25291,11 +25294,15 @@
               },
               "autenticados": {
                 "type": "boolean",
-                "default": true
+                "default": false
+              },
+              "delegados": {
+                "type": "boolean",
+                "default": false
               },
               "muul": {
                 "type": "boolean",
-                "default": true
+                "default": false
               },
               "grupos": {
                 "type": "array",
@@ -25555,7 +25562,7 @@
                   }
                 }
               },
-              "delegados": {
+              "heredado": {
                 "type": "boolean",
                 "default": true
               }
@@ -25576,11 +25583,15 @@
               },
               "autenticados": {
                 "type": "boolean",
-                "default": true
+                "default": false
+              },
+              "delegados": {
+                "type": "boolean",
+                "default": false
               },
               "muul": {
                 "type": "boolean",
-                "default": true
+                "default": false
               },
               "grupos": {
                 "type": "array",
@@ -25840,7 +25851,296 @@
                   }
                 }
               },
+              "heredado": {
+                "type": "boolean",
+                "default": true
+              }
+            }
+          },
+          "administracion": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "publico": {
+                "type": "boolean",
+                "default": false
+              },
+              "autenticados": {
+                "type": "boolean",
+                "default": false
+              },
               "delegados": {
+                "type": "boolean",
+                "default": false
+              },
+              "muul": {
+                "type": "boolean",
+                "default": false
+              },
+              "grupos": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "nombre": {
+                      "type": "string"
+                    },
+                    "descripcion": {
+                      "type": "string"
+                    },
+                    "users": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "equipos": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "id",
+                    "imagen"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "nombre": {
+                      "type": "string"
+                    },
+                    "descripcion": {
+                      "type": "string"
+                    },
+                    "imagen": {
+                      "type": "string"
+                    },
+                    "miembros": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "slug": {
+                      "type": "uid"
+                    },
+                    "reuniones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "actas": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "actividades": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "pizarra": {
+                      "type": "string"
+                    },
+                    "libros": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "coordinadores": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "zonahoraria": {
+                      "type": "string",
+                      "enum": [
+                        "Argentina",
+                        "Bolivia",
+                        "Chile",
+                        "Colombia",
+                        "Espana",
+                        "Mexico",
+                        "Panama",
+                        "Peru",
+                        "PuertoRico",
+                        "Venezuela"
+                      ]
+                    },
+                    "suscriptores": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "carpeta": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "usuarios": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "id",
+                    "username",
+                    "email"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    },
+                    "resetPasswordToken": {
+                      "type": "string"
+                    },
+                    "confirmationToken": {
+                      "type": "string"
+                    },
+                    "confirmed": {
+                      "type": "boolean"
+                    },
+                    "blocked": {
+                      "type": "boolean"
+                    },
+                    "role": {
+                      "type": "string"
+                    },
+                    "nombreSimbolico": {
+                      "type": "string"
+                    },
+                    "grupos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "imagen": {
+                      "type": "string"
+                    },
+                    "frase": {
+                      "type": "string"
+                    },
+                    "asiste": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "likes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "likeit": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "notificacionesEquipos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "coordina": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "equipos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "comentarios": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "eventos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "historial": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "recopilaciones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "archivosSubidos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "heredado": {
                 "type": "boolean",
                 "default": true
               }
@@ -25878,11 +26178,15 @@
               },
               "autenticados": {
                 "type": "boolean",
-                "default": true
+                "default": false
+              },
+              "delegados": {
+                "type": "boolean",
+                "default": false
               },
               "muul": {
                 "type": "boolean",
-                "default": true
+                "default": false
               },
               "grupos": {
                 "type": "array",
@@ -26142,7 +26446,7 @@
                   }
                 }
               },
-              "delegados": {
+              "heredado": {
                 "type": "boolean",
                 "default": true
               }
@@ -26163,11 +26467,15 @@
               },
               "autenticados": {
                 "type": "boolean",
-                "default": true
+                "default": false
+              },
+              "delegados": {
+                "type": "boolean",
+                "default": false
               },
               "muul": {
                 "type": "boolean",
-                "default": true
+                "default": false
               },
               "grupos": {
                 "type": "array",
@@ -26427,7 +26735,296 @@
                   }
                 }
               },
+              "heredado": {
+                "type": "boolean",
+                "default": true
+              }
+            }
+          },
+          "administracion": {
+            "type": "object",
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "publico": {
+                "type": "boolean",
+                "default": false
+              },
+              "autenticados": {
+                "type": "boolean",
+                "default": false
+              },
               "delegados": {
+                "type": "boolean",
+                "default": false
+              },
+              "muul": {
+                "type": "boolean",
+                "default": false
+              },
+              "grupos": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "id"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "nombre": {
+                      "type": "string"
+                    },
+                    "descripcion": {
+                      "type": "string"
+                    },
+                    "users": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "equipos": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "id",
+                    "imagen"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "nombre": {
+                      "type": "string"
+                    },
+                    "descripcion": {
+                      "type": "string"
+                    },
+                    "imagen": {
+                      "type": "string"
+                    },
+                    "miembros": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "slug": {
+                      "type": "uid"
+                    },
+                    "reuniones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "actas": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "actividades": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "pizarra": {
+                      "type": "string"
+                    },
+                    "libros": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "coordinadores": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "zonahoraria": {
+                      "type": "string",
+                      "enum": [
+                        "Argentina",
+                        "Bolivia",
+                        "Chile",
+                        "Colombia",
+                        "Espana",
+                        "Mexico",
+                        "Panama",
+                        "Peru",
+                        "PuertoRico",
+                        "Venezuela"
+                      ]
+                    },
+                    "suscriptores": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "carpeta": {
+                      "type": "string"
+                    },
+                    "published_at": {
+                      "type": "string"
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "usuarios": {
+                "type": "array",
+                "items": {
+                  "required": [
+                    "id",
+                    "username",
+                    "email"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "provider": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    },
+                    "resetPasswordToken": {
+                      "type": "string"
+                    },
+                    "confirmationToken": {
+                      "type": "string"
+                    },
+                    "confirmed": {
+                      "type": "boolean"
+                    },
+                    "blocked": {
+                      "type": "boolean"
+                    },
+                    "role": {
+                      "type": "string"
+                    },
+                    "nombreSimbolico": {
+                      "type": "string"
+                    },
+                    "grupos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "imagen": {
+                      "type": "string"
+                    },
+                    "frase": {
+                      "type": "string"
+                    },
+                    "asiste": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "likes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "likeit": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "notificacionesEquipos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "coordina": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "equipos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "comentarios": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "eventos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "historial": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "recopilaciones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "archivosSubidos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "created_by": {
+                      "type": "string"
+                    },
+                    "updated_by": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "heredado": {
                 "type": "boolean",
                 "default": true
               }

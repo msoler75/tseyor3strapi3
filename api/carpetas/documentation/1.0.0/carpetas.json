@@ -721,6 +721,9 @@
               "escritura": {
                 "type": "component"
               },
+              "administracion": {
+                "type": "component"
+              },
               "created_by": {
                 "type": "string"
               },

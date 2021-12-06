@@ -40,7 +40,7 @@ async function detectCycle (data, id) {
 }
 
 // comprueba si el usuario tiene acceso segun los permisos indicados
-function tengoAcceso (modo, permisos, user) {
+function tengoPermiso (modo, permisos, user) {
   console.log('tengo acceso?', permisos)
   // console.log('user', user)
   if (!permisos) return true
@@ -73,7 +73,7 @@ module.exports = {
       } else {
         entities = await strapi.services.carpetas.find(ctx.query);
       }
-      return entities.filter(carpeta=>tengoAcceso('lectura', carpeta.permisos, ctx.state.user)).map(entity => sanitizeEntity(entity, { model: strapi.models.carpetas }));
+      return entities.filter(carpeta=>tengoPermiso('lectura', carpeta.permisos, ctx.state.user)).map(entity => sanitizeEntity(entity, { model: strapi.models.carpetas }));
   },
 
   async findOne(ctx) {
@@ -89,7 +89,7 @@ module.exports = {
 
      if (
       carpeta &&
-      !tengoAcceso('lectura', carpeta.permisos, ctx.state.user)
+      !tengoPermiso('lectura', carpeta.permisos, ctx.state.user)
     ) {
       return ctx.forbidden(`No tienes permisos`)
     }
@@ -106,7 +106,7 @@ module.exports = {
     const carpeta = await strapi.services.carpetas.findOne({ id })
     if (
       carpeta &&
-      !tengoAcceso('escritura', carpeta.permisos, ctx.state.user)
+      !tengoPermiso('administracion', carpeta.permisos, ctx.state.user)
     ) {
       return ctx.forbidden(`No tienes permisos`)
     }

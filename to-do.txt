@@ -19,3 +19,7 @@ https://github.com/MexsonFernandes/nuxtjs-strapi-graphql-apollo-ssr/blob/main/fr
 
 Custom conditions
 https://strapi.io/blog/announcing-3.1-role-based-access-control
+
+
+Buscador con strapi (plugin)
+https://github.com/meilisearch/meilisearch
