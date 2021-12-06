@@ -26,16 +26,21 @@
       "component": "permisos.quien-puede",
       "required": true
     },
-    "escritura": {
+    "creacion": {
       "type": "component",
       "repeatable": false,
       "component": "permisos.quien-puede",
-      "required": true
+      "required": false
+    },
+    "soloSuperAdmin": {
+      "type": "boolean",
+      "default": false,
+      "private": true
     },
     "administracion": {
       "type": "component",
       "repeatable": false,
-      "component": "permisos.quien-puede"
+      "component": "permisos.administracion"
     }
   }
 }

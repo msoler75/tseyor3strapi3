@@ -699,8 +699,7 @@
           "permisos": {
             "required": [
               "id",
-              "lectura",
-              "escritura"
+              "lectura"
             ],
             "properties": {
               "id": {
@@ -718,8 +717,11 @@
               "lectura": {
                 "type": "component"
               },
-              "escritura": {
+              "creacion": {
                 "type": "component"
+              },
+              "soloSuperAdmin": {
+                "type": "boolean"
               },
               "administracion": {
                 "type": "component"

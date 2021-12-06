@@ -46,16 +46,8 @@ function idy (el) {
 async function buscaPermisos (ruta) {
   ruta = ruta.toLowerCase()
   await preparaListaPermisos() // carga la variable 'listaPermisos'
-  console.log(
-    'buscaPermisos',
-    ruta,
-    '-> buscando entre',
-    listaPermisosDesc.length,
-    'items'
-  )
   for (const p of listaPermisosDesc) {
     if (ruta.indexOf(p.ruta) === 0) {
-      console.log('permisos de ruta', p.ruta)
       return p.id
     }
   }
@@ -64,14 +56,12 @@ async function buscaPermisos (ruta) {
 
 // revisa los permisos de todas las carpetas
 async function actualizaCarpetas () {
-  console.log('revisamos los permisos de todas las carpetas')
   const carpetas = await strapi.services.carpetas.find({})
   for (const carpeta of carpetas) {
     const oldpid = carpeta.permisos ? carpeta.permisos.id : null
     const newpid = await buscaPermisos(carpeta.ruta)
     // si ha habido cambios, actualizamos la carpeta con los nuevos permisos
     if (oldpid !== newpid) {
-      console.log('carpeta con nuevos permisos', carpeta.ruta, newpid)
       await strapi.services.carpetas.update(
         { id: carpeta.id },
         { permisos: newpid }
@@ -80,26 +70,21 @@ async function actualizaCarpetas () {
   }
 }
 
-const actions = ['lectura', 'escritura', 'administracion']
-const roles = [
-  'publico',
-  'autenticados',
-  'delegados',
-  'muul',
-  'equipos',
-  'grupos',
-  'usuarios'
-]
+const actions = {
+  'lectura': ['publico', 'autenticados', 'delegados', 'muul', 'equipos', 'grupos', 'usuarios'], 
+  'creacion': ['publico', 'autenticados', 'delegados', 'muul', 'equipos', 'grupos', 'usuarios'], 
+  'administracion': ['usuarios']
+}
 
 function actualizarConPermisosBase (permisos, action, permisosBase) {
   let modificado = false
   if (!(action in permisosBase) || permisosBase[action] === null) {
     permisosBase[action] = {
       heredado: true,
-      publico: null,
-      autenticados: null,
-      delegados: null,
-      muul: null,
+      publico: false,
+      autenticados: false,
+      delegados: false,
+      muul: false,
       equipos: [],
       grupos: [],
       usuarios: []
@@ -110,18 +95,16 @@ function actualizarConPermisosBase (permisos, action, permisosBase) {
     modificado = true
   }
   if (permisos[action].heredado) {
-    for (const rol of roles) {
-      console.log('   .', rol)
+    for (const rol of actions[action]) {
       if (
         !(rol in permisos[action]) ||
         JSON.stringify(permisos[action][rol]) !=
           JSON.stringify(permisosBase[action][rol])
       ) {
         permisos[action][rol] = permisosBase[action][rol]
-        if(typeof permisos[action][rol] === 'object')
+        if(typeof permisos[action][rol] === 'object' && permisos[action][rol])
           permisos[action][rol] = permisos[action][rol].map(x=>idy(x))
         modificado = true
-        console.log('modificado=true')
       }
     }
   }
@@ -132,30 +115,25 @@ function actualizarConPermisosBase (permisos, action, permisosBase) {
  * Actualiza todos los permisos para que los heredados reflejen el valor del permiso 'padre'
  */
 async function actualizaPermisos (rutaPattern) {
-  console.log('actualizaPermisos', rutaPattern)
-
   const listaPermisosAsc = await strapi.services.permisos.find({
     ruta_contains: rutaPattern,
     _sort: 'ruta'
   })
   const rutasProcesadas = []
-  // console.log(listaPermisosAsc)
   for (const index in listaPermisosAsc) {
     const permisos = listaPermisosAsc[index]
-    console.log('->', permisos.ruta)
     if (!permisos.ruta.startsWith(rutaPattern)) {
-      console.log('es de otra rama')
+      // es de otra rama
       continue
     }
     if (rutasProcesadas.find(x => permisos.ruta.startsWith(x))) {
-      console.log('esta rama ya se ha actualizado')
+      // esta rama ya se ha actualizado (a través de la llamada a strapi.services.permisos.update (más abajo))
       continue
     }
     let permisosBase = null
     let rutaPadre = permisos.ruta.replace(/\/[^/]+$/, '')
     if (permisos.ruta === rutaPadre) continue
     const permisoIdPadre = await buscaPermisos(rutaPadre)
-    console.log('id=', permisoIdPadre)
     if (permisoIdPadre) {
       permisosBase = listaPermisosAsc.find(x => x.id === permisoIdPadre)
     }
@@ -166,17 +144,12 @@ async function actualizaPermisos (rutaPattern) {
       console.warn('No se han encontrado permisos padre para', rutaPadre)
       continue
     }
-    console.log('permisos padre =>', permisosBase.id, permisosBase.ruta)
 
     let modificado = false
-    console.log('permisos antes:', permisos)
-    for (const action of actions) {
-      console.log('-', action)
-      modificado =
-        modificado || actualizarConPermisosBase(permisos, action, permisosBase)
+    for (const action in actions) {
+      modificado = modificado || actualizarConPermisosBase(permisos, action, permisosBase)
     }
     if (modificado) {
-      console.log(permisos.ruta, 'modificado')
       listaPermisosAsc[index] = permisos
       await strapi.services.permisos.update({ id: permisos.id }, permisos)
     }
@@ -208,41 +181,40 @@ module.exports = {
     },
 
     async beforeUpdate (params, data) {
-      console.log('beforeUpdate', params, data)
       // no se permiten asignar así las carpetas
       if ('carpetas' in data) delete data.carpetas
       if ('ruta' in data) {
         // elimina la barra al final de la ruta
         if (data.ruta !== '/') data.ruta = data.ruta.replace(/\/$/, '')
-        console.log('ruta', data.ruta)
       }
       let heredan = []
-      for (const action of actions) {
+      for (const action in actions) {
         if(action in data && data[action] && data[action].heredado)
-        heredan.push(action)
+          heredan.push(action)
       }
-      console.log('algunaHerencia?', heredan)
+      // alguna herencia?
       if (heredan.length) {
         const orig = await strapi.services.permisos.findOne(params)
-        console.log('orig', orig)
-        console.log('beforeUpdate')
         if (!('ruta' in data)) {
           data.ruta = orig.ruta
         }
         if (!('ruta' in data))
-          throw strapi.errors.badRequest('Se debe especificar la ruta')
+          throw strapi.errors.badRequest('Se debe especificar la ruta cuando hay herencia')
         if (data.ruta !== '/') {
           let rutaPadre = data.ruta.replace(/\/[^/]+$/, '')
-          console.log('rutaPadre:', rutaPadre)
           const idPermisosBase = await buscaPermisos(rutaPadre)
-          console.log('idPermisosBase', idPermisosBase)
           const permisosBase = await strapi.services.permisos.findOne({id:idPermisosBase})
-          console.log('permisosBase', permisosBase)
-          console.log('data.lectura before update', data.lectura)
-          for (const action of actions) {
+          for (const action in actions) {
             actualizarConPermisosBase(data, action, permisosBase)
           }
-          console.log('data.lectura after update', data.lectura)
+        }
+      }
+      // para la ruta raíz '/' no se permite poner heredado
+      if('lectura' in data && data.ruta==='/') {
+        for (const action in actions) {
+          if(action in data && data[action] && data[action].heredado) {
+            data[action].heredado = false
+          }
         }
       }
     },

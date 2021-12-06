@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_permisos_quien_administra",
+  "info": {
+    "name": "QuienAdministra",
+    "icon": "user-lock",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heredado": {
+      "type": "boolean",
+      "default": true
+    },
+    "usuarios": {
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}
