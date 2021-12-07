@@ -21,7 +21,7 @@
       "path": "/archivos/:id",
       "handler": "archivos.findOne",
       "config": {
-        "policies": []
+        "policies": ["global::permisos-lectura"]
       }
     },
     {
@@ -29,7 +29,7 @@
       "path": "/archivos",
       "handler": "archivos.create",
       "config": {
-        "policies": []
+        "policies": ["global::permisos-creacion"]
       }
     },
     {
@@ -37,7 +37,7 @@
       "path": "/archivos/:id",
       "handler": "archivos.update",
       "config": {
-        "policies": ["global::is-owner"]
+        "policies": ["global::permisos-administracion"]
       }
     },
     {
@@ -45,7 +45,7 @@
       "path": "/archivos/:id",
       "handler": "archivos.delete",
       "config": {
-        "policies": ["global::is-owner"]
+        "policies": ["global::permisos-administracion"]
       }
     }
   ]

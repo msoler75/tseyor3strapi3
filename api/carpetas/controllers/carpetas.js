@@ -204,10 +204,12 @@ module.exports = {
     const data = ctx.request.body
 
     // comprobar permisos
+    /*
     const carpeta = await strapi.services.carpetas.findOne({ id })
     if (carpeta && !tengoPermiso(carpeta, 'administracion', ctx.state.user)) {
       return ctx.forbidden(`No tienes permisos`)
     }
+    */
 
     // no se pueden modificar estos campos desde la api
     const campos = ['fija', 'soloSuperAdmin', 'permisos', 'slug', 'ruta', 'archivos', 'subcarpetas', 'autor']

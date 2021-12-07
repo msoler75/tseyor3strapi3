@@ -21,7 +21,7 @@
       "path": "/carpetas/:id",
       "handler": "carpetas.findOne",
       "config": {
-        "policies": []
+        "policies": ["global::permisos-lectura"]
       }
     },
     {
@@ -29,7 +29,7 @@
       "path": "/carpetas",
       "handler": "carpetas.create",
       "config": {
-        "policies": []
+        "policies": ["global::permisos-creacion"]
       }
     },
     {
@@ -37,7 +37,7 @@
       "path": "/carpetas/:id",
       "handler": "carpetas.update",
       "config": {
-        "policies": []
+        "policies": ["global::permisos-administracion"]
       }
     },
     {
@@ -45,7 +45,7 @@
       "path": "/carpetas/:id",
       "handler": "carpetas.delete",
       "config": {
-        "policies": []
+        "policies": ["global::permisos-administracion"]
       }
     }
   ]
