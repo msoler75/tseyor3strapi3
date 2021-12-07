@@ -2083,6 +2083,68 @@
                 }
               }
             }
+          },
+          "carpetas": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "nombre"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "archivos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "fija": {
+                  "type": "boolean"
+                },
+                "padre": {
+                  "type": "string"
+                },
+                "subcarpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "soloSuperAdmin": {
+                  "type": "boolean"
+                },
+                "ruta": {
+                  "type": "string"
+                },
+                "permisos": {
+                  "type": "string"
+                },
+                "autor": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -2198,6 +2260,12 @@
             }
           },
           "archivosSubidos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "carpetas": {
             "type": "array",
             "items": {
               "type": "string"

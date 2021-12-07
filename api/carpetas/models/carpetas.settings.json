@@ -49,6 +49,11 @@
     "permisos": {
       "via": "carpetas",
       "model": "permisos"
+    },
+    "autor": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "carpetas"
     }
   }
 }

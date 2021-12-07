@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "12/06/2021 7:08:38 PM"
+    "x-generation-date": "12/06/2021 10:41:17 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -19323,6 +19323,12 @@
                   "type": "string"
                 }
               },
+              "carpetas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -19374,6 +19380,9 @@
                 "type": "string"
               },
               "permisos": {
+                "type": "string"
+              },
+              "autor": {
                 "type": "string"
               },
               "published_at": {
@@ -20243,6 +20252,9 @@
               "permisos": {
                 "type": "string"
               },
+              "autor": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -20301,6 +20313,9 @@
                 "permisos": {
                   "type": "string"
                 },
+                "autor": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -20357,6 +20372,138 @@
               }
             }
           },
+          "autor": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "nombreSimbolico": {
+                "type": "string"
+              },
+              "grupos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "frase": {
+                "type": "string"
+              },
+              "asiste": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likeit": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notificacionesEquipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "coordina": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "equipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "comentarios": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "eventos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "historial": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "recopilaciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "archivosSubidos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "carpetas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -20404,6 +20551,9 @@
             "type": "string"
           },
           "permisos": {
+            "type": "string"
+          },
+          "autor": {
             "type": "string"
           },
           "published_at": {
@@ -21115,6 +21265,12 @@
                   "type": "string"
                 }
               },
+              "carpetas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -21238,6 +21394,12 @@
                   }
                 },
                 "archivosSubidos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpetas": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -21870,6 +22032,12 @@
                   "type": "string"
                 }
               },
+              "carpetas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -22375,6 +22543,12 @@
                     "type": "string"
                   }
                 },
+                "carpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -22732,6 +22906,12 @@
                     "type": "string"
                   }
                 },
+                "carpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -22877,6 +23057,12 @@
                     "type": "string"
                   }
                 },
+                "carpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -22929,6 +23115,9 @@
                 "type": "string"
               },
               "permisos": {
+                "type": "string"
+              },
+              "autor": {
                 "type": "string"
               },
               "published_at": {
@@ -23547,6 +23736,12 @@
                   "type": "string"
                 }
               },
+              "carpetas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -23670,6 +23865,12 @@
                   }
                 },
                 "archivosSubidos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpetas": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -23894,6 +24095,12 @@
                   }
                 },
                 "archivosSubidos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpetas": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -24264,6 +24471,12 @@
                 }
               },
               "archivosSubidos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "carpetas": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -24704,6 +24917,12 @@
                 }
               },
               "archivosSubidos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "carpetas": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -25272,6 +25491,9 @@
                 "permisos": {
                   "type": "string"
                 },
+                "autor": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -25544,6 +25766,12 @@
                       }
                     },
                     "archivosSubidos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "carpetas": {
                       "type": "array",
                       "items": {
                         "type": "string"
@@ -25836,6 +26064,12 @@
                         "type": "string"
                       }
                     },
+                    "carpetas": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "created_by": {
                       "type": "string"
                     },
@@ -25986,6 +26220,12 @@
                       }
                     },
                     "archivosSubidos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "carpetas": {
                       "type": "array",
                       "items": {
                         "type": "string"
@@ -26283,6 +26523,12 @@
                         "type": "string"
                       }
                     },
+                    "carpetas": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "created_by": {
                       "type": "string"
                     },
@@ -26570,6 +26816,12 @@
                         "type": "string"
                       }
                     },
+                    "carpetas": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "created_by": {
                       "type": "string"
                     },
@@ -26729,6 +26981,12 @@
                         "type": "string"
                       }
                     },
+                    "carpetas": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "created_by": {
                       "type": "string"
                     },
@@ -26875,6 +27133,12 @@
                 }
               },
               "archivosSubidos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "carpetas": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -27657,6 +27921,12 @@
                   }
                 },
                 "archivosSubidos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpetas": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -28607,6 +28877,68 @@
                 }
               }
             }
+          },
+          "carpetas": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "nombre"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "archivos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "fija": {
+                  "type": "boolean"
+                },
+                "padre": {
+                  "type": "string"
+                },
+                "subcarpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "soloSuperAdmin": {
+                  "type": "boolean"
+                },
+                "ruta": {
+                  "type": "string"
+                },
+                "permisos": {
+                  "type": "string"
+                },
+                "autor": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -28722,6 +29054,12 @@
             }
           },
           "archivosSubidos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "carpetas": {
             "type": "array",
             "items": {
               "type": "string"

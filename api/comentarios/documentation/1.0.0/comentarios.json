@@ -932,6 +932,12 @@
                   "type": "string"
                 }
               },
+              "carpetas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "created_by": {
                 "type": "string"
               },
@@ -1055,6 +1061,12 @@
                   }
                 },
                 "archivosSubidos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpetas": {
                   "type": "array",
                   "items": {
                     "type": "string"

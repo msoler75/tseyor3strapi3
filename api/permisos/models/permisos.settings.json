@@ -17,8 +17,8 @@
       "unique": true
     },
     "carpetas": {
-      "collection": "carpetas",
-      "via": "permisos"
+      "via": "permisos",
+      "collection": "carpetas"
     },
     "lectura": {
       "type": "component",
