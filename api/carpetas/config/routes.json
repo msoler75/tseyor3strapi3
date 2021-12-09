@@ -29,7 +29,7 @@
       "path": "/carpetas",
       "handler": "carpetas.create",
       "config": {
-        "policies": ["global::permisos-creacion"]
+        "policies": []
       }
     },
     {

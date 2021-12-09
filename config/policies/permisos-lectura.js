@@ -8,7 +8,8 @@ module.exports = async (ctx, next) => {
   const collection = ctx.request.route.controller
   // comprobar permisos
    const contenido = await strapi.services[collection].findOne({id})
-  if (contenido && !(await permisos.tengoPermiso(contenido, 'lectura', ctx.state.user))) {
+  if (contenido && !(await permisos.tengoPermiso(contenido, 'lectura', ctx.state.user))
+  && !(await permisos.tengoPermiso(contenido, 'administracion', ctx.state.user))) {
     return ctx.forbidden(`No tienes permisos`)
   }
   

@@ -9,49 +9,6 @@ const { sanitizeEntity } = require('strapi-utils')
 
 const slugify = require('slugify')
 
-let listaPermisosDesc = null
-// let listaPermisosAsc = null
-
-async function preparaListaPermisos () {
-  if (!listaPermisosDesc) {
-    const sql = `SELECT id, ruta FROM permisos ORDER BY ruta DESC`
-    const knex = strapi.connections.default
-    const permisos = await knex.raw(sql)
-    listaPermisosDesc = permisos[0].map(x => ({
-      id: x.id,
-      ruta: x.ruta.toLowerCase()
-    }))
-    // listaPermisosAsc = await strapi.services.permisos.find({_sort: 'ruta::asc'})
-    // console.log('listapermisosdesc', listaPermisosDesc)
-  }
-}
-
-/**
- * Busca en todas las rutas, ordenadas de forma descendente, por lo que cuando encuentre una que empareje, es la buena
- *
- * Ejemplo:
- *
- * buscamos permisos para la carpeta /archivos/muul/divulgacion
- *
- * Y tenemos este listado de rutas:
- *
- * /archivos/ong/actas
- * /archivos/ong
- * /archivos/muul        <--- encuentra esta
- * /archivos/junantal
- * /archivos
- */
-async function buscaPermisos (ruta) {
-  ruta = ruta.toLowerCase()
-  await preparaListaPermisos() // carga la variable 'listaPermisos'
-  for (const p of listaPermisosDesc) {
-    if (ruta.indexOf(p.ruta) === 0) {
-      return p.id
-    }
-  }
-  return null
-}
-
 function idy (x) {
   return x && typeof x === 'object' ? x.id : x
 }
@@ -154,9 +111,9 @@ module.exports = {
 
     // console.log(carpeta)
 
-    if (carpeta && !tengoPermiso(carpeta, 'lectura', ctx.state.user)) {
+    /*if (carpeta && !tengoPermiso(carpeta, 'lectura', ctx.state.user)) {
       return ctx.forbidden(`No tienes permisos`)
-    }
+    }*/
 
     return sanitizeEntity(carpeta, { model: strapi.models.carpetas })
   },
