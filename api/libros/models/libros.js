@@ -5,4 +5,15 @@
  * to customize this model
  */
 
-module.exports = {};
+module.exports = {
+
+    meilisearch: {
+        settings: {
+          filterableAttributes: [],
+          distinctAttribute: null,
+          searchableAttributes: ['titulo', 'descripcion', 'slug', 'etiquetas'],
+          displayedAttributes: ['titulo', 'descripcion', 'imagen', 'slug']
+        }
+      },
+
+};

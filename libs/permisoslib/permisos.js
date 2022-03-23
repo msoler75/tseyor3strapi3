@@ -1,3 +1,7 @@
+function idy (x) {
+    return x && typeof x === 'object' ? x.id : x
+  }
+  
 module.exports = {
   soyAutor: function (contenido, user) {
     if (!user || !user.id || !('autor' in contenido) || !contenido.autor)
@@ -14,11 +18,15 @@ module.exports = {
     let permisos = contenido.permisos
     console.log('tengo acceso?', permisos)
     if (!permisos) {
-      console.log('no permisos')
-      if (contenido.carpeta) {
-        console.log('carpeta', contenido.carpeta)
-        permisos = contenido.carpeta.permisos
-      }
+      // busca los permisos en los lugares adecuados, según sea una carpeta o un archivo
+      let carpetaBase = contenido.carpeta || contenido.padre
+      carpetaBase = carpetaBase
+        ? await strapi.services.carpetas.findOne({ id: idy(carpetaBase) })
+        : null
+      if (carpetaBase)
+        permisos = carpetaBase.permisos
+      else 
+        permisos = await permisos.buscaPermisos('/')
     }
     if (typeof permisos === 'number') {
       permisos = await strapi.services.permisos.findOne({ id: permisos })

@@ -4,6 +4,12 @@ module.exports = {
       /* cors: {
         origin: ['http://localhost', 'https://mysite.com', 'https://www.mysite.com'],
       }, */
+      cache: {
+        enabled: true,
+        enableEtagSupport: true,
+        // https://github.com/patrixr/strapi-middleware-cache
+        models: ['comunicados', 'novedades', 'libros', 'equipos', 'noticias', 'blogs', 'entradas']
+      },
       cors: {
         enabled: true,
         origin: ['*'],

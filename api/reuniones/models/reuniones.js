@@ -15,6 +15,16 @@
 }
 
 module.exports = {
+
+
+  meilisearch: {
+    settings: {
+        filterableAttributes: [],
+        distinctAttribute: null,
+        searchableAttributes: ['titulo', 'texto', 'equipo']
+    }
+  },
+
     lifecycles: {
         /*async beforeCreate (data) {
           await normalizeData(data)

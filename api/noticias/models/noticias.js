@@ -39,6 +39,15 @@ const saveImagenes = async (data) => {
 
 module.exports = {
 
+    meilisearch: {
+        settings: {
+            filterableAttributes: [],
+            distinctAttribute: null,
+            searchableAttributes: ['titulo', 'texto', 'slug']
+        }
+    },
+
+
     lifecycles: {
 
         async beforeSave(params, data) {

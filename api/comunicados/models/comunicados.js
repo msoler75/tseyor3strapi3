@@ -58,6 +58,15 @@ async function ubicarImagenesEnCarpeta(data) {
 
 module.exports = {
 
+    meilisearch: {
+        settings: {
+          filterableAttributes: [],
+          distinctAttribute: null,
+          searchableAttributes: ['titulo', 'texto', 'slug'],
+          displayedAttributes: ['titulo', 'descripcion', 'imagen', 'slug']
+        }
+      },
+
     lifecycles: {
 
         async beforeUpdate(params, data) {

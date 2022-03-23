@@ -41,51 +41,9 @@ async function detectCycle (data, id) {
   return false
 }
 
-function soyAutor (contenido, user) {
-  if (!user || !user.id || !('autor' in contenido) || !contenido.autor)
-    return false
-  return contenido.autor === user.id || contenido.autor.id === user.id
-}
 
-// comprueba si el usuario tiene acceso segun los permisos indicados
-function tengoPermiso (contenido, modo, user) {
-  if (soyAutor(contenido, user)) return true
-  if (!('permisos' in contenido)) return false
-  const permisos = contenido.permisos
-  // console.log('tengo acceso?', permisos)
-  if (!permisos) return true
-  const p = permisos[modo]
-  if (!p) return false
-  // console.log('permisos son', p)
-  if (p.rol === 'Publico') return true
-  console.log('user', user)
-  if (user && user.id) {
-    // console.log('miramos permisos de usuario', user)
-    if (p.rol === 'Autenticados') {
-      return true
-    }
-    if (p.rol==='Delegados' && user.role.type === 'delegado') {
-      return true
-    }
-    if (p.rol==='Muul' && user.role.type ==='muul') {
-      return true
-    }
-    if (p.usuarios.find(x => idy(x) === user.id)) {
-      return true
-    }
-    for (const g of p.grupos) {
-      if (user.grupos.find(x => idy(x) === idy(g))) {
-        return true
-      }
-    }
-    for (const e of p.equipos) {
-      if (user.equipos.find(x => idy(x) === idy(e))) {
-        return true
-      }
-    }
-  }
-  return false
-}
+const permisos = require('../../../libs/permisoslib/permisos')
+
 
 module.exports = {
   async find (ctx) {
@@ -96,77 +54,30 @@ module.exports = {
       entities = await strapi.services.carpetas.find(ctx.query)
     }
     return entities
-      .filter(carpeta => tengoPermiso(carpeta, 'lectura', ctx.state.user))
+      .filter(async carpeta => await permisos.tengoPermiso(carpeta, 'lectura', ctx.state.user))
       .map(entity => sanitizeEntity(entity, { model: strapi.models.carpetas }))
   },
 
-  async findOne (ctx) {
-    const { id } = ctx.params
-
-    const carpeta = await strapi.services.carpetas.findOne({ id })
-
-    if (!carpeta) {
-      return ctx.notFound('La carpeta no existe')
-    }
-
-    // console.log(carpeta)
-
-    /*if (carpeta && !tengoPermiso(carpeta, 'lectura', ctx.state.user)) {
-      return ctx.forbidden(`No tienes permisos`)
-    }*/
-
-    return sanitizeEntity(carpeta, { model: strapi.models.carpetas })
-  },
-
   async create (ctx) {
-    console.log('create')
     // nunca va a ser multipart
     let data = ctx.request.body
-    if (ctx.state.user) data.autor = ctx.state.user.id
+    
+    // guardamos el autor
+    data.autor = ctx.state.user.id
 
-    if ('nombre' in data) data.slug = slugify(data.nombre, { lower: true })
+    data.slug = slugify(data.nombre, { lower: true })
 
-    // buscamos la carpeta padre o los permisos raíz para ver si podemos crear esta carpeta
-    let permisosPadre = null
-
-    let carpetaPadre = data.padre
-      ? await strapi.services.carpetas.findOne({ id: idy(data.padre) })
-      : null
-    if (carpetaPadre) {
-      permisosPadre = carpetaPadre.permisos
-    } else {
-      let permisosId = await buscaPermisos('/')
-      if (permisosId)
-        permisosPadre = await strapi.services.carpetas.findOne({
-          id: permisosId
-        })
-    }
-    if (permisosPadre) {
-      let nuevoContenido = {
-        permisos: permisosPadre
-      }
-      if (!tengoPermiso(nuevoContenido, 'creacion', ctx.state.user)&&!tengoPermiso(nuevoContenido, 'administracion', ctx.state.user))
-        return ctx.forbidden(`No tienes permisos`)
-    }
-
-    console.log('ctx', ctx.request.body)
+    // habitual creation from here
     let entity = await strapi.services.carpetas.create(data)
 
     return sanitizeEntity(entity, { model: strapi.models.carpetas })
   },
 
+  
   async update (ctx) {
     const { id } = ctx.params
     // nunca va a ser multipart
     const data = ctx.request.body
-
-    // comprobar permisos
-    /*
-    const carpeta = await strapi.services.carpetas.findOne({ id })
-    if (carpeta && !tengoPermiso(carpeta, 'administracion', ctx.state.user)) {
-      return ctx.forbidden(`No tienes permisos`)
-    }
-    */
 
     // no se pueden modificar estos campos desde la api
     const campos = ['fija', 'soloSuperAdmin', 'permisos', 'slug', 'ruta', 'archivos', 'subcarpetas', 'autor']

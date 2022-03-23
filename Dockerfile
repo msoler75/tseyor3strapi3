@@ -14,7 +14,7 @@ ENV HOST 0.0.0.0
 ENV PORT 1337
 ENV NODE_ENV production
 # esta URL debe cambiarse segun el host donde se ubique el server
-ENV PUBLIC_URL https://strapi-boii3ij2ua-ez.a.run.app
+ENV PUBLIC_URL http://localhost:1337
 
 RUN npm run build
 

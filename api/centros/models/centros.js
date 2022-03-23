@@ -5,4 +5,12 @@
  * to customize this model
  */
 
-module.exports = {};
+module.exports = {
+    meilisearch: {
+        settings: {
+            filterableAttributes: ['tipo'],
+            distinctAttribute: null,
+            searchableAttributes: ['nombre', 'descripcion']
+        }
+      },
+};

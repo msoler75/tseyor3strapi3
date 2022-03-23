@@ -11,9 +11,7 @@ https://www.trendmicro.com/cloudoneconformity/knowledge-base/gcp/ComputeEngine/
 
 
 
-configuracion de vuex state en nuxtServerInit
 
-https://github.com/MexsonFernandes/nuxtjs-strapi-graphql-apollo-ssr/blob/main/frontend/store/index.js
 
 
 
