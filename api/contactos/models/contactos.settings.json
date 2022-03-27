@@ -55,8 +55,8 @@
       "pluginOptions": {}
     },
     "centro": {
-      "model": "centros",
-      "via": "contacto"
+      "via": "contacto",
+      "model": "centros"
     },
     "usuario": {
       "plugin": "users-permissions",

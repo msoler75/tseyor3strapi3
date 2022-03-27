@@ -941,6 +941,9 @@
                   "type": "string"
                 }
               },
+              "slug": {
+                "type": "uid"
+              },
               "published_at": {
                 "type": "string"
               },

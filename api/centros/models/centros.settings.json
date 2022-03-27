@@ -60,6 +60,10 @@
     "eventos": {
       "via": "organiza",
       "collection": "eventos"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "nombre"
     }
   }
 }

@@ -34,6 +34,9 @@
       "required": true,
       "unique": false,
       "regex": "(\\/[a-z\\-]*)+"
+    },
+    "descripcion": {
+      "type": "string"
     }
   }
 }

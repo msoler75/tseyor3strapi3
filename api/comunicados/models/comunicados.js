@@ -1,6 +1,7 @@
 'use strict';
 
 const cfs = require('../../../libs/carpetaslib/carpeta.js');
+const contenidos = require('../../../libs/contenidoslib/contenidos.js')
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#lifecycle-hooks)
@@ -60,7 +61,7 @@ module.exports = {
 
     meilisearch: {
         settings: {
-          filterableAttributes: [],
+          filterableAttributes: ['fecha'],
           distinctAttribute: null,
           searchableAttributes: ['titulo', 'texto', 'slug'],
           displayedAttributes: ['titulo', 'descripcion', 'imagen', 'slug']
@@ -71,34 +72,46 @@ module.exports = {
 
         async beforeUpdate(params, data) {
             console.log('beforeUpdate')
-            await saveImagenes(data)
+            // !!! DESCOMENTAR!!!
+            //await saveImagenes(data)
         },
 
         async beforeCreate(data) {
             console.log('beforeCreate')
-            await saveImagenes(data)
+            // !!! DESCOMENTAR!!!
+            //await saveImagenes(data)
         },        
         
         async afterCreate(result, data) {
             console.log('afterCreate')
-            await ubicarImagenesEnCarpeta(result)
+            // DESCOMENTAR !!!
+            // await ubicarImagenesEnCarpeta(result)
+            await contenidos.save('comunicados', result)
         },
 
         async afterUpdate(result, params, data) {
             console.log('afterUpdate')
-            await ubicarImagenesEnCarpeta(result)
+            // DESCOMENTAR !!!
+            // await ubicarImagenesEnCarpeta(result)
+            await contenidos.save('comunicados', result)
         },
 
         // truco para actualizar las imagenes
         async afterFindOne(result, params, populate) {
             console.log('afterFindOne')
-            await ubicarImagenesEnCarpeta(result)
+            //// DESCOMENTAR!!!
+            // await ubicarImagenesEnCarpeta(result)
+            
             /* let carpeta = await cfs.dameCarpeta('/ong')
             console.log(carpeta)
             carpeta = await cfs.dameCarpeta('/archivos/ong')
             console.log(carpeta)
             await cfs.crearCarpeta('/pepito/amoroso/celta') */
         },
+
+        async afterDelete(result, params) {
+            await contenidos.delete('comunicados', result)
+        }
       },
 
 

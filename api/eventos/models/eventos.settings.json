@@ -70,8 +70,8 @@
       "model": "salas"
     },
     "organiza": {
-      "model": "centros",
-      "via": "eventos"
+      "via": "eventos",
+      "model": "centros"
     },
     "zonahoraria": {
       "type": "enumeration",

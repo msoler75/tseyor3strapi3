@@ -2,56 +2,56 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/comunicados",
-      "handler": "comunicados.find",
+      "path": "/contenidos",
+      "handler": "contenidos.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/comunicados/search",
-      "handler": "comunicados.fuzzySearch",
+      "path": "/contenidos/count",
+      "handler": "contenidos.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/comunicados/count",
-      "handler": "comunicados.count",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "GET",
-      "path": "/comunicados/:id",
-      "handler": "comunicados.findOne",
+      "path": "/contenidos/:id",
+      "handler": "contenidos.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/comunicados",
-      "handler": "comunicados.create",
+      "path": "/contenidos",
+      "handler": "contenidos.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/contenidos/rebuild",
+      "handler": "contenidos.rebuild",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/comunicados/:id",
-      "handler": "comunicados.update",
+      "path": "/contenidos/:id",
+      "handler": "contenidos.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/comunicados/:id",
-      "handler": "comunicados.delete",
+      "path": "/contenidos/:id",
+      "handler": "contenidos.delete",
       "config": {
         "policies": []
       }

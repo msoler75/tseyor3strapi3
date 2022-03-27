@@ -8,7 +8,7 @@ module.exports = {
         enabled: true,
         enableEtagSupport: true,
         // https://github.com/patrixr/strapi-middleware-cache
-        models: ['comunicados', 'novedades', 'libros', 'equipos', 'noticias', 'blogs', 'entradas']
+        models: ['audios', 'blogs', 'boletines', 'carpetas', 'centros', 'comentarios', 'comunicados', 'contactos', 'entradas', 'equipos', 'etiquetas', 'eventos', 'grupos', 'guias', 'likes', 'libros', 'normativas', 'noticias', 'novedades', 'paginas', 'permisos', 'recopilaciones', 'redes', 'salas', 'user']
       },
       cors: {
         enabled: true,
