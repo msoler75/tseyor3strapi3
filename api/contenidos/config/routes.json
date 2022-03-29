@@ -18,6 +18,14 @@
     },
     {
       "method": "GET",
+      "path": "/contenidos/rebuild",
+      "handler": "contenidos.rebuild",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/contenidos/:id",
       "handler": "contenidos.findOne",
       "config": {
@@ -28,14 +36,6 @@
       "method": "POST",
       "path": "/contenidos",
       "handler": "contenidos.create",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "POST",
-      "path": "/contenidos/rebuild",
-      "handler": "contenidos.rebuild",
       "config": {
         "policies": []
       }

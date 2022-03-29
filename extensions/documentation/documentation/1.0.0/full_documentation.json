@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "03/26/2022 1:41:26 PM"
+    "x-generation-date": "03/28/2022 9:59:15 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -7106,9 +7106,9 @@
       }
     },
     "/contenidos/rebuild": {
-      "post": {
+      "get": {
         "deprecated": false,
-        "description": "Create a new contenidos record",
+        "description": "",
         "responses": {
           "200": {
             "description": "Retrieve contenidos document(s)",
@@ -7159,21 +7159,7 @@
         "tags": [
           "Contenidos"
         ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
+        "parameters": []
       }
     },
     "/entradas": {
@@ -22858,6 +22844,27 @@
           },
           "extra": {
             "type": "string"
+          },
+          "texto4": {
+            "type": "string"
+          },
+          "texto5": {
+            "type": "string"
+          },
+          "texto6": {
+            "type": "string"
+          },
+          "texto7": {
+            "type": "string"
+          },
+          "texto8": {
+            "type": "string"
+          },
+          "texto9": {
+            "type": "string"
+          },
+          "texto10": {
+            "type": "string"
           }
         }
       },
@@ -22894,6 +22901,27 @@
             "type": "string"
           },
           "extra": {
+            "type": "string"
+          },
+          "texto4": {
+            "type": "string"
+          },
+          "texto5": {
+            "type": "string"
+          },
+          "texto6": {
+            "type": "string"
+          },
+          "texto7": {
+            "type": "string"
+          },
+          "texto8": {
+            "type": "string"
+          },
+          "texto9": {
+            "type": "string"
+          },
+          "texto10": {
             "type": "string"
           },
           "created_by": {

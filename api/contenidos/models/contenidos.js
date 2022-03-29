@@ -7,14 +7,13 @@
 
 module.exports = {
 
-    meilisearch: {
-        settings: {
-          filterableAttributes: ['coleccion', 'tipo', 'formato'],
-          distinctAttribute: null,
-          searchableAttributes: ['titulo', 'slugref', 'tipo', 'formato', 'descripcion', 'texto', 'texto2', 'texto3', 'extra'],
-          displayedAttributes: ['titulo', 'coleccion', 'idref', 'slugref', 'tipo', 'formato', 'extra']
-        }
-      },
+  meilisearch: {
+    settings: {
+      filterableAttributes: ['coleccion', 'tipo', 'formato'],
+      distinctAttribute: null,
+      searchableAttributes: ['titulo', 'slugref', 'tipo', 'formato', 'descripcion', 'texto', 'texto2', 'texto3', 'texto4', 'texto5', 'texto6', 'texto7', 'texto8', 'texto9', 'texto10', 'extra'],
+      displayedAttributes: ['titulo', 'coleccion', 'idref', 'slugref', 'tipo', 'formato', 'extra']
+    }
+  },
 
 };
-

@@ -8,7 +8,10 @@
 const contenidos = require('../../../libs/contenidoslib/contenidos.js')
 
 module.exports = {
-  async rebuild() {
-    contenidos.rebuild()
+  async rebuild(ctx) {
+    const {
+      collection
+    } = ctx.request.query;
+    contenidos.rebuild(collection)
   }
 };

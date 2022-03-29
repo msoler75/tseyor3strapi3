@@ -42,6 +42,27 @@
     "texto3": {
       "type": "richtext"
     },
+    "texto4": {
+      "type": "richtext"
+    },
+    "texto5": {
+      "type": "richtext"
+    },
+    "texto6": {
+      "type": "richtext"
+    },
+    "texto7": {
+      "type": "richtext"
+    },
+    "texto8": {
+      "type": "richtext"
+    },
+    "texto9": {
+      "type": "richtext"
+    },
+    "texto10": {
+      "type": "richtext"
+    },
     "imagen": {
       "model": "file",
       "via": "related",

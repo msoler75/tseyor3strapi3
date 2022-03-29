@@ -44,13 +44,14 @@ const saveImagenes = async (data) => {
     data.imagen = bestImage
 }
 
+// guarda las imagenes del comunicado en una carpeta en la zona de archivos
 async function ubicarImagenesEnCarpeta(data) {
     // agarramos todas las imagenes en un solo array
     var mediaFiles = data.imagenes.concat([])
     if(data.imagen&&!mediaFiles.find(x=>x.id===data.imagen.id))
         mediaFiles.push(data.imagen)
     if(!mediaFiles.length) return
-    const ruta = `/archivos/comunicados/${data.id}`
+    const ruta = `/archivos/comunicados/imagenes/${data.id}`
     await cfs.crearCarpeta(ruta)
     const archivos = await cfs.dameArchivosDeMediaList(mediaFiles)
     await cfs.reemplazarArchivosARuta(ruta, archivos)
