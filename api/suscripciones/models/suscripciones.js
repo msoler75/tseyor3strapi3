@@ -7,7 +7,7 @@
 
 
  const {idy} = require('./../../../libs/utils')
- const {makeid, especificos} = require('./../../../libs/suscripcioneslib/suscripciones')
+ const {makeid, encrypt, especificos} = require('./../../../libs/suscripcioneslib/suscripciones')
 
 
 module.exports = {
@@ -31,18 +31,24 @@ module.exports = {
           'Necesita al menos un correo electrónico'
         )
       data.secreto = makeid(16)
+      if(!userid)
+      {
+        data.published_at = null 
+        // generamos un código hash que tiene codificado el correo y el código secreto
+        data.hash = JSON.stringify(encrypt(JSON.stringify({correo: data.correo, secreto: data.secreto})))
+      }
     },
 
 
     async beforeUpdate(params, data) {
-      let userid = idy(data.usuario)
-      data.usuario = userid
-      if (!userid && !data.correo)
-      throw strapi.errors.badRequest(
-        'Necesita al menos un correo electrónico'
-        )
+      if('usuario' in data)
+      {
+        let userid = idy(data.usuario)
+        data.usuario = userid
+      }
       for(const coleccion of especificos) {
-        data[coleccion]=data[coleccion].map(x=>idy(x))
+        if(coleccion in data)
+          data[coleccion]=data[coleccion].map(x=>idy(x))
       }
     }
   }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "04/05/2022 11:12:08 AM"
+    "x-generation-date": "04/06/2022 6:53:02 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -16818,6 +16818,77 @@
         }
       }
     },
+    "/suscripciones/my": {
+      "post": {
+        "deprecated": false,
+        "description": "Create a new suscripciones record",
+        "responses": {
+          "200": {
+            "description": "Retrieve suscripciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/suscripciones/list/{coleccion}": {
       "get": {
         "deprecated": false,
@@ -16943,10 +17014,10 @@
         "parameters": []
       }
     },
-    "/suscripciones/validate/{email}": {
-      "get": {
+    "/suscripciones/validate/{hash}": {
+      "post": {
         "deprecated": false,
-        "description": "",
+        "description": "Create a new suscripciones record",
         "responses": {
           "200": {
             "description": "Retrieve suscripciones document(s)",
@@ -16997,18 +17068,21 @@
         "tags": [
           "Suscripciones"
         ],
-        "parameters": [
-          {
-            "name": "email",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
             }
           }
-        ]
+        }
       }
     },
     "/suscripciones/resetSecret/{id}": {
@@ -19924,14 +19998,17 @@
                     "type": "string"
                   }
                 },
-                "validado": {
-                  "type": "boolean"
-                },
                 "comentarios": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -21234,14 +21311,17 @@
                     "type": "string"
                   }
                 },
-                "validado": {
-                  "type": "boolean"
-                },
                 "comentarios": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -22141,14 +22221,17 @@
                     "type": "string"
                   }
                 },
-                "validado": {
-                  "type": "boolean"
-                },
                 "comentarios": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -23245,14 +23328,17 @@
                     "type": "string"
                   }
                 },
-                "validado": {
-                  "type": "boolean"
-                },
                 "comentarios": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -25202,14 +25288,17 @@
                     "type": "string"
                   }
                 },
-                "validado": {
-                  "type": "boolean"
-                },
                 "comentarios": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -27574,14 +27663,17 @@
                     "type": "string"
                   }
                 },
-                "validado": {
-                  "type": "boolean"
-                },
                 "comentarios": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -30458,9 +30550,6 @@
               }
             }
           },
-          "validado": {
-            "type": "boolean"
-          },
           "comentarios": {
             "type": "array",
             "items": {
@@ -30526,6 +30615,13 @@
                 }
               }
             }
+          },
+          "hash": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           }
         }
       },
@@ -30585,14 +30681,18 @@
               "type": "string"
             }
           },
-          "validado": {
-            "type": "boolean"
-          },
           "comentarios": {
             "type": "array",
             "items": {
               "type": "string"
             }
+          },
+          "hash": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           },
           "created_by": {
             "type": "string"
@@ -31897,14 +31997,17 @@
                   "type": "string"
                 }
               },
-              "validado": {
-                "type": "boolean"
-              },
               "comentarios": {
                 "type": "array",
                 "items": {
                   "type": "string"
                 }
+              },
+              "hash": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"

@@ -10,17 +10,17 @@ const {idy} = require('./../../../libs/utils')
 
 const dameArchivo = async params => {
   return (
-    (await strapi.services.archivos.findOne(params)) ||
+    // (await strapi.services.archivos.findOne(params)) ||
     (await strapi.services.archivos.findOne({
       ...params,
-      _publicationState: 'preview'
+      _publicationState: 'preview' // devuelve borradores y publicados
     }))
   )
 }
 
 const dameCarpeta = async params => {
   return (
-    (await strapi.services.carpetas.findOne(params)) ||
+    // (await strapi.services.carpetas.findOne(params)) ||
     (await strapi.services.carpetas.findOne({
       ...params,
       _publicationState: 'preview'

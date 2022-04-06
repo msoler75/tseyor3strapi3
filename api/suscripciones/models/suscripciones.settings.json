@@ -8,7 +8,7 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
@@ -64,13 +64,13 @@
       "via": "suscripciones",
       "dominant": true
     },
-    "validado": {
-      "type": "boolean"
-    },
     "comentarios": {
       "collection": "comentarios",
       "via": "suscripciones",
       "dominant": true
+    },
+    "hash": {
+      "type": "string"
     }
   }
 }

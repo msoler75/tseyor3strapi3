@@ -716,14 +716,17 @@
                     "type": "string"
                   }
                 },
-                "validado": {
-                  "type": "boolean"
-                },
                 "comentarios": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
