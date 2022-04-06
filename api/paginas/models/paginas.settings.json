@@ -37,6 +37,10 @@
     },
     "descripcion": {
       "type": "string"
+    },
+    "suscripciones": {
+      "via": "paginas",
+      "collection": "suscripciones"
     }
   }
 }

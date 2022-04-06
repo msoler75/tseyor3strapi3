@@ -1,0 +1,76 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/suscripciones",
+      "handler": "suscripciones.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/suscripciones/list/:coleccion",
+      "handler": "suscripciones.list",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/suscripciones/count",
+      "handler": "suscripciones.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/suscripciones/validate/:email",
+      "handler": "suscripciones.validate",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/suscripciones/resetSecret/:id",
+      "handler": "suscripciones.resetSecret",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/suscripciones/:id",
+      "handler": "suscripciones.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/suscripciones",
+      "handler": "suscripciones.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/suscripciones/:id",
+      "handler": "suscripciones.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/suscripciones/:id",
+      "handler": "suscripciones.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

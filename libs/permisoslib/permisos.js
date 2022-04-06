@@ -1,6 +1,4 @@
-function idy (x) {
-    return x && typeof x === 'object' ? x.id : x
-  }
+const {idy} = require('./../utils')
   
 module.exports = {
   soyAutor: function (contenido, user) {

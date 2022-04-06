@@ -9,11 +9,10 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "n8n": "docker run -it --rm --name n8n -p 5678:5678 -v \"d:/projects/TSEYOR v3.0/n8n/.data:/home/node/.n8n\"  n8nio/n8n",
     "dockerbuild": "docker build . -t project_strapi",
     "dockerrun": "docker run -d  --name strapi -p 1337:1337 -e \"DATABASE_HOST=host.docker.internal\" project_strapi",
     "meili": "docker run -it --rm --name meilisearch -p 7700:7700 -v \"d:/projects/TSEYOR v3.0/meilisearch/.data:/data.ms\"  getmeili/meilisearch:latest",
-    "filebrowser": "docker run -d --name filebrowser -p 8081:80 -v  \"d:/projects/TSEYOR v3.0/filebrowser/srv:/srv\" -v \"d:/projects/TSEYOR v3.0/filebrowser/filebrowser.db:/database.db\" -v \"d:/projects/TSEYOR v3.0/filebrowser/settings.json:/.filebrowser.json\" filebrowser/filebrowser",
+    "n8n": "docker run -it --rm --name n8n -p 5678:5678 -v \"d:/projects/TSEYOR v3.0/n8n/.data:/home/node/.n8n\"  n8nio/n8n",
     "debug": "node --inspect=127.0.0.1:9229 ./node_modules/strapi/bin/strapi.js develop"
   },
   "dependencies": {

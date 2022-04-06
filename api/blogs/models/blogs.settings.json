@@ -40,6 +40,10 @@
     "entradas": {
       "via": "blog",
       "collection": "entradas"
+    },
+    "suscripciones": {
+      "via": "blogs",
+      "collection": "suscripciones"
     }
   }
 }

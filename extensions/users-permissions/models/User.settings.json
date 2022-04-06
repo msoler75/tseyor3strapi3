@@ -129,6 +129,10 @@
     "carpetas": {
       "via": "autor",
       "collection": "carpetas"
+    },
+    "suscripciones": {
+      "via": "usuario",
+      "model": "suscripciones"
     }
   }
 }

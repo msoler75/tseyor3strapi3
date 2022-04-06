@@ -9,9 +9,7 @@ const { sanitizeEntity } = require('strapi-utils')
 
 const slugify = require('slugify')
 
-function idy (x) {
-  return x && typeof x === 'object' ? x.id : x
-}
+const {idy} = require('./../../../libs/utils')
 
 async function detectCycle (data, id) {
   if (typeof id === 'string') id = parseInt(id)

@@ -1,9 +1,4 @@
-function idy(el) {
-  if (!el) return null
-  if (typeof el !== 'object') return el
-  if (el.id) return el.id
-  return el
-}
+const {idy} = require('./../utils')
 
 const split_text = function (texto) {
   if (!texto) return {}
@@ -116,6 +111,9 @@ module.exports = {
       }
       if (collection === 'equipos') {
         toSave.tipo = 'organización'
+      }
+      if (collection === 'eventos') {
+        toSave.tipo = 'actividades'
       }
       if (collection === 'guias') {
         toSave.tipo = 'personas'
@@ -234,7 +232,7 @@ module.exports = {
     }
 
     // recorremos todas las colecciones o solo la colección indicada
-     let collections = collection ? [collection] : ['archivos', 'audios', 'blogs', 'carpetas', 'centros', 'comunicados', 'contactos', 'entradas', 'equipos', 'guias', 'libros', 'normativas', 'noticias', 'paginas', 'redes', 'salas', 'usuarios']
+     let collections = collection ? [collection] : ['archivos', 'audios', 'blogs', 'carpetas', 'centros', 'comunicados', 'contactos', 'entradas', 'eventos', 'equipos', 'guias', 'libros', 'normativas', 'noticias', 'paginas', 'redes', 'salas', 'usuarios']
     for (const collection of collections) {
       let entries
       if (collection === 'usuarios')

@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/equipos": {
+    "/suscripciones": {
       "get": {
         "deprecated": false,
-        "description": "Find all the equipos's records",
+        "description": "Find all the suscripciones's records",
         "responses": {
           "200": {
-            "description": "Retrieve equipos document(s)",
+            "description": "Retrieve suscripciones document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Equipos"
+                    "$ref": "#/components/schemas/Suscripciones"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Equipos"
+          "Suscripciones"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new equipos record",
+        "description": "Create a new suscripciones record",
         "responses": {
           "200": {
-            "description": "Retrieve equipos document(s)",
+            "description": "Retrieve suscripciones document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Equipos"
+                  "$ref": "#/components/schemas/Suscripciones"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Equipos"
+          "Suscripciones"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,88 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEquipos"
+                "$ref": "#/components/schemas/NewSuscripciones"
               }
             }
           }
         }
       }
     },
-    "/equipos/count": {
+    "/suscripciones/list/{coleccion}": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of equipos documents",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve equipos document(s)",
+            "description": "Retrieve suscripciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
+        ],
+        "parameters": [
+          {
+            "name": "coleccion",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/suscripciones/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the number of suscripciones documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve suscripciones document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +374,26 @@
         },
         "summary": "",
         "tags": [
-          "Equipos"
+          "Suscripciones"
         ],
         "parameters": []
       }
     },
-    "/equipos/{id}": {
+    "/suscripciones/validate/{email}": {
       "get": {
         "deprecated": false,
-        "description": "Find one equipos record",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve equipos document(s)",
+            "description": "Retrieve suscripciones document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Equipos"
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
@@ -359,7 +431,154 @@
         },
         "summary": "",
         "tags": [
-          "Equipos"
+          "Suscripciones"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/suscripciones/resetSecret/{id}": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single suscripciones record",
+        "responses": {
+          "200": {
+            "description": "Retrieve suscripciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/suscripciones/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one suscripciones record",
+        "responses": {
+          "200": {
+            "description": "Retrieve suscripciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Suscripciones"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
         ],
         "parameters": [
           {
@@ -376,14 +595,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single equipos record",
+        "description": "Update a single suscripciones record",
         "responses": {
           "200": {
-            "description": "Retrieve equipos document(s)",
+            "description": "Retrieve suscripciones document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Equipos"
+                  "$ref": "#/components/schemas/Suscripciones"
                 }
               }
             }
@@ -421,7 +640,7 @@
         },
         "summary": "",
         "tags": [
-          "Equipos"
+          "Suscripciones"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +648,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEquipos"
+                "$ref": "#/components/schemas/NewSuscripciones"
               }
             }
           }
@@ -449,10 +668,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single equipos record",
+        "description": "Delete a single suscripciones record",
         "responses": {
           "200": {
-            "description": "deletes a single equipos based on the ID supplied",
+            "description": "deletes a single suscripciones based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,340 +714,8 @@
         },
         "summary": "",
         "tags": [
-          "Equipos"
+          "Suscripciones"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/equipos/{id}/join": {
-      "put": {
-        "deprecated": false,
-        "description": "Update a single equipos record",
-        "responses": {
-          "200": {
-            "description": "Retrieve equipos document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Equipos"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/equipos/{id}/leave": {
-      "put": {
-        "deprecated": false,
-        "description": "Update a single equipos record",
-        "responses": {
-          "200": {
-            "description": "Retrieve equipos document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Equipos"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/equipos/{id}/suscribe": {
-      "put": {
-        "deprecated": false,
-        "description": "Update a single equipos record",
-        "responses": {
-          "200": {
-            "description": "Retrieve equipos document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Equipos"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/equipos/{id}/unsuscribe": {
-      "put": {
-        "deprecated": false,
-        "description": "Update a single equipos record",
-        "responses": {
-          "200": {
-            "description": "Retrieve equipos document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Equipos"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
         "parameters": [
           {
             "name": "id",
@@ -846,78 +733,166 @@
   },
   "components": {
     "schemas": {
-      "Equipos": {
+      "Suscripciones": {
         "required": [
-          "id",
-          "imagen"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "nombre": {
+          "correo": {
             "type": "string"
           },
-          "descripcion": {
+          "secreto": {
             "type": "string"
           },
-          "imagen": {
+          "audios": {
+            "type": "boolean"
+          },
+          "boletines": {
+            "type": "boolean"
+          },
+          "comunicados": {
+            "type": "boolean"
+          },
+          "libros": {
+            "type": "boolean"
+          },
+          "normativas": {
+            "type": "boolean"
+          },
+          "noticias": {
+            "type": "boolean"
+          },
+          "eventos": {
+            "type": "boolean"
+          },
+          "usuario": {
             "required": [
               "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
+              "username",
+              "email"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
+              "username": {
                 "type": "string"
               },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
+              "email": {
                 "type": "string"
               },
               "provider": {
                 "type": "string"
               },
-              "provider_metadata": {
-                "type": "object"
+              "password": {
+                "type": "string"
               },
-              "related": {
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "nombreSimbolico": {
+                "type": "string"
+              },
+              "grupos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "frase": {
+                "type": "string"
+              },
+              "asiste": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likeit": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notificacionesEquipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "coordina": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "equipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "comentarios": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "eventos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "historial": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "recopilaciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "archivosSubidos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "carpetas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "suscripciones": {
                 "type": "string"
               },
               "created_by": {
@@ -928,296 +903,156 @@
               }
             }
           },
-          "miembros": {
+          "blogs": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "username",
-                "email"
+                "nombre",
+                "descripcion"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "username": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmationToken": {
-                  "type": "string"
-                },
-                "confirmed": {
-                  "type": "boolean"
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "nombreSimbolico": {
-                  "type": "string"
-                },
-                "grupos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "frase": {
-                  "type": "string"
-                },
-                "asiste": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "likes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "likeit": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "notificacionesEquipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "coordina": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "equipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "comentarios": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "eventos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "historial": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "recopilaciones": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "archivosSubidos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "carpetas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "suscripciones": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "slug": {
-            "type": "uid"
-          },
-          "reuniones": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "equipo": {
-                  "type": "string"
-                },
-                "fecha": {
-                  "type": "string"
-                },
-                "texto": {
-                  "type": "string"
-                },
-                "adjuntos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "cancelada": {
-                  "type": "boolean"
-                },
-                "actividad": {
-                  "type": "string"
-                },
-                "acta": {
-                  "type": "string"
-                },
-                "anexos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "titulo": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "actas": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "fecha"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "reunion": {
-                  "type": "string"
-                },
-                "texto": {
-                  "type": "string"
-                },
-                "adjuntos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "fecha": {
-                  "type": "string"
-                },
-                "equipo": {
-                  "type": "string"
-                },
-                "anexos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "actividad": {
-                  "type": "string"
-                },
-                "suscripciones": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "actividades": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "horarios"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "titulo": {
+                "nombre": {
                   "type": "string"
                 },
                 "descripcion": {
                   "type": "string"
                 },
-                "tipo": {
-                  "type": "string",
-                  "enum": [
-                    "reunion",
-                    "otras"
-                  ]
+                "imagen": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
-                "horarios": {
-                  "type": "component"
-                },
-                "sala": {
+                "texto": {
                   "type": "string"
                 },
-                "publica": {
+                "slug": {
+                  "type": "uid"
+                },
+                "entradas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "carpetas": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "nombre"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "archivos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "fija": {
                   "type": "boolean"
                 },
-                "equipo": {
+                "padre": {
                   "type": "string"
+                },
+                "subcarpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "soloSuperAdmin": {
+                  "type": "boolean"
+                },
+                "ruta": {
+                  "type": "string"
+                },
+                "permisos": {
+                  "type": "string"
+                },
+                "autor": {
+                  "type": "string"
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "equipos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "imagen"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "miembros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "uid"
                 },
                 "reuniones": {
                   "type": "array",
@@ -1231,6 +1066,57 @@
                     "type": "string"
                   }
                 },
+                "actividades": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pizarra": {
+                  "type": "string"
+                },
+                "libros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordinadores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "zonahoraria": {
+                  "type": "string",
+                  "enum": [
+                    "Argentina",
+                    "Bolivia",
+                    "Chile",
+                    "Colombia",
+                    "Espana",
+                    "Mexico",
+                    "Panama",
+                    "Peru",
+                    "PuertoRico",
+                    "Venezuela"
+                  ]
+                },
+                "suscriptores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpeta": {
+                  "type": "string"
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -1243,16 +1129,14 @@
               }
             }
           },
-          "pizarra": {
-            "type": "string"
-          },
-          "libros": {
+          "paginas": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "descripcion",
-                "edicionNumero"
+                "titulo",
+                "texto",
+                "ruta"
               ],
               "properties": {
                 "id": {
@@ -1261,28 +1145,19 @@
                 "titulo": {
                   "type": "string"
                 },
+                "texto": {
+                  "type": "string"
+                },
                 "slug": {
                   "type": "uid"
+                },
+                "ruta": {
+                  "type": "string"
                 },
                 "descripcion": {
                   "type": "string"
                 },
-                "imagen": {
-                  "type": "string"
-                },
-                "edicionFecha": {
-                  "type": "string"
-                },
-                "paginas": {
-                  "type": "integer"
-                },
-                "documento": {
-                  "type": "string"
-                },
-                "edicionNumero": {
-                  "type": "integer"
-                },
-                "etiquetas": {
+                "suscripciones": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -1300,65 +1175,38 @@
               }
             }
           },
-          "coordinadores": {
+          "validado": {
+            "type": "boolean"
+          },
+          "comentarios": {
             "type": "array",
             "items": {
               "required": [
                 "id",
-                "username",
-                "email"
+                "texto",
+                "uid"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "username": {
+                "texto": {
                   "type": "string"
                 },
-                "email": {
+                "uid": {
                   "type": "string"
                 },
-                "provider": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmationToken": {
-                  "type": "string"
-                },
-                "confirmed": {
-                  "type": "boolean"
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "nombreSimbolico": {
-                  "type": "string"
-                },
-                "grupos": {
+                "respuestas": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "imagen": {
+                "respondiendo": {
                   "type": "string"
                 },
-                "frase": {
+                "autor": {
                   "type": "string"
-                },
-                "asiste": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "likes": {
                   "type": "array",
@@ -1366,369 +1214,26 @@
                     "type": "string"
                   }
                 },
-                "likeit": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "notificacionesEquipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "coordina": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "equipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "comentarios": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "eventos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "historial": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "recopilaciones": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "archivosSubidos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "carpetas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "suscripciones": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "zonahoraria": {
-            "type": "string",
-            "default": "Espana",
-            "enum": [
-              "Argentina",
-              "Bolivia",
-              "Chile",
-              "Colombia",
-              "Espana",
-              "Mexico",
-              "Panama",
-              "Peru",
-              "PuertoRico",
-              "Venezuela"
-            ]
-          },
-          "suscriptores": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "username",
-                "email"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "username": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmationToken": {
-                  "type": "string"
-                },
-                "confirmed": {
-                  "type": "boolean"
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "nombreSimbolico": {
-                  "type": "string"
-                },
-                "grupos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "imagen": {
-                  "type": "string"
-                },
-                "frase": {
-                  "type": "string"
-                },
-                "asiste": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "likes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "likeit": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "notificacionesEquipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "coordina": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "equipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "comentarios": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "eventos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "historial": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "recopilaciones": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "archivosSubidos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "carpetas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "suscripciones": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "carpeta": {
-            "required": [
-              "id",
-              "nombre"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "nombre": {
-                "type": "string"
-              },
-              "descripcion": {
-                "type": "string"
-              },
-              "archivos": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "fija": {
-                "type": "boolean"
-              },
-              "padre": {
-                "type": "string"
-              },
-              "subcarpetas": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "slug": {
-                "type": "string"
-              },
-              "soloSuperAdmin": {
-                "type": "boolean"
-              },
-              "ruta": {
-                "type": "string"
-              },
-              "permisos": {
-                "type": "string"
-              },
-              "autor": {
-                "type": "string"
-              },
-              "suscripciones": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
-          "suscripciones": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
+                "nombre": {
                   "type": "string"
                 },
                 "correo": {
                   "type": "string"
                 },
-                "secreto": {
+                "adjuntos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
                   "type": "string"
-                },
-                "audios": {
-                  "type": "boolean"
-                },
-                "boletines": {
-                  "type": "boolean"
-                },
-                "comunicados": {
-                  "type": "boolean"
-                },
-                "libros": {
-                  "type": "boolean"
-                },
-                "normativas": {
-                  "type": "boolean"
-                },
-                "noticias": {
-                  "type": "boolean"
-                },
-                "eventos": {
-                  "type": "boolean"
-                },
-                "usuario": {
-                  "type": "string"
-                },
-                "blogs": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "carpetas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "equipos": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "paginas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "validado": {
-                  "type": "boolean"
-                },
-                "comentarios": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
                 },
                 "created_by": {
                   "type": "string"
@@ -1738,97 +1243,73 @@
                 }
               }
             }
-          },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
           }
         }
       },
-      "NewEquipos": {
+      "NewSuscripciones": {
         "properties": {
-          "nombre": {
+          "correo": {
             "type": "string"
           },
-          "descripcion": {
+          "secreto": {
             "type": "string"
           },
-          "miembros": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "audios": {
+            "type": "boolean"
           },
-          "slug": {
-            "type": "uid"
+          "boletines": {
+            "type": "boolean"
           },
-          "reuniones": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "actas": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "actividades": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "pizarra": {
-            "type": "string"
+          "comunicados": {
+            "type": "boolean"
           },
           "libros": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+            "type": "boolean"
           },
-          "coordinadores": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "normativas": {
+            "type": "boolean"
           },
-          "zonahoraria": {
-            "type": "string",
-            "default": "Espana",
-            "enum": [
-              "Argentina",
-              "Bolivia",
-              "Chile",
-              "Colombia",
-              "Espana",
-              "Mexico",
-              "Panama",
-              "Peru",
-              "PuertoRico",
-              "Venezuela"
-            ]
+          "noticias": {
+            "type": "boolean"
           },
-          "suscriptores": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "eventos": {
+            "type": "boolean"
           },
-          "carpeta": {
+          "usuario": {
             "type": "string"
           },
-          "suscripciones": {
+          "blogs": {
             "type": "array",
             "items": {
               "type": "string"
             }
           },
-          "published_at": {
-            "type": "string",
-            "format": "date-time"
+          "carpetas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "equipos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "paginas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "validado": {
+            "type": "boolean"
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "created_by": {
             "type": "string"
@@ -1842,7 +1323,7 @@
   },
   "tags": [
     {
-      "name": "Equipos"
+      "name": "Suscripciones"
     }
   ]
 }

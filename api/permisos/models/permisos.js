@@ -5,6 +5,8 @@
  * to customize this model
  */
 
+const {idy} = require('./../../../libs/utils')
+ 
 let listaPermisosDesc = null
 // let listaPermisosAsc = null
 
@@ -22,12 +24,7 @@ async function preparaListaPermisos () {
   }
 }
 
-function idy (el) {
-  if (!el) return null
-  if (typeof el !== 'object') return el
-  if (el.id) return el.id
-  return el
-}
+
 
 /**
  * Busca en todas las rutas, ordenadas de forma descendente, por lo que cuando encuentre una que empareje, es la buena

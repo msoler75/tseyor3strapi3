@@ -85,6 +85,10 @@
     },
     "carpeta": {
       "model": "carpetas"
+    },
+    "suscripciones": {
+      "via": "equipos",
+      "collection": "suscripciones"
     }
   }
 }

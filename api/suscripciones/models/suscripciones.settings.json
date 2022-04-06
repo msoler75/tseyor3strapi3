@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "suscripciones",
+  "info": {
+    "name": "suscripciones",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "correo": {
+      "type": "email"
+    },
+    "secreto": {
+      "type": "string"
+    },
+    "audios": {
+      "type": "boolean"
+    },
+    "boletines": {
+      "type": "boolean"
+    },
+    "comunicados": {
+      "type": "boolean"
+    },
+    "libros": {
+      "type": "boolean"
+    },
+    "normativas": {
+      "type": "boolean"
+    },
+    "noticias": {
+      "type": "boolean"
+    },
+    "eventos": {
+      "type": "boolean"
+    },
+    "usuario": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "suscripciones"
+    },
+    "blogs": {
+      "collection": "blogs",
+      "via": "suscripciones",
+      "dominant": true
+    },
+    "carpetas": {
+      "collection": "carpetas",
+      "via": "suscripciones",
+      "dominant": true
+    },
+    "equipos": {
+      "collection": "equipos",
+      "via": "suscripciones",
+      "dominant": true
+    },
+    "paginas": {
+      "collection": "paginas",
+      "via": "suscripciones",
+      "dominant": true
+    },
+    "validado": {
+      "type": "boolean"
+    },
+    "comentarios": {
+      "collection": "comentarios",
+      "via": "suscripciones",
+      "dominant": true
+    }
+  }
+}

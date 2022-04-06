@@ -54,6 +54,10 @@
       "plugin": "users-permissions",
       "model": "user",
       "via": "carpetas"
+    },
+    "suscripciones": {
+      "via": "carpetas",
+      "collection": "suscripciones"
     }
   }
 }

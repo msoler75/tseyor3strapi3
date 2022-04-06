@@ -7,6 +7,8 @@
 
  const slugify = require('slugify')
 
+ const {idy} = require('./../../../libs/utils')
+
 const dameCarpeta = async params => {
   return (
     (await strapi.services.carpetas.findOne(params)) ||
@@ -28,12 +30,7 @@ const dameCarpeta = async params => {
 }
 */
 
-function idy (el) {
-  if (!el) return null
-  if (typeof el !== 'object') return el
-  if (el.id) return el.id
-  return el
-}
+
 
 module.exports = {
   /**

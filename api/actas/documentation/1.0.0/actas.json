@@ -736,6 +736,12 @@
               "carpeta": {
                 "type": "string"
               },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -845,6 +851,88 @@
               }
             }
           },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "secreto": {
+                  "type": "string"
+                },
+                "audios": {
+                  "type": "boolean"
+                },
+                "boletines": {
+                  "type": "boolean"
+                },
+                "comunicados": {
+                  "type": "boolean"
+                },
+                "libros": {
+                  "type": "boolean"
+                },
+                "normativas": {
+                  "type": "boolean"
+                },
+                "noticias": {
+                  "type": "boolean"
+                },
+                "eventos": {
+                  "type": "boolean"
+                },
+                "usuario": {
+                  "type": "string"
+                },
+                "blogs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "paginas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "validado": {
+                  "type": "boolean"
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -877,6 +965,12 @@
           },
           "actividad": {
             "type": "string"
+          },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

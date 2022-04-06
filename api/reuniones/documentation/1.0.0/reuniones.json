@@ -606,6 +606,12 @@
               "carpeta": {
                 "type": "string"
               },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -793,6 +799,12 @@
               },
               "actividad": {
                 "type": "string"
+              },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "published_at": {
                 "type": "string"

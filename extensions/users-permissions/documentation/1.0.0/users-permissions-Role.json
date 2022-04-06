@@ -648,6 +648,9 @@
                     "type": "string"
                   }
                 },
+                "suscripciones": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },

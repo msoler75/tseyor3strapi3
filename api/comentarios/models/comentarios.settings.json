@@ -58,6 +58,10 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "suscripciones": {
+      "via": "comentarios",
+      "collection": "suscripciones"
     }
   }
 }

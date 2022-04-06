@@ -721,6 +721,9 @@
                   "type": "string"
                 }
               },
+              "suscripciones": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -776,6 +779,12 @@
               },
               "autor": {
                 "type": "string"
+              },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "published_at": {
                 "type": "string"

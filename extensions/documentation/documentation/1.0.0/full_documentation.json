@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "03/28/2022 9:59:15 AM"
+    "x-generation-date": "04/05/2022 11:12:08 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -16564,6 +16564,736 @@
         ]
       }
     },
+    "/suscripciones": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the suscripciones's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve suscripciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Suscripciones"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new suscripciones record",
+        "responses": {
+          "200": {
+            "description": "Retrieve suscripciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Suscripciones"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewSuscripciones"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/suscripciones/list/{coleccion}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve suscripciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
+        ],
+        "parameters": [
+          {
+            "name": "coleccion",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/suscripciones/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the number of suscripciones documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve suscripciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
+        ],
+        "parameters": []
+      }
+    },
+    "/suscripciones/validate/{email}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve suscripciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/suscripciones/resetSecret/{id}": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a single suscripciones record",
+        "responses": {
+          "200": {
+            "description": "Retrieve suscripciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/suscripciones/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one suscripciones record",
+        "responses": {
+          "200": {
+            "description": "Retrieve suscripciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Suscripciones"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single suscripciones record",
+        "responses": {
+          "200": {
+            "description": "Retrieve suscripciones document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Suscripciones"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewSuscripciones"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single suscripciones record",
+        "responses": {
+          "200": {
+            "description": "deletes a single suscripciones based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Suscripciones"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/email/": {
       "post": {
         "deprecated": false,
@@ -19015,6 +19745,12 @@
               "carpeta": {
                 "type": "string"
               },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -19124,6 +19860,88 @@
               }
             }
           },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "secreto": {
+                  "type": "string"
+                },
+                "audios": {
+                  "type": "boolean"
+                },
+                "boletines": {
+                  "type": "boolean"
+                },
+                "comunicados": {
+                  "type": "boolean"
+                },
+                "libros": {
+                  "type": "boolean"
+                },
+                "normativas": {
+                  "type": "boolean"
+                },
+                "noticias": {
+                  "type": "boolean"
+                },
+                "eventos": {
+                  "type": "boolean"
+                },
+                "usuario": {
+                  "type": "string"
+                },
+                "blogs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "paginas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "validado": {
+                  "type": "boolean"
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -19156,6 +19974,12 @@
           },
           "actividad": {
             "type": "string"
+          },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -19386,6 +20210,12 @@
               "carpeta": {
                 "type": "string"
               },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -19489,6 +20319,12 @@
                 },
                 "actividad": {
                   "type": "string"
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -19954,6 +20790,9 @@
                   "type": "string"
                 }
               },
+              "suscripciones": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -20009,6 +20848,12 @@
               },
               "autor": {
                 "type": "string"
+              },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "published_at": {
                 "type": "string"
@@ -20325,6 +21170,88 @@
               }
             }
           },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "secreto": {
+                  "type": "string"
+                },
+                "audios": {
+                  "type": "boolean"
+                },
+                "boletines": {
+                  "type": "boolean"
+                },
+                "comunicados": {
+                  "type": "boolean"
+                },
+                "libros": {
+                  "type": "boolean"
+                },
+                "normativas": {
+                  "type": "boolean"
+                },
+                "noticias": {
+                  "type": "boolean"
+                },
+                "eventos": {
+                  "type": "boolean"
+                },
+                "usuario": {
+                  "type": "string"
+                },
+                "blogs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "paginas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "validado": {
+                  "type": "boolean"
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -20350,6 +21277,12 @@
             "type": "uid"
           },
           "entradas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "suscripciones": {
             "type": "array",
             "items": {
               "type": "string"
@@ -20880,6 +21813,12 @@
               "autor": {
                 "type": "string"
               },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -20940,6 +21879,12 @@
                 },
                 "autor": {
                   "type": "string"
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -21121,11 +22066,96 @@
                   "type": "string"
                 }
               },
+              "suscripciones": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
               "updated_by": {
                 "type": "string"
+              }
+            }
+          },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "secreto": {
+                  "type": "string"
+                },
+                "audios": {
+                  "type": "boolean"
+                },
+                "boletines": {
+                  "type": "boolean"
+                },
+                "comunicados": {
+                  "type": "boolean"
+                },
+                "libros": {
+                  "type": "boolean"
+                },
+                "normativas": {
+                  "type": "boolean"
+                },
+                "noticias": {
+                  "type": "boolean"
+                },
+                "eventos": {
+                  "type": "boolean"
+                },
+                "usuario": {
+                  "type": "string"
+                },
+                "blogs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "paginas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "validado": {
+                  "type": "boolean"
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -21180,6 +22210,12 @@
           },
           "autor": {
             "type": "string"
+          },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -21435,6 +22471,12 @@
               },
               "carpeta": {
                 "type": "string"
+              },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "published_at": {
                 "type": "string"
@@ -21709,6 +22751,12 @@
                     "type": "string"
                   }
                 },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -21762,6 +22810,12 @@
                 "type": "string"
               },
               "adjuntos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "suscripciones": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -21902,6 +22956,9 @@
                   "type": "string"
                 }
               },
+              "suscripciones": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -22036,6 +23093,9 @@
                     "type": "string"
                   }
                 },
+                "suscripciones": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -22121,6 +23181,88 @@
               }
             }
           },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "secreto": {
+                  "type": "string"
+                },
+                "audios": {
+                  "type": "boolean"
+                },
+                "boletines": {
+                  "type": "boolean"
+                },
+                "comunicados": {
+                  "type": "boolean"
+                },
+                "libros": {
+                  "type": "boolean"
+                },
+                "normativas": {
+                  "type": "boolean"
+                },
+                "noticias": {
+                  "type": "boolean"
+                },
+                "eventos": {
+                  "type": "boolean"
+                },
+                "usuario": {
+                  "type": "string"
+                },
+                "blogs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "paginas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "validado": {
+                  "type": "boolean"
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -22163,6 +23305,12 @@
           },
           "correo": {
             "type": "string"
+          },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -22672,6 +23820,9 @@
                   "type": "string"
                 }
               },
+              "suscripciones": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -23053,6 +24204,12 @@
                   "type": "string"
                 }
               },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -23378,6 +24535,9 @@
                     "type": "string"
                   }
                 },
+                "suscripciones": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -23482,6 +24642,12 @@
                 },
                 "actividad": {
                   "type": "string"
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -23741,6 +24907,9 @@
                     "type": "string"
                   }
                 },
+                "suscripciones": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -23892,6 +25061,9 @@
                     "type": "string"
                   }
                 },
+                "suscripciones": {
+                  "type": "string"
+                },
                 "created_by": {
                   "type": "string"
                 },
@@ -23949,6 +25121,12 @@
               "autor": {
                 "type": "string"
               },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -23957,6 +25135,88 @@
               },
               "updated_by": {
                 "type": "string"
+              }
+            }
+          },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "secreto": {
+                  "type": "string"
+                },
+                "audios": {
+                  "type": "boolean"
+                },
+                "boletines": {
+                  "type": "boolean"
+                },
+                "comunicados": {
+                  "type": "boolean"
+                },
+                "libros": {
+                  "type": "boolean"
+                },
+                "normativas": {
+                  "type": "boolean"
+                },
+                "noticias": {
+                  "type": "boolean"
+                },
+                "eventos": {
+                  "type": "boolean"
+                },
+                "usuario": {
+                  "type": "string"
+                },
+                "blogs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "paginas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "validado": {
+                  "type": "boolean"
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
               }
             }
           },
@@ -24040,6 +25300,12 @@
           },
           "carpeta": {
             "type": "string"
+          },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -24574,6 +25840,9 @@
                   "type": "string"
                 }
               },
+              "suscripciones": {
+                "type": "string"
+              },
               "created_by": {
                 "type": "string"
               },
@@ -24707,6 +25976,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "suscripciones": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -24937,6 +26209,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "suscripciones": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -25313,6 +26588,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "suscripciones": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -25759,6 +27037,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "suscripciones": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -26229,6 +27510,88 @@
           "descripcion": {
             "type": "string"
           },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "secreto": {
+                  "type": "string"
+                },
+                "audios": {
+                  "type": "boolean"
+                },
+                "boletines": {
+                  "type": "boolean"
+                },
+                "comunicados": {
+                  "type": "boolean"
+                },
+                "libros": {
+                  "type": "boolean"
+                },
+                "normativas": {
+                  "type": "boolean"
+                },
+                "noticias": {
+                  "type": "boolean"
+                },
+                "eventos": {
+                  "type": "boolean"
+                },
+                "usuario": {
+                  "type": "string"
+                },
+                "blogs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "equipos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "paginas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "validado": {
+                  "type": "boolean"
+                },
+                "comentarios": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -26257,6 +27620,12 @@
           },
           "descripcion": {
             "type": "string"
+          },
+          "suscripciones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",
@@ -26331,6 +27700,12 @@
                 },
                 "autor": {
                   "type": "string"
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -26477,6 +27852,12 @@
                     "carpeta": {
                       "type": "string"
                     },
+                    "suscripciones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "published_at": {
                       "type": "string"
                     },
@@ -26614,6 +27995,9 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "suscripciones": {
+                      "type": "string"
                     },
                     "created_by": {
                       "type": "string"
@@ -26770,6 +28154,12 @@
                     "carpeta": {
                       "type": "string"
                     },
+                    "suscripciones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "published_at": {
                       "type": "string"
                     },
@@ -26907,6 +28297,9 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "suscripciones": {
+                      "type": "string"
                     },
                     "created_by": {
                       "type": "string"
@@ -27069,6 +28462,9 @@
                         "type": "string"
                       }
                     },
+                    "suscripciones": {
+                      "type": "string"
+                    },
                     "created_by": {
                       "type": "string"
                     },
@@ -27229,6 +28625,12 @@
                     "carpeta": {
                       "type": "string"
                     },
+                    "suscripciones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "published_at": {
                       "type": "string"
                     },
@@ -27366,6 +28768,9 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "suscripciones": {
+                      "type": "string"
                     },
                     "created_by": {
                       "type": "string"
@@ -27522,6 +28927,12 @@
                     "carpeta": {
                       "type": "string"
                     },
+                    "suscripciones": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
                     "published_at": {
                       "type": "string"
                     },
@@ -27659,6 +29070,9 @@
                       "items": {
                         "type": "string"
                       }
+                    },
+                    "suscripciones": {
+                      "type": "string"
                     },
                     "created_by": {
                       "type": "string"
@@ -27825,6 +29239,9 @@
                         "type": "string"
                       }
                     },
+                    "suscripciones": {
+                      "type": "string"
+                    },
                     "created_by": {
                       "type": "string"
                     },
@@ -27981,6 +29398,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "suscripciones": {
+                "type": "string"
               },
               "created_by": {
                 "type": "string"
@@ -28142,6 +29562,12 @@
               },
               "carpeta": {
                 "type": "string"
+              },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "published_at": {
                 "type": "string"
@@ -28330,6 +29756,12 @@
               },
               "actividad": {
                 "type": "string"
+              },
+              "suscripciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "published_at": {
                 "type": "string"
@@ -28584,6 +30016,592 @@
           }
         }
       },
+      "Suscripciones": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "correo": {
+            "type": "string"
+          },
+          "secreto": {
+            "type": "string"
+          },
+          "audios": {
+            "type": "boolean"
+          },
+          "boletines": {
+            "type": "boolean"
+          },
+          "comunicados": {
+            "type": "boolean"
+          },
+          "libros": {
+            "type": "boolean"
+          },
+          "normativas": {
+            "type": "boolean"
+          },
+          "noticias": {
+            "type": "boolean"
+          },
+          "eventos": {
+            "type": "boolean"
+          },
+          "usuario": {
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "confirmationToken": {
+                "type": "string"
+              },
+              "confirmed": {
+                "type": "boolean"
+              },
+              "blocked": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "nombreSimbolico": {
+                "type": "string"
+              },
+              "grupos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "imagen": {
+                "type": "string"
+              },
+              "frase": {
+                "type": "string"
+              },
+              "asiste": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "likeit": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "notificacionesEquipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "coordina": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "equipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "comentarios": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "eventos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "historial": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "recopilaciones": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "archivosSubidos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "carpetas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "suscripciones": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "blogs": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "nombre",
+                "descripcion"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "entradas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "carpetas": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "nombre"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "archivos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "fija": {
+                  "type": "boolean"
+                },
+                "padre": {
+                  "type": "string"
+                },
+                "subcarpetas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "soloSuperAdmin": {
+                  "type": "boolean"
+                },
+                "ruta": {
+                  "type": "string"
+                },
+                "permisos": {
+                  "type": "string"
+                },
+                "autor": {
+                  "type": "string"
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "equipos": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "imagen"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "imagen": {
+                  "type": "string"
+                },
+                "miembros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "reuniones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "actividades": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "pizarra": {
+                  "type": "string"
+                },
+                "libros": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coordinadores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "zonahoraria": {
+                  "type": "string",
+                  "enum": [
+                    "Argentina",
+                    "Bolivia",
+                    "Chile",
+                    "Colombia",
+                    "Espana",
+                    "Mexico",
+                    "Panama",
+                    "Peru",
+                    "PuertoRico",
+                    "Venezuela"
+                  ]
+                },
+                "suscriptores": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "carpeta": {
+                  "type": "string"
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "paginas": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "titulo",
+                "texto",
+                "ruta"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "titulo": {
+                  "type": "string"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "uid"
+                },
+                "ruta": {
+                  "type": "string"
+                },
+                "descripcion": {
+                  "type": "string"
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "validado": {
+            "type": "boolean"
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "texto",
+                "uid"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "texto": {
+                  "type": "string"
+                },
+                "uid": {
+                  "type": "string"
+                },
+                "respuestas": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "respondiendo": {
+                  "type": "string"
+                },
+                "autor": {
+                  "type": "string"
+                },
+                "likes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "correo": {
+                  "type": "string"
+                },
+                "adjuntos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "NewSuscripciones": {
+        "properties": {
+          "correo": {
+            "type": "string"
+          },
+          "secreto": {
+            "type": "string"
+          },
+          "audios": {
+            "type": "boolean"
+          },
+          "boletines": {
+            "type": "boolean"
+          },
+          "comunicados": {
+            "type": "boolean"
+          },
+          "libros": {
+            "type": "boolean"
+          },
+          "normativas": {
+            "type": "boolean"
+          },
+          "noticias": {
+            "type": "boolean"
+          },
+          "eventos": {
+            "type": "boolean"
+          },
+          "usuario": {
+            "type": "string"
+          },
+          "blogs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "carpetas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "equipos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "paginas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "validado": {
+            "type": "boolean"
+          },
+          "comentarios": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
       "UsersPermissionsRole": {
         "required": [
           "id",
@@ -28769,6 +30787,9 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "suscripciones": {
+                  "type": "string"
                 },
                 "created_by": {
                   "type": "string"
@@ -29149,6 +31170,12 @@
                     "type": "string"
                   }
                 },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -29246,6 +31273,12 @@
                 },
                 "carpeta": {
                   "type": "string"
+                },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"
@@ -29345,6 +31378,12 @@
                 "carpeta": {
                   "type": "string"
                 },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -29443,6 +31482,12 @@
                 "carpeta": {
                   "type": "string"
                 },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -29498,6 +31543,12 @@
                   "type": "string"
                 },
                 "adjuntos": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "suscripciones": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -29766,6 +31817,12 @@
                 "autor": {
                   "type": "string"
                 },
+                "suscripciones": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -29775,6 +31832,85 @@
                 "updated_by": {
                   "type": "string"
                 }
+              }
+            }
+          },
+          "suscripciones": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "correo": {
+                "type": "string"
+              },
+              "secreto": {
+                "type": "string"
+              },
+              "audios": {
+                "type": "boolean"
+              },
+              "boletines": {
+                "type": "boolean"
+              },
+              "comunicados": {
+                "type": "boolean"
+              },
+              "libros": {
+                "type": "boolean"
+              },
+              "normativas": {
+                "type": "boolean"
+              },
+              "noticias": {
+                "type": "boolean"
+              },
+              "eventos": {
+                "type": "boolean"
+              },
+              "usuario": {
+                "type": "string"
+              },
+              "blogs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "carpetas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "equipos": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "paginas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "validado": {
+                "type": "boolean"
+              },
+              "comentarios": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           }
@@ -29902,6 +32038,9 @@
             "items": {
               "type": "string"
             }
+          },
+          "suscripciones": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"
@@ -30034,6 +32173,9 @@
     },
     {
       "name": "Salas"
+    },
+    {
+      "name": "Suscripciones"
     },
     {
       "name": "Email - Email"

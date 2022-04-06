@@ -6,6 +6,7 @@
  */
 
 const slugify = require('slugify')
+const {idy} = require('./../../../libs/utils')
 
 const dameArchivo = async params => {
   return (
@@ -96,12 +97,6 @@ const isIterable = value => {
   return Symbol.iterator in Object(value)
 }
 
-function idy (el) {
-  if (!el) return null
-  if (typeof el !== 'object') return el
-  if (el.id) return el.id
-  return el
-}
 
 function changedPadre(orig, data)
 {

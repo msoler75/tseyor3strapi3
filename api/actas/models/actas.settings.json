@@ -45,6 +45,10 @@
     "actividad": {
       "via": "actas",
       "model": "actividades"
+    },
+    "suscripciones": {
+      "via": "paginas",
+      "collection": "suscripciones"
     }
   }
 }
