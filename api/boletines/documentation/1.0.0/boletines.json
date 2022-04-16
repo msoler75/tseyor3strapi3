@@ -605,11 +605,8 @@
                 "edicionNumero": {
                   "type": "integer"
                 },
-                "etiquetas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                "categoria": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
@@ -815,12 +812,6 @@
                 "sala": {
                   "type": "string"
                 },
-                "asistentes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
                 "organiza": {
                   "type": "string"
                 },
@@ -837,6 +828,12 @@
                 },
                 "autor": {
                   "type": "string"
+                },
+                "asistentes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "published_at": {
                   "type": "string"

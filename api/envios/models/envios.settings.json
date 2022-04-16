@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "etiquetas",
+  "collectionName": "envios",
   "info": {
-    "name": "Etiquetas",
-    "description": ""
+    "name": "envios"
   },
   "options": {
     "increments": true,
@@ -12,15 +11,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nombre": {
-      "type": "string",
-      "required": true
-    },
-    "descripcion": {
+    "coleccion": {
       "type": "string"
     },
-    "taxonomia": {
-      "type": "string"
+    "cid": {
+      "type": "integer"
+    },
+    "enviado": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

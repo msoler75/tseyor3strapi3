@@ -1,4 +1,4 @@
-const {idy} = require('./../utils')
+const {idy} = require('./utils')
   
 module.exports = {
   soyAutor: function (contenido, user) {

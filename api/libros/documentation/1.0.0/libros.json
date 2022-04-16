@@ -676,43 +676,8 @@
           "edicionNumero": {
             "type": "integer"
           },
-          "etiquetas": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "nombre"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "nombre": {
-                  "type": "string"
-                },
-                "descripcion": {
-                  "type": "string"
-                },
-                "taxonomia": {
-                  "type": "string"
-                },
-                "libros": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
+          "categoria": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -744,11 +709,8 @@
           "edicionNumero": {
             "type": "integer"
           },
-          "etiquetas": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "categoria": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

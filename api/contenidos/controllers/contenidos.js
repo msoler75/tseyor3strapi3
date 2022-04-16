@@ -5,7 +5,7 @@
  * to customize this controller
  */
 
-const contenidos = require('../../../libs/contenidoslib/contenidos.js')
+const contenidos = require('../../../libs/contenidos.js')
 
 module.exports = {
   async rebuild(ctx) {

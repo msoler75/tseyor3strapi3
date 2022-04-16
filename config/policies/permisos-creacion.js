@@ -1,6 +1,6 @@
 // para que funcione, el tipo de contenido ha de tener una relación de 1-N con la tabla users-permissions y el campo debe llamarse "autor"
 
-const permisos = require('../../libs/permisoslib/permisos')
+const permisos = require('../../libs/permisos')
 
 module.exports = async (ctx, next) => {
 

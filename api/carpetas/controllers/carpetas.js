@@ -40,7 +40,7 @@ async function detectCycle (data, id) {
 }
 
 
-const permisos = require('../../../libs/permisoslib/permisos')
+const permisos = require('../../../libs/permisos')
 
 
 module.exports = {

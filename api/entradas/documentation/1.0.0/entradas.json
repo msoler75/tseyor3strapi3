@@ -605,7 +605,8 @@
             "required": [
               "id",
               "nombre",
-              "descripcion"
+              "descripcion",
+              "imagen"
             ],
             "properties": {
               "id": {

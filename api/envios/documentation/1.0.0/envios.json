@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/etiquetas": {
+    "/envios": {
       "get": {
         "deprecated": false,
-        "description": "Find all the etiquetas's records",
+        "description": "Find all the envios's records",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve envios document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Etiquetas"
+                    "$ref": "#/components/schemas/Envios"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Envios"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new etiquetas record",
+        "description": "Create a new envios record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve envios document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Envios"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Envios"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEtiquetas"
+                "$ref": "#/components/schemas/NewEnvios"
               }
             }
           }
         }
       }
     },
-    "/etiquetas/count": {
+    "/envios/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the number of etiquetas documents",
+        "description": "Retrieve the number of envios documents",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve envios document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Envios"
         ],
         "parameters": []
       }
     },
-    "/etiquetas/{id}": {
+    "/envios/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one etiquetas record",
+        "description": "Find one envios record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve envios document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Envios"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Envios"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single etiquetas record",
+        "description": "Update a single envios record",
         "responses": {
           "200": {
-            "description": "Retrieve etiquetas document(s)",
+            "description": "Retrieve envios document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Etiquetas"
+                  "$ref": "#/components/schemas/Envios"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Envios"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewEtiquetas"
+                "$ref": "#/components/schemas/NewEnvios"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single etiquetas record",
+        "description": "Delete a single envios record",
         "responses": {
           "200": {
-            "description": "deletes a single etiquetas based on the ID supplied",
+            "description": "deletes a single envios based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Etiquetas"
+          "Envios"
         ],
         "parameters": [
           {
@@ -514,23 +514,23 @@
   },
   "components": {
     "schemas": {
-      "Etiquetas": {
+      "Envios": {
         "required": [
-          "id",
-          "nombre"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "nombre": {
+          "coleccion": {
             "type": "string"
           },
-          "descripcion": {
-            "type": "string"
+          "cid": {
+            "type": "integer"
           },
-          "taxonomia": {
-            "type": "string"
+          "enviado": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -538,19 +538,17 @@
           }
         }
       },
-      "NewEtiquetas": {
-        "required": [
-          "nombre"
-        ],
+      "NewEnvios": {
         "properties": {
-          "nombre": {
+          "coleccion": {
             "type": "string"
           },
-          "descripcion": {
-            "type": "string"
+          "cid": {
+            "type": "integer"
           },
-          "taxonomia": {
-            "type": "string"
+          "enviado": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -568,7 +566,7 @@
   },
   "tags": [
     {
-      "name": "Etiquetas"
+      "name": "Envios"
     }
   ]
 }

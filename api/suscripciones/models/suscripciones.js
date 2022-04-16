@@ -7,7 +7,7 @@
 
 
  const {idy} = require('./../../../libs/utils')
- const {makeid, encrypt, especificos} = require('./../../../libs/suscripcioneslib/suscripciones')
+ const {makeid, encrypt, especificos} = require('../../../libs/suscripciones')
 
 
 module.exports = {

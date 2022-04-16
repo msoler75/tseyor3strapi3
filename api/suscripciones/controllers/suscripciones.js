@@ -40,7 +40,7 @@ const {
   generales,
   especificos,
   decrypt
-} = require('./../../../libs/suscripcioneslib/suscripciones')
+} = require('../../../libs/suscripciones')
 
 
 module.exports = {

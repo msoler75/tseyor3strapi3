@@ -60,10 +60,8 @@
       "required": true,
       "pluginOptions": {}
     },
-    "etiquetas": {
-      "via": "libros",
-      "collection": "etiquetas",
-      "dominant": true
+    "categoria": {
+      "type": "string"
     }
   }
 }

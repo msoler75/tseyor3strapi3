@@ -1,9 +1,14 @@
-const {idy} = require('./../utils')
+// tipos de contenido que indexar
+const todas_las_colecciones = ['archivos', 'audios', 'blogs', 'carpetas', 'centros', 'comunicados', 'contactos', 'entradas', 'eventos', 'equipos', 'guias', 'libros', 'normativas', 'noticias', 'paginas', 'redes', 'salas', 'usuarios']
 
+const {idy} = require('./utils')
+
+// divide el texto en partes de 1000 palabras máximo (ya que es una limitación de meilisearch)
+// retorna un array con cada uno de los grupos de texto
 const split_text = function (texto) {
   if (!texto) return {}
   // limpia el texto
-  texto = texto.replace(/ANEXOS.*/, '')
+  texto = texto.replace(/ANEXOS?.*/, '')
     .replace(/\!?\[([^\]]*)\]\([^\)]*\)/g, ' $1 ')
     .replace(/[\*\`\"\'\-\_\t\r]/g, ' ')
 
@@ -94,7 +99,7 @@ module.exports = {
         }
         let pais = 'España'
         let code = data.pais.toUpperCase()
-        const countries = require('./../countries.js')
+        const countries = require('./countries.js')
         let found = countries.findIndex(x => x.code === code)
         if (found >= 0) pais = countries[found].label
         toSave.descripcion = data.direccion1 + ' ' + data.direccion2 + ' ' + data.poblacion + ' ' + data.provincia + ' ' + pais
@@ -210,6 +215,8 @@ module.exports = {
       await strapi.services.contenidos.delete({id:entry.id}) */
   },
 
+
+  // reconstruye todo el índice (según tipo de contenido o todos)
   async rebuild(collection) {
     console.log('rebuild', collection)
 
@@ -232,7 +239,7 @@ module.exports = {
     }
 
     // recorremos todas las colecciones o solo la colección indicada
-     let collections = collection ? [collection] : ['archivos', 'audios', 'blogs', 'carpetas', 'centros', 'comunicados', 'contactos', 'entradas', 'eventos', 'equipos', 'guias', 'libros', 'normativas', 'noticias', 'paginas', 'redes', 'salas', 'usuarios']
+     let collections = collection ? [collection] : todas_las_colecciones
     for (const collection of collections) {
       let entries
       if (collection === 'usuarios')

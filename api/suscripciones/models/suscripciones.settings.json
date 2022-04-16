@@ -45,8 +45,8 @@
       "via": "suscripciones"
     },
     "blogs": {
-      "collection": "blogs",
       "via": "suscripciones",
+      "collection": "blogs",
       "dominant": true
     },
     "carpetas": {

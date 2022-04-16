@@ -1282,11 +1282,8 @@
                 "edicionNumero": {
                   "type": "integer"
                 },
-                "etiquetas": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
+                "categoria": {
+                  "type": "string"
                 },
                 "published_at": {
                   "type": "string"
