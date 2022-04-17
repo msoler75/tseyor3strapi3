@@ -17,13 +17,13 @@ module.exports = {
     lifecycles: {
         // Called when entry is updated
         async beforeUpdate(params, data) {
-            await imagenes.establecerImagenes(data, collection)
+            await imagenes.parsearImagenes(data, collection)
             data.titulo = normalizarTitulo(data.titulo)
         },
 
         // Called when entry is created
         async beforeCreate(data) {
-            await imagenes.establecerImagenes(data, collection)
+            await imagenes.parsearImagenes(data, collection)
             data.titulo = normalizarTitulo(data.titulo)
         },
       },

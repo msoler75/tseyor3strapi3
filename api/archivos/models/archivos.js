@@ -8,7 +8,6 @@
 const collection = 'archivos'
 const contenidos = require('../../../libs/contenidos.js')
 const slugify = require('slugify')
-
 const {
   idy
 } = require('./../../../libs/utils')

@@ -34,15 +34,15 @@ module.exports = {
 
 
     async beforeCreate(data) {
-      console.log('beforeCreate', collection, params, data)
-      await imagenes.establecerImagenes(obtenerGuiaImagen(data.texto), data)
+      console.log('beforeCreate', collection, data)
+      await imagenes.parsearImagenes(obtenerGuiaImagen(data.texto), data)
       data.titulo = normalizarTitulo(data.titulo)
     },
 
 
     async beforeUpdate(params, data) {
       console.log('beforeUpdate', collection, params)
-      await imagenes.establecerImagenes(obtenerGuiaImagen(data.texto), data)
+      await imagenes.parsearImagenes(obtenerGuiaImagen(data.texto), data)
       data.titulo = normalizarTitulo(data.titulo)
 
     },

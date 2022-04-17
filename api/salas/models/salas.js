@@ -16,8 +16,8 @@ module.exports = {
 
     lifecycles: {
 
-        async beforeCreate(params, data) {
-          console.log('beforeCreate', collection, params, data)
+        async beforeCreate(data) {
+          console.log('beforeCreate', collection, data)
           data.titulo = normalizarTitulo(data.titulo)
         },
     

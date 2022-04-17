@@ -8,6 +8,7 @@ function idy(el) {
 
   function normalizarTitulo(texto) {
     // solo normalizamos si acaso no hay ninguna letra minúscula
+    if(!texto) return texto
     if(texto.indexOf(/[a-z]/)>=0) return texto
     const words = texto.toLowerCase().split(/\s+/g)
     const r = []

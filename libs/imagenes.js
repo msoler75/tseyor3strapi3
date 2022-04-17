@@ -18,11 +18,12 @@ module.exports = {
 
 
 
-  async establecerImagenes(data, default_image) {
+  async parsearImagenes(data, default_image) {
     if (!data.texto) return
     const regexp = /\!\[[^\]]*\]\((data:image[^)]+|.+?\.(jpe?g|png|webp|gif)[^)]*)\)/g;
     const images = data.texto.matchAll(regexp);
-    data.imagenes = []
+    if(!('imagenes' in data))
+      data.imagenes = []
     console.log('bestImage', data.imagen)
     var bestImage = data.imagen
     // if(bestImage&&(!bestImage.id||!bestImage.width||bestImage.width<200))

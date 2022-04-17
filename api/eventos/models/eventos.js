@@ -3,6 +3,7 @@
 const collection = 'eventos'
 const imagenes = require('../../../libs/imagenes.js')
 const contenidos = require('../../../libs/contenidos.js')
+const slugify = require('slugify')
 const {
   normalizarTitulo
 } = require('../../../libs/utils.js')
@@ -18,16 +19,20 @@ module.exports = {
 
   lifecycles: {
 
-    async beforeCreate(params, data) {
-      console.log('beforeCreate', collection, params, data)
-      await imagenes.establecerImagenes(data, collection)
+    async beforeCreate(data) {
+      console.log('beforeCreate', collection, data)
       data.titulo = normalizarTitulo(data.titulo)
+      if(!data.slug)data.slug = slugify(data.titulo, {
+        lower: true
+      })
     },
 
     async beforeUpdate(params, data) {
       console.log('beforeUpdate', collection, params, data)
-      await imagenes.establecerImagenes(data, collection)
       data.titulo = normalizarTitulo(data.titulo)
+      if(!data.slug)data.slug = slugify(data.titulo, {
+        lower: true
+      })
     },
 
     async afterCreate(result, data) {

@@ -24,16 +24,16 @@ module.exports = {
 
     lifecycles: {
 
-        async beforeCreate(params, data) {
-            console.log('beforeCreate', collection, params, data)
-            await imagenes.establecerImagenes(data, collection)
+        async beforeCreate(data) {
+            console.log('beforeCreate', collection, data)
+            await imagenes.parsearImagenes(data, collection)
             data.titular = normalizarTitulo(data.titular)     
         },
 
         // Called when entry is updated
         async beforeUpdate(params, data) {
             console.log('beforeUpdate', collection, params, data)
-            await imagenes.establecerImagenes(data, collection)
+            await imagenes.parsearImagenes(data, collection)
             data.titular = normalizarTitulo(data.titular)     
         },
 

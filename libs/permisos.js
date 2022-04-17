@@ -1,5 +1,7 @@
-const {idy} = require('./utils')
-  
+const {
+  idy
+} = require('./utils')
+
 module.exports = {
   soyAutor: function (contenido, user) {
     if (!user || !user.id || !('autor' in contenido) || !contenido.autor)
@@ -18,16 +20,20 @@ module.exports = {
     if (!permisos) {
       // busca los permisos en los lugares adecuados, según sea una carpeta o un archivo
       let carpetaBase = contenido.carpeta || contenido.padre
-      carpetaBase = carpetaBase
-        ? await strapi.services.carpetas.findOne({ id: idy(carpetaBase) })
-        : null
+      carpetaBase = carpetaBase ?
+        await strapi.services.carpetas.findOne({
+          id: idy(carpetaBase)
+        }) :
+        null
       if (carpetaBase)
         permisos = carpetaBase.permisos
-      else 
+      else
         permisos = await permisos.buscaPermisos('/')
     }
     if (typeof permisos === 'number') {
-      permisos = await strapi.services.permisos.findOne({ id: permisos })
+      permisos = await strapi.services.permisos.findOne({
+        id: permisos
+      })
       contenido.permisos = permisos
     }
     if (!permisos) {
@@ -45,12 +51,18 @@ module.exports = {
       if (p.rol === 'Autenticados') {
         return true
       }
-      if (p.rol === 'Delegados' && user.role.type === 'delegado') {
+      /* if (p.rol === 'Delegados' && user.role.type === 'delegado') {
         return true
       }
       if (p.rol === 'Muul' && user.role.type === 'muul') {
         return true
+      } */
+      /*if (p.rol === 'Delegados' && user.grupos.find(x => x.nombre.toLowerCase() === 'delegados')) {
+        return true
       }
+      if (p.rol === 'Muul' && user.grupos.find(x => x.nombre.toLowerCase() === 'muul')) {
+        return true
+      }*/
       if (p.usuarios.find(x => idy(x) === user.id)) {
         return true
       }

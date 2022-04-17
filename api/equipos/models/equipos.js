@@ -78,15 +78,15 @@ module.exports = {
    */
   lifecycles: {
 
-    async beforeCreate(params, data) {
-      console.log('beforeCreate', collection, params, data)
-      await imagenes.establecerImagenes(data, collection)
+    async beforeCreate(data) {
+      console.log('beforeCreate', collection, data)
+      await imagenes.parsearImagenes(data, collection)
       data.titulo = normalizarTitulo(data.titulo)
     },
 
     async beforeUpdate(params, data) {
       console.log('beforeUpdate', collection, params, data)
-      await imagenes.establecerImagenes(data, collection)
+      await imagenes.parsearImagenes(data, collection)
       data.titulo = normalizarTitulo(data.titulo)
       // equipos things
       const id = typeof params.id === 'string' ? parseInt(params.id) : params.id

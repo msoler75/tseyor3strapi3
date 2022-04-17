@@ -81,8 +81,8 @@
       "type": "string"
     },
     "asiste": {
-      "collection": "eventos",
       "via": "asistentes",
+      "collection": "eventos",
       "dominant": true
     },
     "likes": {

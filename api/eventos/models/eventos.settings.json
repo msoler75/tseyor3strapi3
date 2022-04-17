@@ -45,18 +45,6 @@
       "required": true,
       "pluginOptions": {}
     },
-    "imagenes": {
-      "collection": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
-    },
     "tipoEvento": {
       "type": "enumeration",
       "enum": [
@@ -94,6 +82,18 @@
       "via": "asiste",
       "plugin": "users-permissions",
       "collection": "user"
+    },
+    "imagenes": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }
